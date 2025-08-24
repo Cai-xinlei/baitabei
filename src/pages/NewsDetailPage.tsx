@@ -3,6 +3,7 @@ import { Typography, Card, Tag, Button, Avatar, Row, Col, Divider, List, Space }
 import { CalendarOutlined, UserOutlined, EyeOutlined, ShareAltOutlined, HeartOutlined, MessageOutlined } from '@ant-design/icons';
 import { motion } from 'framer-motion';
 import { useParams, Link } from 'react-router-dom';
+import trackImages from '../constants/imagesCover'
 
 const { Title, Paragraph, Text } = Typography;
 
@@ -55,7 +56,7 @@ const NewsDetailPage: React.FC = () => {
         </div>
       `,
       excerpt: '2025年第四届"白塔杯"文化创意大赛正式启动，以"文化引领·创意西城"为主题，设立六大赛道，总奖金池超过300万元。',
-      coverImage: '/images/news-cover.jpg',
+      coverImage: trackImages.newsCoverImg,
       author: '大赛组委会',
       publishDate: '2025-09-01',
       viewCount: 1520,
@@ -67,19 +68,19 @@ const NewsDetailPage: React.FC = () => {
       {
         id: '2',
         title: '专家解读：数字文化创新的发展趋势',
-        coverImage: '/images/track-creative.jpg',
+        coverImage: trackImages.trackCreative,
         publishDate: '2025-09-05'
       },
       {
         id: '3',
         title: '往届获奖作品回顾：创意点亮生活',
-        coverImage: '/images/track-business.jpg',
+        coverImage: trackImages.trackBusiness,
         publishDate: '2025-09-03'
       },
       {
         id: '4',
         title: '报名攻略：如何选择适合的赛道',
-        coverImage: '/images/track-social.jpg',
+        coverImage: trackImages.trackSocial,
         publishDate: '2025-09-02'
       }
     ];
@@ -145,11 +146,11 @@ const NewsDetailPage: React.FC = () => {
                       <Tag key={tag} className="mb-2">{tag}</Tag>
                     ))}
                   </div>
-                  
+
                   <Title level={1} className="mb-4 text-2xl md:text-3xl">
                     {article.title}
                   </Title>
-                  
+
                   <div className="flex flex-wrap items-center justify-between text-gray-500 text-sm mb-6">
                     <Space size="large">
                       <div className="flex items-center">
@@ -165,7 +166,7 @@ const NewsDetailPage: React.FC = () => {
                         {article.viewCount} 次阅读
                       </div>
                     </Space>
-                    
+
                     <div className="flex space-x-2">
                       <Button size="small" icon={<HeartOutlined />}>点赞</Button>
                       <Button size="small" icon={<ShareAltOutlined />}>分享</Button>
@@ -187,7 +188,7 @@ const NewsDetailPage: React.FC = () => {
                 <Divider />
 
                 {/* 文章内容 */}
-                <div 
+                <div
                   className="prose prose-lg max-w-none"
                   dangerouslySetInnerHTML={{ __html: article.content }}
                   style={{
@@ -212,7 +213,7 @@ const NewsDetailPage: React.FC = () => {
                       分享
                     </Button>
                   </div>
-                  
+
                   <div className="text-gray-500 text-sm">
                     最后更新: {new Date(article.publishDate).toLocaleDateString()}
                   </div>

@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { TRACKS, TIMELINE, EXPERTS } from '../constants';
 import TrackCard from '../components/UI/TrackCard';
+import trackImages from '../constants/imagesCover'
 
 const { Title, Paragraph } = Typography;
 
@@ -19,7 +20,7 @@ const HomePage: React.FC = () => {
       <section
         className="relative h-[600px] flex items-center justify-center overflow-hidden"
         style={{
-          backgroundImage: 'linear-gradient(rgba(196, 30, 58, 0.8), rgba(47, 82, 51, 0.6)), url(/images/hero-banner.jpg)',
+          backgroundImage: `linear-gradient(rgba(196, 30, 58, 0.8), rgba(47, 82, 51, 0.6)), url(${trackImages.trackBusiness})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center'
         }}
@@ -205,7 +206,7 @@ const HomePage: React.FC = () => {
                 transition={{ duration: 0.6 }}
               >
                 <img
-                  src="/images/track-business.jpg"
+                  src={trackImages.trackBusiness}
                   alt="白塔"
                   className="w-full h-auto rounded-lg shadow-lg"
                 />

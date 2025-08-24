@@ -3,7 +3,7 @@ import { Typography, Card, Row, Col, Timeline, Statistic, Divider, Avatar } from
 import { TrophyOutlined, TeamOutlined, BankOutlined, StarOutlined } from '@ant-design/icons';
 import { motion } from 'framer-motion';
 import { TIMELINE, EXPERTS } from '../constants';
-
+import trackImages from '../constants/imagesCover'
 const { Title, Paragraph } = Typography;
 
 const AboutPage: React.FC = () => {
@@ -61,7 +61,7 @@ const AboutPage: React.FC = () => {
                 transition={{ duration: 0.6 }}
               >
                 <img
-                  src="/images/white-tower.jpg"
+                  src={trackImages.newsCoverImg}
                   alt="北京白塔"
                   className="w-full h-auto rounded-lg shadow-lg"
                 />

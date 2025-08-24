@@ -1,4 +1,5 @@
 import { Expert, TimelineEvent } from '../types';
+import trackImages from './imagesCover'
 
 // 专家评委团队
 export const EXPERTS: Expert[] = [
@@ -8,7 +9,7 @@ export const EXPERTS: Expert[] = [
     title: '教授、博士生导师',
     organization: '中央美术学院',
     bio: '国内知名设计教育专家，长期从事视觉传达设计研究，主持多项国家级设计项目。',
-    avatar: '/images/experts-team.jpeg',
+    avatar: trackImages.teamImg,
     expertise: ['视觉设计', '品牌策划', '文化创意'],
     achievements: [
       '国家级教学成果奖获得者',
@@ -22,7 +23,7 @@ export const EXPERTS: Expert[] = [
     title: '首席技术官',
     organization: '腾讯科技',
     bio: '人工智能与大数据领域专家，专注于数字文化技术创新，拥有20年行业经验。',
-    avatar: '/images/experts-team.jpeg',
+    avatar: trackImages.teamImg,
     expertise: ['人工智能', '数据科学', '技术创新'],
     achievements: [
       '国家科技进步奖二等奖',
@@ -36,7 +37,7 @@ export const EXPERTS: Expert[] = [
     title: '文化产业研究中心主任',
     organization: '北京大学',
     bio: '文化产业与商业模式创新专家，致力于文化创意产业政策研究与实践指导。',
-    avatar: '/images/experts-team.jpeg',
+    avatar: trackImages.teamImg,
     expertise: ['文化产业', '商业模式', '政策研究'],
     achievements: [
       '文化部特聘专家',
@@ -50,7 +51,7 @@ export const EXPERTS: Expert[] = [
     title: '创始人兼CEO',
     organization: '文创投资基金',
     bio: '资深投资人，专注文化创意产业投资，成功投资孵化多个知名文创项目。',
-    avatar: '/images/experts-team.jpeg',
+    avatar: trackImages.teamImg,
     expertise: ['投资评估', '商业孵化', '市场分析'],
     achievements: [
       '投资项目总估值超100亿',
@@ -64,7 +65,7 @@ export const EXPERTS: Expert[] = [
     title: '社会创新实验室主任',
     organization: '中国社科院',
     bio: '社会创新与公益项目评估专家，长期关注文化公益与社会责任领域。',
-    avatar: '/images/experts-team.jpeg',
+    avatar: trackImages.teamImg,
     expertise: ['社会创新', '公益评估', '影响力投资'],
     achievements: [
       '联合国可持续发展目标顾问',
@@ -157,7 +158,7 @@ export const NEWS_ARTICLES = [
     id: '1',
     title: '2025年第四届"白塔杯"文化创意大赛正式启动',
     excerpt: '2025年第四届"白塔杯"文化创意大赛正式启动，以"文化引领·创意西城"为主题，设立六大赛道，总奖金池超过300万元。',
-    coverImage: '/images/news-cover.jpg',
+    coverImage: trackImages.newsCoverImg,
     author: '大赛组委会',
     publishDate: '2025-09-01',
     viewCount: 1520,
@@ -168,7 +169,7 @@ export const NEWS_ARTICLES = [
     id: '2',
     title: '专家解读：数字文化创新的发展趋势',
     excerpt: '业内专家深度解析数字文化创新的最新发展趋势，为参赛者提供专业指导和行业洞察。',
-    coverImage: '/images/track-creative.jpg',
+    coverImage: trackImages.trackCreative,
     author: '李明教授',
     publishDate: '2025-09-05',
     viewCount: 892,
@@ -179,7 +180,7 @@ export const NEWS_ARTICLES = [
     id: '3',
     title: '往届获奖作品回顾：创意点亮生活',
     excerpt: '回顾历届白塔杯获奖作品，展示文化创意如何融入日常生活，启发更多创新思路。',
-    coverImage: '/images/track-business.jpg',
+    coverImage: trackImages.trackBusiness,
     author: '文创编辑部',
     publishDate: '2025-09-03',
     viewCount: 756,
@@ -190,7 +191,7 @@ export const NEWS_ARTICLES = [
     id: '4',
     title: '报名攻略：如何选择适合的赛道',
     excerpt: '详细解析六大赛道的特色和要求，帮助参赛者根据自身项目特点选择最适合的赛道。',
-    coverImage: '/images/track-social.jpg',
+    coverImage: trackImages.trackSocial,
     author: '大赛指导组',
     publishDate: '2025-09-02',
     viewCount: 1234,
@@ -201,7 +202,7 @@ export const NEWS_ARTICLES = [
     id: '5',
     title: '政策扶持：获奖项目将享受全方位支持',
     excerpt: '详解大赛获奖项目可享受的政策扶持和资源支持，包括资金、场地、孵化等多维度帮助。',
-    coverImage: '/images/track-comprehensive.png',
+    coverImage: trackImages.trackComprehensive,
     author: '政策解读组',
     publishDate: '2025-08-30',
     viewCount: 945,

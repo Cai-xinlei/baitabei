@@ -1,5 +1,5 @@
 import { Track } from '../types';
-
+import trackImages from './imagesCover'
 // 2025年白塔杯六大赛道
 export const TRACKS: Track[] = [
   {
@@ -7,7 +7,7 @@ export const TRACKS: Track[] = [
     name: '创意设计赛道',
     description: '聚焦视觉设计、产品设计、空间设计等创意设计领域',
     detailDescription: '面向设计师、艺术家、创意工作者，征集具有创新性和实用性的设计作品，包括但不限于品牌设计、产品设计、空间设计、数字艺术等。',
-    image: '/images/track-creative.jpg',
+    image: trackImages.trackCreative,
     icon: 'PaintBrushIcon',
     requirements: [
       '作品需具有原创性和创新性',
@@ -26,7 +26,7 @@ export const TRACKS: Track[] = [
     name: '技术创新赛道',
     description: '关注人工智能、区块链、物联网等前沿技术应用',
     detailDescription: '面向技术开发者、科研人员、技术团队，征集运用前沿技术推动文化创意产业发展的创新项目，包括AI应用、数字文化产品、智能硬件等。',
-    image: '/images/track-creative.jpg',
+    image: trackImages.trackCreative,
     icon: 'CpuChipIcon',
     requirements: [
       '项目需具有技术先进性',
@@ -45,7 +45,7 @@ export const TRACKS: Track[] = [
     name: '文化传播赛道',
     description: '推动传统文化与现代传播方式的创新结合',
     detailDescription: '面向文化工作者、媒体从业者、内容创作者，征集运用现代传播手段弘扬传统文化的优秀项目，包括文化纪录片、新媒体内容、文化体验产品等。',
-    image: '/images/track-cultural.jpg',
+    image: trackImages.trackCultural,
     icon: 'SpeakerWaveIcon',
     requirements: [
       '内容需具有文化价值和教育意义',
@@ -64,7 +64,7 @@ export const TRACKS: Track[] = [
     name: '商业模式赛道',
     description: '探索文化创意产业的商业模式创新',
     detailDescription: '面向创业者、企业家、商业策划师，征集具有可持续发展潜力的文化创意商业模式，包括新型文化消费、文化金融、文化电商等创新模式。',
-    image: '/images/track-business.jpg',
+    image: trackImages.trackBusiness,
     icon: 'BriefcaseIcon',
     requirements: [
       '商业模式需具有可行性和创新性',
@@ -83,7 +83,7 @@ export const TRACKS: Track[] = [
     name: '社会公益赛道',
     description: '运用创意力量服务社会公益事业',
     detailDescription: '面向公益组织、志愿者、社会工作者，征集运用文化创意手段解决社会问题、服务弱势群体、推动社会进步的公益项目。',
-    image: '/images/track-social.jpg',
+    image: trackImages.trackSocial,
     icon: 'HeartIcon',
     requirements: [
       '项目需具有明确的社会公益价值',
@@ -102,7 +102,7 @@ export const TRACKS: Track[] = [
     name: '综合创新赛道',
     description: '跨领域融合的综合性创新项目',
     detailDescription: '面向跨领域团队和复合型人才，征集融合多个专业领域、体现综合创新能力的项目，推动不同学科和行业的交叉融合。',
-    image: '/images/track-comprehensive.png',
+    image: trackImages.trackComprehensive,
     icon: 'PuzzlePieceIcon',
     requirements: [
       '项目需体现跨领域融合特色',
