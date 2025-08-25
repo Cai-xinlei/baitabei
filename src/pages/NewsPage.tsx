@@ -96,20 +96,18 @@ const NewsPage: React.FC = () => {
             </Col>
             <Col xs={24} md={8}>
               <div className="flex flex-wrap gap-2">
-                <Tag 
-                  className={`cursor-pointer px-3 py-1 text-sm ${
-                    !selectedCategory ? 'bg-red-500 text-white border-red-500' : 'hover:border-red-500'
-                  }`}
+                <Tag
+                  className={`cursor-pointer px-3 py-1 text-sm ${!selectedCategory ? 'bg-red-500 text-white border-red-500' : 'hover:border-red-500'
+                    }`}
                   onClick={() => setSelectedCategory(null)}
                 >
                   全部
                 </Tag>
                 {categories.map(category => (
-                  <Tag 
+                  <Tag
                     key={category.key}
-                    className={`cursor-pointer px-3 py-1 text-sm ${
-                      selectedCategory === category.key ? 'bg-red-500 text-white border-red-500' : 'hover:border-red-500'
-                    }`}
+                    className={`cursor-pointer px-3 py-1 text-sm ${selectedCategory === category.key ? 'bg-red-500 text-white border-red-500' : 'hover:border-red-500'
+                      }`}
                     onClick={() => setSelectedCategory(
                       selectedCategory === category.key ? null : category.key
                     )}
@@ -156,21 +154,21 @@ const NewsPage: React.FC = () => {
                       >
                         <div className="h-full flex flex-col">
                           <Title level={4} className="mb-3 line-clamp-2">
-                            <Link to={`/news/${news.id}`} className="text-gray-900 hover:text-red-600">
+                            <Link to={`/baitabei/news/${news.id}`} className="text-gray-900 hover:text-red-600">
                               {news.title}
                             </Link>
                           </Title>
-                          
+
                           <Paragraph className="text-gray-600 mb-4 line-clamp-3 flex-1">
                             {news.summary}
                           </Paragraph>
-                          
+
                           <div className="flex flex-wrap gap-1 mb-4">
                             {news.tags.map(tag => (
                               <Tag key={tag} className="text-xs">{tag}</Tag>
                             ))}
                           </div>
-                          
+
                           <div className="flex items-center justify-between text-sm text-gray-500">
                             <div className="flex items-center space-x-4">
                               <div className="flex items-center space-x-1">
@@ -193,7 +191,7 @@ const NewsPage: React.FC = () => {
                   </Col>
                 ))}
               </Row>
-              
+
               {/* 分页 */}
               <div className="mt-12 text-center">
                 <Pagination
@@ -203,7 +201,7 @@ const NewsPage: React.FC = () => {
                   onChange={setCurrentPage}
                   showSizeChanger={false}
                   showQuickJumper
-                  showTotal={(total, range) => 
+                  showTotal={(total, range) =>
                     `第 ${range[0]}-${range[1]} 条，共 ${total} 条`
                   }
                 />
@@ -211,7 +209,7 @@ const NewsPage: React.FC = () => {
             </>
           ) : (
             <div className="text-center py-16">
-              <Empty 
+              <Empty
                 description="暂无相关新闻"
                 image={Empty.PRESENTED_IMAGE_SIMPLE}
               />

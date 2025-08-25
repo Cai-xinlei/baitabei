@@ -28,10 +28,10 @@ const LoginPage: React.FC = () => {
   const [loginLoading, setLoginLoading] = useState(false);
   const [registerLoading, setRegisterLoading] = useState(false);
   const [activeTab, setActiveTab] = useState('login');
-  
+
   const navigate = useNavigate();
   const location = useLocation();
-  
+
   // 获取重定向路径
   const from = (location.state as any)?.from?.pathname || '/';
 
@@ -41,12 +41,12 @@ const LoginPage: React.FC = () => {
     try {
       // TODO: 连接后端登录API
       console.log('登录数据:', values);
-      
+
       // 模拟登录请求
       await new Promise(resolve => setTimeout(resolve, 1000));
-      
+
       message.success('登录成功！');
-      
+
       // 保存用户信息到localStorage (临时方案)
       localStorage.setItem('user', JSON.stringify({
         id: 'user_' + Date.now(),
@@ -54,7 +54,7 @@ const LoginPage: React.FC = () => {
         email: values.account.includes('@') ? values.account : `${values.account}@example.com`,
         loginTime: new Date().toISOString()
       }));
-      
+      window.location.href = '/baitabei/home'
       // 重定向到原页面或首页
       navigate(from, { replace: true });
     } catch (error) {
@@ -70,12 +70,12 @@ const LoginPage: React.FC = () => {
     try {
       // TODO: 连接后端注册API
       console.log('注册数据:', values);
-      
+
       // 模拟注册请求
       await new Promise(resolve => setTimeout(resolve, 1500));
-      
+
       message.success('注册成功！请登录您的账户。');
-      
+
       // 切换到登录标签
       setActiveTab('login');
       registerForm.resetFields();

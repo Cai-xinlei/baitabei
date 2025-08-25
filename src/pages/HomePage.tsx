@@ -42,12 +42,12 @@ const HomePage: React.FC = () => {
               文化引领·创意西城 | 聚焦"数字文化创新"与"消费新场景重构"
             </Paragraph>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link to="/register">
+              <Link to="/baitabei/register">
                 <Button type="primary" size="large" className="bg-yellow-500 border-yellow-500 hover:bg-yellow-600 text-lg px-8 py-3 h-auto">
                   立即报名
                 </Button>
               </Link>
-              <Link to="/tracks">
+              <Link to="/baitabei/tracks">
                 <Button size="large" className="border-white hover:bg-white hover:text-red-600 text-lg px-8 py-3 h-auto">
                   了解赛道
                 </Button>
@@ -152,7 +152,7 @@ const HomePage: React.FC = () => {
           </Row>
 
           <div className="text-center mt-12">
-            <Link to="/tracks">
+            <Link to="/baitabei/tracks">
               <Button type="primary" size="large" className="px-8">
                 查看全部赛道
               </Button>
@@ -270,12 +270,12 @@ const HomePage: React.FC = () => {
               赢取丰厚奖金和发展机会！
             </Paragraph>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link to="/register">
+              <Link to="/baitabei/register">
                 <Button type="primary" size="large" className="bg-yellow-500 border-yellow-500 hover:bg-yellow-600 text-lg px-8 py-3 h-auto">
                   立即报名参赛
                 </Button>
               </Link>
-              <Link to="/about">
+              <Link to="/baitabei/about">
                 <Button size="large" className="border-white hover:bg-white hover:text-red-600 text-lg px-8 py-3 h-auto">
                   了解更多详情
                 </Button>

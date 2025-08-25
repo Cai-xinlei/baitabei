@@ -11,9 +11,9 @@ interface TrackCardProps {
 }
 
 const TrackCard: React.FC<TrackCardProps> = ({ track, featured = false }) => {
-  const progressPercentage = track.maxParticipants ? 
+  const progressPercentage = track.maxParticipants ?
     Math.round((track.participantCount / track.maxParticipants) * 100) : 0;
-  
+
   const getStatusColor = (status: string) => {
     switch (status) {
       case 'open': return 'green';
@@ -88,8 +88,8 @@ const TrackCard: React.FC<TrackCardProps> = ({ track, featured = false }) => {
                   {track.participantCount}/{track.maxParticipants}
                 </span>
               </div>
-              <Progress 
-                percent={progressPercentage} 
+              <Progress
+                percent={progressPercentage}
                 strokeColor={progressPercentage > 80 ? '#ff4d4f' : '#1890ff'}
                 showInfo={false}
                 size="small"
@@ -121,7 +121,7 @@ const TrackCard: React.FC<TrackCardProps> = ({ track, featured = false }) => {
               </Button>
             </Link>
             {track.status === 'open' && (
-              <Link to={`/register?track=${track.id}`} className="flex-1">
+              <Link to={`/baitabei/register?track=${track.id}`} className="flex-1">
                 <Button type="primary" block>
                   立即报名
                 </Button>

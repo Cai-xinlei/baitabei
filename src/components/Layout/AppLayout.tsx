@@ -59,7 +59,7 @@ const AppLayout: React.FC<AppLayoutProps> = ({ children }) => {
     localStorage.removeItem('user');
     setUser(null);
     message.success('已成功登出');
-    navigate('/');
+    navigate('/baitabei/login');
   };
 
   // 用户菜单
@@ -67,7 +67,7 @@ const AppLayout: React.FC<AppLayoutProps> = ({ children }) => {
     {
       key: 'profile',
       icon: <UserOutlined />,
-      label: <Link to="/profile">个人中心</Link>,
+      label: <Link to="/baitabei/profile">个人中心</Link>,
     },
     {
       key: 'settings',
@@ -133,12 +133,12 @@ const AppLayout: React.FC<AppLayoutProps> = ({ children }) => {
                 </Dropdown>
               ) : (
                 <div className="flex space-x-2">
-                  <Link to="/login">
+                  <Link to="/baitabei/login">
                     <Button type="default" icon={<LoginOutlined />}>
                       登录
                     </Button>
                   </Link>
-                  <Link to="/register">
+                  <Link to="/baitabei/register">
                     <Button type="primary" className="bg-red-600 border-red-600 hover:bg-red-700">
                       报名参赛
                     </Button>
@@ -198,12 +198,12 @@ const AppLayout: React.FC<AppLayoutProps> = ({ children }) => {
         {/* 移动端用户状态 */}
         {!user && (
           <div className="px-4 space-y-2">
-            <Link to="/login" onClick={() => setDrawerVisible(false)}>
+            <Link to="/baitabei/login" onClick={() => setDrawerVisible(false)}>
               <Button type="default" icon={<LoginOutlined />} block>
                 登录
               </Button>
             </Link>
-            <Link to="/register" onClick={() => setDrawerVisible(false)}>
+            <Link to="/baitabei/register" onClick={() => setDrawerVisible(false)}>
               <Button type="primary" className="bg-red-600 border-red-600" block>
                 报名参赛
               </Button>

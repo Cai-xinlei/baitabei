@@ -39,7 +39,7 @@ const ProfilePage: React.FC = () => {
     // 检查用户登录状态
     const userData = localStorage.getItem('user');
     if (!userData) {
-      navigate('/login', { state: { from: location } });
+      navigate('/baitabei/login', { state: { from: location } });
       return;
     }
 
@@ -85,14 +85,14 @@ const ProfilePage: React.FC = () => {
     try {
       // TODO: 连接后端API更新用户信息
       console.log('更新用户信息:', values);
-      
+
       // 模拟更新
       await new Promise(resolve => setTimeout(resolve, 1000));
-      
+
       const updatedUser = { ...user, ...values };
       setUser(updatedUser);
       localStorage.setItem('user', JSON.stringify(updatedUser));
-      
+
       message.success('个人信息更新成功!');
       setEditModalVisible(false);
     } catch (error) {
@@ -115,7 +115,7 @@ const ProfilePage: React.FC = () => {
         message.error('图片大小不能超过 2MB!');
         return false;
       }
-      
+
       // TODO: 上传到阿里云OSS
       // 这里临时使用本地URL
       const reader = new FileReader();
@@ -126,7 +126,7 @@ const ProfilePage: React.FC = () => {
         setAvatarModalVisible(false);
       };
       reader.readAsDataURL(file);
-      
+
       return false; // 防止自动上传
     },
   };
@@ -224,12 +224,12 @@ const ProfilePage: React.FC = () => {
                     <Button
                       type="primary"
                       icon={<PlusOutlined />}
-                      onClick={() => navigate('/register')}
+                      onClick={() => navigate('/baitabei/register')}
                     >
                       新建项目
                     </Button>
                   </div>
-                  
+
                   <List
                     itemLayout="horizontal"
                     dataSource={projects}
@@ -335,7 +335,7 @@ const ProfilePage: React.FC = () => {
                 </Form.Item>
               </Col>
             </Row>
-            
+
             <div className="flex justify-end space-x-2 mt-6">
               <Button onClick={() => setEditModalVisible(false)}>
                 取消

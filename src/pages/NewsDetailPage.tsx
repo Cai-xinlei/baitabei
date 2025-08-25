@@ -109,7 +109,7 @@ const NewsDetailPage: React.FC = () => {
       <div className="min-h-screen bg-gray-50 flex items-center justify-center">
         <div className="text-center">
           <Title level={3}>文章不存在</Title>
-          <Link to="/news">
+          <Link to="/baitabei/news">
             <Button type="primary">返回新闻列表</Button>
           </Link>
         </div>
@@ -124,7 +124,7 @@ const NewsDetailPage: React.FC = () => {
         <div className="mb-6">
           <Link to="/" className="text-gray-500 hover:text-red-600">首页</Link>
           <span className="mx-2 text-gray-400">/</span>
-          <Link to="/news" className="text-gray-500 hover:text-red-600">大赛资讯</Link>
+          <Link to="/baitabei/news" className="text-gray-500 hover:text-red-600">大赛资讯</Link>
           <span className="mx-2 text-gray-400">/</span>
           <span className="text-gray-700">正文</span>
         </div>
@@ -235,7 +235,7 @@ const NewsDetailPage: React.FC = () => {
                   dataSource={relatedNews}
                   renderItem={(item) => (
                     <List.Item className="px-0">
-                      <Link to={`/news/${item.id}`} className="block w-full hover:bg-gray-50 p-2 rounded">
+                      <Link to={`/baitabei/news/${item.id}`} className="block w-full hover:bg-gray-50 p-2 rounded">
                         <div className="flex space-x-3">
                           <img
                             src={item.coverImage}
@@ -266,7 +266,7 @@ const NewsDetailPage: React.FC = () => {
                   <Paragraph className="text-gray-600 mb-4">
                     抓住机会，展示您的创意才华！
                   </Paragraph>
-                  <Link to="/register">
+                  <Link to="/baitabei/register">
                     <Button type="primary" size="large" block className="bg-red-600 border-red-600 hover:bg-red-700">
                       立即报名
                     </Button>

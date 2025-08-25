@@ -145,11 +145,11 @@ export const TIMELINE: TimelineEvent[] = [
 
 // 导航菜单
 export const NAVIGATION_MENU = [
-  { key: 'home', label: '大赛首页', path: '/' },
-  { key: 'tracks', label: '赛道设置', path: '/tracks' },
-  { key: 'news', label: '大赛资讯', path: '/news' },
-  { key: 'about', label: '关于大赛', path: '/about' },
-  { key: 'register', label: '立即报名', path: '/register' }
+  { key: 'home', label: '大赛首页', path: '/baitabei/home' },
+  { key: 'tracks', label: '赛道设置', path: '/baitabei/tracks' },
+  { key: 'news', label: '大赛资讯', path: '/baitabei/news' },
+  { key: 'about', label: '关于大赛', path: '/baitabei/about' },
+  { key: 'register', label: '立即报名', path: '/baitabei/register' }
 ];
 
 // 新闻资讯数据

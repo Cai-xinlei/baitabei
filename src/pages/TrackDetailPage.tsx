@@ -17,7 +17,7 @@ const TrackDetailPage: React.FC = () => {
         <Card className="text-center">
           <Title level={3}>赛道不存在</Title>
           <Paragraph>请检查链接是否正确</Paragraph>
-          <Link to="/tracks">
+          <Link to="/baitabei/tracks">
             <Button type="primary">返回赛道列表</Button>
           </Link>
         </Card>
@@ -33,7 +33,7 @@ const TrackDetailPage: React.FC = () => {
       {/* 返回按钮 */}
       <div className="bg-white border-b">
         <div className="max-w-7xl mx-auto px-4 py-4">
-          <Link to="/tracks" className="inline-flex items-center text-gray-600 hover:text-red-600">
+          <Link to="/baitabei/tracks" className="inline-flex items-center text-gray-600 hover:text-red-600">
             <ArrowLeftOutlined className="mr-2" />
             返回赛道列表
           </Link>
@@ -76,7 +76,7 @@ const TrackDetailPage: React.FC = () => {
               </div>
             </div>
             {track.status === 'open' && (
-              <Link to={`/register?track=${track.id}`}>
+              <Link to={`/baitabei/register?track=${track.id}`}>
                 <Button type="primary" size="large" className="bg-yellow-500 border-yellow-500 hover:bg-yellow-600 px-8">
                   立即报名此赛道
                 </Button>
@@ -206,7 +206,7 @@ const TrackDetailPage: React.FC = () => {
                       <div className="w-full bg-gray-200 rounded-full h-2">
                         <div
                           className={`h-2 rounded-full transition-all duration-300 ${progressPercentage > 80 ? 'bg-red-500' :
-                              progressPercentage > 50 ? 'bg-yellow-500' : 'bg-green-500'
+                            progressPercentage > 50 ? 'bg-yellow-500' : 'bg-green-500'
                             }`}
                           style={{ width: `${progressPercentage}%` }}
                         />
@@ -247,7 +247,7 @@ const TrackDetailPage: React.FC = () => {
                     <Paragraph className="text-gray-600 mb-4">
                       立即报名参加{track.name}，展示您的创意才华！
                     </Paragraph>
-                    <Link to={`/register?track=${track.id}`}>
+                    <Link to={`/baitabei/register?track=${track.id}`}>
                       <Button type="primary" size="large" block className="h-12 text-lg">
                         立即报名
                       </Button>
