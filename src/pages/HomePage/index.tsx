@@ -8,6 +8,7 @@ import TrackCard from '../../components/UI/TrackCard';
 import trackImages from '../../constants/imagesCover'
 import CompetitionNewsModule from './competitionNews'
 import CooperationPartners from './cooperationPartners'
+import CompetitionIntroductionPage from './competitionIntroduction'
 const { Title, Paragraph } = Typography;
 import { customNewsData } from '../../constants/home'
 const HomePage: React.FC = () => {
@@ -59,6 +60,7 @@ const HomePage: React.FC = () => {
           </div>
         </section>
 
+        <CompetitionIntroductionPage />
         {/* 统计数据区域 */}
         <section className="py-16 bg-white">
           <div className="max-w-7xl mx-auto px-4">

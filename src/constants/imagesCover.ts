@@ -5,6 +5,8 @@ import trackCultural from '@/assets/images/track-cultural.jpg';
 import newsCoverImg from '@/assets/images/news-cover.jpg';
 import trackComprehensive from '@/assets/images/track-comprehensive.png';
 import teamImg from '@/assets/images/experts-team.jpeg';
+import nbgImg from '@/assets/images/nbg.png';
+import inxtbgImg from '@/assets/images/inxtbg.png';
 
 
 
@@ -16,7 +18,9 @@ export const trackImages = {
     trackCultural,
     newsCoverImg,
     trackComprehensive,
-    teamImg
+    teamImg,
+    nbgImg,
+    inxtbgImg
 };
 
 export default trackImages;

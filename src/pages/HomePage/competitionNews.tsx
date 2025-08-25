@@ -34,21 +34,21 @@ export interface CompetitionNewsModuleProps {
 
 // 默认资讯数据
 const DEFAULT_NEWS_DATA: NewsItem[] = [
-    { id: 1, title: "2025第三届‘白塔杯’文化创意大赛 获奖名单公示", date: "2025-08-20", highlight: true },
-    { id: 2, title: "2025第三届‘白塔杯’文化创意大赛圆满落幕", date: "2025-08-15", highlight: false },
+    { id: 1, title: "2024第三届‘白塔杯’文化创意大赛 获奖名单公示", date: "2025-08-20", highlight: true },
+    { id: 2, title: "2024第三届‘白塔杯’文化创意大赛圆满落幕", date: "2025-08-15", highlight: false },
     { id: 3, title: "‘白塔杯’文化创意大赛赋能西城文化产业发展", date: "2025-08-10", highlight: false },
-    { id: 4, title: "2025‘白塔杯’大赛吸引千余件作品参赛", date: "2025-08-05", highlight: false },
-    { id: 5, title: "2025第三届‘白塔杯’文化创意大赛 AIGC应用创新赛道举办主题沙龙", date: "2025-07-30", highlight: true },
-    { id: 6, title: "2025第三届‘白塔杯’文化创意大赛正式启动", date: "2025-07-01", highlight: false }
+    { id: 4, title: "2024‘白塔杯’大赛吸引千余件作品参赛", date: "2025-08-05", highlight: false },
+    { id: 5, title: "2024第三届‘白塔杯’文化创意大赛 AIGC应用创新赛道举办主题沙龙", date: "2025-07-30", highlight: true },
+    { id: 6, title: "2024第三届‘白塔杯’文化创意大赛正式启动", date: "2025-07-01", highlight: false }
 ];
 
 // 默认海报配置
 const DEFAULT_POSTER_CONFIG: PosterConfig = {
-    title: "2025第三届白塔杯",
+    title: "2024第三届白塔杯",
     subtitle: "文化创意大赛",
     slogan: "文化引领 创意西城",
     awards: "获奖名单",
-    footer: "2025第三届'白塔杯'文化创意大赛 获奖名单公示"
+    footer: "2024第三届'白塔杯'文化创意大赛 获奖名单公示"
 };
 
 // 大赛资讯模块 - 生产级TypeScript实现

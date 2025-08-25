@@ -56,7 +56,7 @@ const organizationData = [
 ];
 
 // 联系电话
-const contactInfo = "组委会咨询电话：15712909137 / 010-83160689";
+const contactInfo = "咨询电话：15712909137 / 010-83160689";
 
 // 大赛组织单位页面组件
 const OrganizationPage = () => {
