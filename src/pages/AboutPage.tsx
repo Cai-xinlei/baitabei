@@ -292,8 +292,9 @@ const AboutPage: React.FC = () => {
                     children: (
                       <div>
                         <h4 className="font-semibold text-lg mb-1">{event.title}</h4>
-                        <p className="text-gray-600 mb-2">{event.description}</p>
-                        <p className="text-sm text-gray-500">{new Date(event.date).toLocaleDateString()}</p>
+                        {/* <p className="text-gray-600 mb-2">{event.description}</p> */}
+                        <p className="text-sm text-gray-500">{event.date}</p>
+                        {/* <p className="text-sm text-gray-500">{new Date(event.date).toLocaleDateString()}</p> */}
                       </div>
                     )
                   }))}
@@ -320,12 +321,6 @@ const AboutPage: React.FC = () => {
                     </div>
 
                     <Divider />
-
-                    <div>
-                      <Title level={5} className="mb-2 text-gray-700">工作时间</Title>
-                      <p className="text-gray-600">工作日 9:00-18:00</p>
-                    </div>
-
                     <Divider />
 
                     <div>

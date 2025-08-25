@@ -5,7 +5,7 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import zhCN from 'antd/locale/zh_CN';
 import { baitabeiTheme } from './theme';
 import AppLayout from './components/Layout/AppLayout';
-import HomePage from './pages/HomePage';
+import HomePage from './pages/HomePage/index';
 import TracksPage from './pages/TracksPage';
 import TrackDetailPage from './pages/TrackDetailPage';
 import RegisterPage from './pages/RegisterPage';

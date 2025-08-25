@@ -47,7 +47,7 @@ export interface Competition {
 export interface TimelineEvent {
   id: string;
   title: string;
-  description: string;
+  description?: string;
   date: string;
   status: 'completed' | 'current' | 'upcoming';
   type: 'milestone' | 'deadline' | 'event';

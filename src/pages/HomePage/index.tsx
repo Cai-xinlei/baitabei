@@ -3,12 +3,12 @@ import { Button, Card, Typography, Row, Col, Statistic, Timeline, Avatar } from 
 import { TrophyOutlined, UserOutlined, CalendarOutlined, StarOutlined } from '@ant-design/icons';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { TRACKS, TIMELINE, EXPERTS } from '../constants';
-import TrackCard from '../components/UI/TrackCard';
-import trackImages from '../constants/imagesCover'
-
+import { TRACKS, TIMELINE, EXPERTS } from '../../constants';
+import TrackCard from '../../components/UI/TrackCard';
+import trackImages from '../../constants/imagesCover'
+import CompetitionNewsModule from './competitionNews'
 const { Title, Paragraph } = Typography;
-
+import { customNewsData } from '../../constants/home'
 const HomePage: React.FC = () => {
   // 统计数据
   const totalParticipants = TRACKS.reduce((sum, track) => sum + track.participantCount, 0);
@@ -160,6 +160,11 @@ const HomePage: React.FC = () => {
           </div>
         </div>
       </section>
+      <CompetitionNewsModule
+        newsData={customNewsData}
+        posterConfig={{ title: "2025白塔杯创新大赛" }}
+      // loading={isLoading}
+      />
 
       {/* 赛事进程时间轴 */}
       <section className="py-16 bg-white">
@@ -190,8 +195,9 @@ const HomePage: React.FC = () => {
                     children: (
                       <div>
                         <h4 className="font-semibold text-lg mb-1">{event.title}</h4>
-                        <p className="text-gray-600 mb-2">{event.description}</p>
-                        <p className="text-sm text-gray-500">{new Date(event.date).toLocaleDateString()}</p>
+                        {/* <p className="text-gray-600 mb-2">{event.description}</p> */}
+                        {/* <p className="text-sm text-gray-500">{new Date(event.date).toLocaleDateString()}</p> */}
+                        <p className="text-sm text-gray-500">{event.date}</p>
                       </div>
                     )
                   }))}
@@ -275,9 +281,9 @@ const HomePage: React.FC = () => {
                   立即报名参赛
                 </Button>
               </Link>
-              <Link to="/baitabei/about">
+              <Link to="/baitabei/tracks">
                 <Button size="large" className="border-white hover:bg-white hover:text-red-600 text-lg px-8 py-3 h-auto">
-                  了解更多详情
+                  了解赛道
                 </Button>
               </Link>
             </div>

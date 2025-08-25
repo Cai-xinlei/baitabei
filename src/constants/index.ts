@@ -2,13 +2,13 @@ import { Expert, TimelineEvent } from '../types';
 import trackImages from './imagesCover'
 
 // 专家评委团队
-export const EXPERTS: Expert[] = [
+export const EXPERTS = [
   {
     id: 'expert-1',
-    name: '张文华',
-    title: '教授、博士生导师',
-    organization: '中央美术学院',
-    bio: '国内知名设计教育专家，长期从事视觉传达设计研究，主持多项国家级设计项目。',
+    name: '宋慰祖',
+    // title: '教授、博士生导师',
+    // organization: '中央美术学院',
+    bio: '专家委员会主任',
     avatar: trackImages.teamImg,
     expertise: ['视觉设计', '品牌策划', '文化创意'],
     achievements: [
@@ -19,10 +19,10 @@ export const EXPERTS: Expert[] = [
   },
   {
     id: 'expert-2',
-    name: '李明',
-    title: '首席技术官',
-    organization: '腾讯科技',
-    bio: '人工智能与大数据领域专家，专注于数字文化技术创新，拥有20年行业经验。',
+    name: '千  哲',
+    // title: '首席技术官',
+    // organization: '腾讯科技',
+    bio: '文创产品开发赛道',
     avatar: trackImages.teamImg,
     expertise: ['人工智能', '数据科学', '技术创新'],
     achievements: [
@@ -33,10 +33,10 @@ export const EXPERTS: Expert[] = [
   },
   {
     id: 'expert-3',
-    name: '王雅琴',
-    title: '文化产业研究中心主任',
-    organization: '北京大学',
-    bio: '文化产业与商业模式创新专家，致力于文化创意产业政策研究与实践指导。',
+    name: '奚大龙',
+    // title: '文化产业研究中心主任',
+    // organization: '北京大学',
+    bio: '城市消费场景设计赛道',
     avatar: trackImages.teamImg,
     expertise: ['文化产业', '商业模式', '政策研究'],
     achievements: [
@@ -47,10 +47,10 @@ export const EXPERTS: Expert[] = [
   },
   {
     id: 'expert-4',
-    name: '陈建国',
-    title: '创始人兼CEO',
-    organization: '文创投资基金',
-    bio: '资深投资人，专注文化创意产业投资，成功投资孵化多个知名文创项目。',
+    name: '王  彊',
+    // title: '创始人兼CEO',
+    // organization: '文创投资基金',
+    bio: '文化消费内容创新赛道',
     avatar: trackImages.teamImg,
     expertise: ['投资评估', '商业孵化', '市场分析'],
     achievements: [
@@ -61,10 +61,24 @@ export const EXPERTS: Expert[] = [
   },
   {
     id: 'expert-5',
-    name: '刘倩',
-    title: '社会创新实验室主任',
-    organization: '中国社科院',
-    bio: '社会创新与公益项目评估专家，长期关注文化公益与社会责任领域。',
+    name: '刘  兵',
+    // title: '社会创新实验室主任',
+    // organization: '中国社科院',
+    bio: '文商旅体科技创新应用赛道',
+    avatar: trackImages.teamImg,
+    expertise: ['社会创新', '公益评估', '影响力投资'],
+    achievements: [
+      '联合国可持续发展目标顾问',
+      '中国公益慈善领域影响力人物',
+      '社会创新项目评估标准制定者'
+    ]
+  },
+  {
+    id: 'expert-5',
+    name: '张  旗',
+    // title: '社会创新实验室主任',
+    // organization: '中国社科院',
+    bio: '非遗创新转化应用赛道',
     avatar: trackImages.teamImg,
     expertise: ['社会创新', '公益评估', '影响力投资'],
     achievements: [
@@ -80,67 +94,67 @@ export const TIMELINE: TimelineEvent[] = [
   {
     id: 'launch',
     title: '大赛启动',
-    description: '2025年第四届白塔杯文化创意大赛正式启动，开始接受报名',
-    date: '2025-09-01',
+    // description: '2025年第四届白塔杯文化创意大赛正式启动，开始接受报名',
+    date: '2025-8月',
     status: 'completed',
     type: 'milestone'
   },
   {
     id: 'registration-open',
-    title: '报名开放',
+    title: '征集阶段',
     description: '所有赛道正式开放报名，参赛者可通过官网提交项目信息',
-    date: '2025-09-05',
-    status: 'completed',
+    date: '2025年8月-10月',
+    status: 'current',
     type: 'event'
   },
   {
     id: 'workshop-1',
-    title: '专家讲座',
+    title: '评审阶段',
     description: '举办"数字文化创新趋势"主题讲座，邀请行业专家分享经验',
-    date: '2025-09-20',
-    status: 'completed',
+    date: '2025年10月-11月',
+    status: 'upcoming',
     type: 'event'
   },
   {
     id: 'mid-review',
-    title: '中期辅导',
+    title: '配套活动',
     description: '为报名项目提供专家一对一辅导，帮助完善项目方案',
-    date: '2025-10-15',
-    status: 'current',
+    date: '2025年8月-11月',
+    status: 'upcoming',
     type: 'milestone'
   },
   {
     id: 'registration-deadline',
-    title: '报名截止',
+    title: '颁奖典礼',
     description: '所有参赛项目必须在此日期前完成报名和材料提交',
-    date: '2025-10-31',
+    date: '2025年12月',
     status: 'upcoming',
     type: 'deadline'
   },
-  {
-    id: 'preliminary-review',
-    title: '初审阶段',
-    description: '专家评委团队对所有参赛项目进行初步评审和筛选',
-    date: '2025-11-15',
-    status: 'upcoming',
-    type: 'milestone'
-  },
-  {
-    id: 'final-presentation',
-    title: '决赛答辩',
-    description: '入围项目进行现场答辩展示，评委现场打分评选',
-    date: '2025-12-10',
-    status: 'upcoming',
-    type: 'event'
-  },
-  {
-    id: 'award-ceremony',
-    title: '颁奖典礼',
-    description: '举办盛大颁奖典礼，公布获奖名单并颁发奖项',
-    date: '2025-12-20',
-    status: 'upcoming',
-    type: 'milestone'
-  }
+  // {
+  //   id: 'preliminary-review',
+  //   title: '初审阶段',
+  //   description: '专家评委团队对所有参赛项目进行初步评审和筛选',
+  //   date: '2025-11-15',
+  //   status: 'upcoming',
+  //   type: 'milestone'
+  // },
+  // {
+  //   id: 'final-presentation',
+  //   title: '决赛答辩',
+  //   description: '入围项目进行现场答辩展示，评委现场打分评选',
+  //   date: '2025-12-10',
+  //   status: 'upcoming',
+  //   type: 'event'
+  // },
+  // {
+  //   id: 'award-ceremony',
+  //   title: '颁奖典礼',
+  //   description: '举办盛大颁奖典礼，公布获奖名单并颁发奖项',
+  //   date: '2025-12-20',
+  //   status: 'upcoming',
+  //   type: 'milestone'
+  // }
 ];
 
 // 导航菜单
