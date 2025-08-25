@@ -1,7 +1,7 @@
 /* 模块容器样式 */
 .competition-news-module {
     padding: 40px 20px;
-    max-width: 1400px;
+    max-width: 1280px;
     margin: 0 auto;
 }
 
@@ -9,13 +9,32 @@
 .news-list-container::-webkit-scrollbar-thumb {
     background: #D91E18;
     /* 红色滑块 */
-    border-radius: 3px;
+    border-radius: 1px;
 }
 
 .news-list-container::-webkit-scrollbar-thumb:hover {
     background: #B81615;
     /* 深红色hover效果 */
 }
+
+/* 纤细滚动条样式 */
+.news-list-container::-webkit-scrollbar {
+    width: 2px !important;
+    /* 滚动条宽度 */
+    height: 2px !important;
+}
+
+.news-list-container::-webkit-scrollbar-track {
+    border-radius: 1px;
+    /* 轨道圆角 */
+}
+
+.news-list-container::-webkit-scrollbar-thumb {
+    border-radius: 1px;
+    /* 滑块圆角 */
+    background: #D91E18;
+}
+
 
 /* Firefox兼容 */
 @supports (scrollbar-width: thin) {

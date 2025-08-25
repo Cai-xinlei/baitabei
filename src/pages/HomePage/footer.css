@@ -1,0 +1,91 @@
+/* OrganizationPage.css */
+.organization-page {
+  background-color: #CC0000;
+  /* 红色背景 */
+  color: white;
+  /* 文字颜色 */
+  padding: 40px 20px;
+}
+
+.content-container {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.organization-grid {
+  height: 100%;
+}
+
+.organization-column {
+  padding: 0 30px;
+  position: relative;
+}
+
+/* 中间垂直分隔线 */
+@media (min-width: 992px) {
+  .organization-column:last-child::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 20px;
+    width: 1px;
+    height: calc(100% - 40px);
+    background-color: rgba(255, 255, 255, 0.5);
+  }
+}
+
+.organization-item {
+  margin-bottom: 30px;
+}
+
+.item-title {
+  font-size: 18px;
+  display: block;
+  margin-bottom: 12px;
+}
+
+.item-content {
+  padding-left: 5px;
+}
+
+.content-text {
+  margin: 0 0 12px 0;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+/* 联系电话 */
+.contact-info {
+  text-align: center;
+  margin-top: 50px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
+  font-size: 16px;
+}
+
+/* 响应式调整 */
+@media (max-width: 992px) {
+  .organization-column {
+    padding: 0 15px;
+  }
+
+  .organization-item {
+    margin-bottom: 25px;
+  }
+
+  .item-title {
+    font-size: 16px;
+    color: #111;
+  }
+
+  .content-text {
+    font-size: 14px;
+    color: #111;
+  }
+
+  .contact-info {
+    margin-top: 30px;
+    font-size: 14px;
+
+  }
+}

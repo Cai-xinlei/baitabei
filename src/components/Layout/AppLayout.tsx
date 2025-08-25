@@ -4,7 +4,7 @@ import { MenuOutlined, HomeOutlined, TrophyOutlined, FileTextOutlined, InfoCircl
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { NAVIGATION_MENU } from '../../constants';
-
+import NewFooter from '../../pages/HomePage/footer'
 const { Header, Content, Footer } = Layout;
 const { useBreakpoint } = Grid;
 
@@ -258,6 +258,7 @@ const AppLayout: React.FC<AppLayoutProps> = ({ children }) => {
           </div>
         </div>
       </Footer>
+      <NewFooter />
     </Layout>
   );
 };

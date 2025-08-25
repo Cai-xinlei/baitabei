@@ -1,0 +1,60 @@
+.cooperation-container {
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+/* width: 2558px;
+height: 1012px;
+background-color: #ffffff;
+padding: 80px 120px;
+box-sizing: border-box;
+font-family: 'Arial', sans-serif; */
+
+.cooperation-page {
+    background-color: #f4f4f4;
+    /* 红色背景 */
+    color: white;
+    /* 文字颜色 */
+    padding: 60px 20px;
+}
+
+.title-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 80px;
+}
+
+.title-line {
+    width: 120px;
+    height: 2px;
+    background-color: #000000;
+}
+
+.main-title {
+    font-size: 40px;
+    font-weight: bold;
+    color: #000000;
+    margin: 0 30px;
+    letter-spacing: 2px;
+}
+
+.partners-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+}
+
+.partner-column {
+    display: flex;
+    flex-direction: column;
+    gap: 36px;
+}
+
+.partner-item {
+    font-size: 16px;
+    color: #333333;
+    line-height: 1.5;
+    text-align: left;
+    letter-spacing: 0.5px;
+}
