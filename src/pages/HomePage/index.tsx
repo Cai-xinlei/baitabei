@@ -253,8 +253,8 @@ const HomePage: React.FC = () => {
                         className="mx-auto mb-4"
                       />
                       <Title level={4} className="mb-2">{expert.name}</Title>
-                      <p className="text-gray-600 mb-2">{expert.title}</p>
-                      <p className="text-sm text-gray-500 mb-4">{expert.organization}</p>
+                      {/* <p className="text-gray-600 mb-2">{expert.title}</p>
+                      <p className="text-sm text-gray-500 mb-4">{expert.organization}</p> */}
                       <p className="text-sm text-gray-700 leading-relaxed">{expert.bio}</p>
                     </Card>
                   </motion.div>

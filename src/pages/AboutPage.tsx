@@ -251,8 +251,8 @@ const AboutPage: React.FC = () => {
                       className="mx-auto mb-4"
                     />
                     <Title level={4} className="mb-2">{expert.name}</Title>
-                    <p className="text-gray-600 mb-2">{expert.title}</p>
-                    <p className="text-sm text-gray-500 mb-4">{expert.organization}</p>
+                    {/* <p className="text-gray-600 mb-2">{expert.title}</p>
+                    <p className="text-sm text-gray-500 mb-4">{expert.organization}</p> */}
                     <div className="mb-4">
                       {expert.expertise.map((skill, idx) => (
                         <span key={idx} className="inline-block bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full mr-2 mb-2">
