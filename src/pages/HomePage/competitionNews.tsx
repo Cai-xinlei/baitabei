@@ -139,7 +139,7 @@ const CompetitionNewsModule: React.FC<CompetitionNewsModuleProps> = ({
                 {/* 左侧海报区域 */}
                 <Col xs={24} lg={10} className="poster-column">
                     {loading ? (
-                        <Skeleton.Avatar shape="rectangle" style={{ width: '100%', height: 480 }} active />
+                        <Skeleton.Avatar style={{ width: '100%', height: 480 }} active />
                     ) : (
                         <div className="poster-container">
                             <div className="poster-gradient">

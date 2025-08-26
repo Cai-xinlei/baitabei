@@ -27,8 +27,7 @@ const TracksPage: React.FC = () => {
               六大赛道设置
             </Title>
             <Paragraph className="text-white text-lg opacity-90 max-w-3xl mx-auto">
-              涵盖创意设计、技术创新、文化传播、商业模式、社会公益、综合创新六大领域，
-              为不同专业背景的参赛者提供展示平台，推动文化创意产业全面发展
+              遵循“文化创意解码-场景创新构建－内容生态升级－数字科技赋能”的立体化发展路径，共设置五大赛道
             </Paragraph>
           </motion.div>
         </div>
@@ -104,7 +103,7 @@ const TracksPage: React.FC = () => {
               每个赛道都有独特的特色和要求，请根据您的专业背景和项目特点选择最适合的赛道
             </Paragraph>
           </div>
-          
+
           <Row gutter={[24, 24]}>
             {TRACKS.map((track, index) => (
               <Col xs={24} md={12} lg={8} key={track.id}>
@@ -132,7 +131,7 @@ const TracksPage: React.FC = () => {
               了解各赛道的特点，选择最适合您的参赛方向
             </Paragraph>
           </div>
-          
+
           <div className="overflow-x-auto">
             <table className="w-full min-w-[800px] bg-white border border-gray-200 rounded-lg shadow-lg">
               <thead className="bg-gray-50">
@@ -146,12 +145,12 @@ const TracksPage: React.FC = () => {
               </thead>
               <tbody>
                 {TRACKS.map((track, index) => {
-                  const fillRate = track.maxParticipants ? 
+                  const fillRate = track.maxParticipants ?
                     (track.participantCount / track.maxParticipants) * 100 : 0;
                   const competition = fillRate > 80 ? '激烈' : fillRate > 50 ? '中等' : '相对宽松';
-                  const competitionColor = fillRate > 80 ? 'text-red-600' : 
-                                         fillRate > 50 ? 'text-yellow-600' : 'text-green-600';
-                  
+                  const competitionColor = fillRate > 80 ? 'text-red-600' :
+                    fillRate > 50 ? 'text-yellow-600' : 'text-green-600';
+
                   return (
                     <motion.tr
                       key={track.id}
@@ -174,13 +173,12 @@ const TracksPage: React.FC = () => {
                         {competition}
                       </td>
                       <td className="px-6 py-4 text-center">
-                        <span className={`px-2 py-1 rounded-full text-xs font-medium ${
-                          track.status === 'open' ? 'bg-green-100 text-green-800' :
-                          track.status === 'full' ? 'bg-orange-100 text-orange-800' :
-                          'bg-red-100 text-red-800'
-                        }`}>
+                        <span className={`px-2 py-1 rounded-full text-xs font-medium ${track.status === 'open' ? 'bg-green-100 text-green-800' :
+                            track.status === 'full' ? 'bg-orange-100 text-orange-800' :
+                              'bg-red-100 text-red-800'
+                          }`}>
                           {track.status === 'open' ? '开放' :
-                           track.status === 'full' ? '已满' : '关闭'}
+                            track.status === 'full' ? '已满' : '关闭'}
                         </span>
                       </td>
                     </motion.tr>

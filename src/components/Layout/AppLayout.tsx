@@ -52,7 +52,7 @@ const AppLayout: React.FC<AppLayoutProps> = ({ children }) => {
   const selectedKeys = NAVIGATION_MENU
     .filter(item => location.pathname === item.path ||
       (item.path !== '/' && location.pathname.startsWith(item.path)))
-    .map(item => item.key);
+    .map(item => item.key) || '/baitabei/home';
 
   // 处理登出
   const handleLogout = () => {
@@ -222,42 +222,6 @@ const AppLayout: React.FC<AppLayoutProps> = ({ children }) => {
           {children}
         </motion.div>
       </Content>
-
-      {/* 页脚 */}
-      <Footer className="bg-gray-900 text-white">
-        <div className="max-w-7xl mx-auto px-4 lg:px-8 py-8">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {/* 大赛信息 */}
-            <div>
-              <h3 className="text-lg font-semibold mb-4 text-white">2025年第四届“白塔杯”文化创意大赛</h3>
-              <p className="text-gray-300 mb-2">文化引领·创意西城</p>
-              <p className="text-gray-300">聚焦“数字文化创新”与“消费新场景重构”</p>
-            </div>
-
-            {/* 联系方式 */}
-            <div>
-              <h3 className="text-lg font-semibold mb-4 text-white">联系我们</h3>
-              <p className="text-gray-300 mb-2">咨询电话：15712909137</p>
-              <p className="text-gray-300 mb-2">联系电话：010-83160689</p>
-              <p className="text-gray-300">工作时间：工作日 9:00-18:00</p>
-            </div>
-
-            {/* 主办单位 */}
-            <div>
-              <h3 className="text-lg font-semibold mb-4 text-white">主办单位</h3>
-              <p className="text-gray-300 mb-2">北京市西城区人民政府</p>
-              <p className="text-gray-300 mb-2">中共北京市西城区委宣传部</p>
-              <p className="text-gray-300">北京市西城区文化产业发展促进中心</p>
-            </div>
-          </div>
-
-          <div className="border-t border-gray-700 mt-8 pt-8 text-center">
-            <p className="text-gray-400">
-              © 2025 北京市西城区人民政府. 版权所有 | 京ICP备xxxxxxxx号
-            </p>
-          </div>
-        </div>
-      </Footer>
       <NewFooter />
     </Layout>
   );
