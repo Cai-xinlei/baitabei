@@ -64,7 +64,7 @@ const TrackCard: React.FC<TrackCardProps> = ({ track, featured = false }) => {
           </div>
         }
       >
-        <div className="p-6">
+        <div>
           <p className="text-gray-600 mb-4 text-sm leading-relaxed">
             {track.detailDescription}
           </p>

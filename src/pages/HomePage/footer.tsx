@@ -61,7 +61,7 @@ const contactInfo = "咨询电话：15712909137 / 010-83160689";
 // 大赛组织单位页面组件
 const OrganizationPage = () => {
     return (
-        <div className="organization-page">
+        <div className="organization-page bg-gray-900 text-white">
             <div className="content-container">
                 {/* 左右两栏布局 */}
                 <Row gutter={[0, 24]} className="organization-grid">

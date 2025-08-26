@@ -52,7 +52,7 @@ const AppLayout: React.FC<AppLayoutProps> = ({ children }) => {
   const selectedKeys = NAVIGATION_MENU
     .filter(item => location.pathname === item.path ||
       (item.path !== '/' && location.pathname.startsWith(item.path)))
-    .map(item => item.key) || '/baitabei/home';
+    .map(item => item.key);
 
   // 处理登出
   const handleLogout = () => {
