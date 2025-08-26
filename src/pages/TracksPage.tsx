@@ -9,9 +9,9 @@ const { Title, Paragraph } = Typography;
 
 const TracksPage: React.FC = () => {
   // 统计数据
-  // const totalParticipants = TRACKS.reduce((sum, track) => sum + track.participantCount, 0);
-  // const openTracks = TRACKS.filter(track => track.status === 'open').length;
-  // const totalCapacity = TRACKS.reduce((sum, track) => sum + (track.maxParticipants || 0), 0);
+  const totalParticipants = TRACKS.reduce((sum, track) => sum + track.participantCount, 0);
+  const openTracks = TRACKS.filter(track => track.status === 'open').length;
+  const totalCapacity = TRACKS.reduce((sum, track) => sum + (track.maxParticipants || 0), 0);
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -24,7 +24,7 @@ const TracksPage: React.FC = () => {
             transition={{ duration: 0.8 }}
           >
             <Title level={1} className="text-white text-4xl font-bold mb-4">
-              五大赛道
+              五大赛道设置
             </Title>
             <Paragraph className="text-white text-lg opacity-90 max-w-3xl mx-auto">
               遵循“文化创意解码-场景创新构建－内容生态升级－数字科技赋能”的立体化发展路径，共设置五大赛道
@@ -34,7 +34,7 @@ const TracksPage: React.FC = () => {
       </section>
 
       {/* 统计数据 */}
-      {/* <section className="py-12 bg-white">
+      <section className="py-12 bg-white">
         <div className="max-w-7xl mx-auto px-4">
           <Row gutter={[32, 32]}>
             <Col xs={24} sm={8}>
@@ -90,7 +90,7 @@ const TracksPage: React.FC = () => {
             </Col>
           </Row>
         </div>
-      </section> */}
+      </section>
 
       {/* 赛道列表 */}
       <section className="py-16">

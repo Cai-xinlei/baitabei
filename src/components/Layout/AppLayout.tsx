@@ -5,6 +5,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { NAVIGATION_MENU } from '../../constants';
 import NewFooter from '../../pages/HomePage/footer'
+
 const { Header, Content, Footer } = Layout;
 const { useBreakpoint } = Grid;
 
@@ -27,6 +28,10 @@ const AppLayout: React.FC<AppLayoutProps> = ({ children }) => {
       setUser(JSON.parse(userData));
     }
   }, []);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location.pathname]);
+
 
   // 菜单图标映射
   const menuIcons: { [key: string]: React.ReactNode } = {
