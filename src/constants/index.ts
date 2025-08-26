@@ -74,7 +74,7 @@ export const EXPERTS = [
     ]
   },
   {
-    id: 'expert-5',
+    id: 'expert-6',
     name: '张  旗',
     // title: '社会创新实验室主任',
     // organization: '中国社科院',

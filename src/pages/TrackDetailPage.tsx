@@ -9,6 +9,7 @@ const { Title, Paragraph } = Typography;
 
 const TrackDetailPage: React.FC = () => {
   const { trackId } = useParams<{ trackId: string }>();
+  console.log(trackId, 'trackId');
   const track = TRACKS.find(t => t.id === trackId);
 
   if (!track) {

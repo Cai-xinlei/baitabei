@@ -157,7 +157,7 @@ const CompetitionNewsModule: React.FC<CompetitionNewsModuleProps> = ({
 
                 {/* 右侧资讯列表区域 */}
                 <Col xs={24} lg={14} className="news-column">
-                    <Card className="news-card" bordered={false}>
+                    <Card className="news-card">
                         <div className="news-header">
                             <Typography.Title level={3}>最新资讯</Typography.Title>
                         </div>
