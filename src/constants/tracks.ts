@@ -4,8 +4,8 @@ import trackImages from './imagesCover'
 export const TRACKS: Track[] = [
   {
     id: 'creative-design',
-    name: '创意设计赛道',
-    description: '聚焦视觉设计、产品设计、空间设计等创意设计领域',
+    name: '文创产品开发赛道',
+    description: '文创产品开发赛道',
     detailDescription: '面向设计师、艺术家、创意工作者，征集具有创新性和实用性的设计作品，包括但不限于品牌设计、产品设计、空间设计、数字艺术等。',
     image: trackImages.trackCreative,
     icon: 'PaintBrushIcon',
@@ -24,7 +24,7 @@ export const TRACKS: Track[] = [
   {
     id: 'tech-innovation',
     name: '技术创新赛道',
-    description: '关注人工智能、区块链、物联网等前沿技术应用',
+    description: '城市消费场景设计赛道',
     detailDescription: '面向技术开发者、科研人员、技术团队，征集运用前沿技术推动文化创意产业发展的创新项目，包括AI应用、数字文化产品、智能硬件等。',
     image: trackImages.trackCreative,
     icon: 'CpuChipIcon',

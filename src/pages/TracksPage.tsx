@@ -34,7 +34,7 @@ const TracksPage: React.FC = () => {
       </section>
 
       {/* 统计数据 */}
-      <section className="py-12 bg-white">
+      {/* <section className="py-12 bg-white">
         <div className="max-w-7xl mx-auto px-4">
           <Row gutter={[32, 32]}>
             <Col xs={24} sm={8}>
@@ -90,7 +90,7 @@ const TracksPage: React.FC = () => {
             </Col>
           </Row>
         </div>
-      </section>
+      </section> */}
 
       {/* 赛道列表 */}
       <section className="py-16">
@@ -100,7 +100,7 @@ const TracksPage: React.FC = () => {
               选择您的赛道
             </Title>
             <Paragraph className="text-lg text-gray-600 max-w-2xl mx-auto">
-              每个赛道都有独特的特色和要求，请根据您的专业背景和项目特点选择最适合的赛道
+              请根据您的专业背景和项目特点选择最适合的赛道
             </Paragraph>
           </div>
 
@@ -121,7 +121,7 @@ const TracksPage: React.FC = () => {
       </section>
 
       {/* 赛道对比 */}
-      <section className="py-16 bg-white">
+      {/* <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-12">
             <Title level={2} className="text-3xl font-bold mb-4">
@@ -174,8 +174,8 @@ const TracksPage: React.FC = () => {
                       </td>
                       <td className="px-6 py-4 text-center">
                         <span className={`px-2 py-1 rounded-full text-xs font-medium ${track.status === 'open' ? 'bg-green-100 text-green-800' :
-                            track.status === 'full' ? 'bg-orange-100 text-orange-800' :
-                              'bg-red-100 text-red-800'
+                          track.status === 'full' ? 'bg-orange-100 text-orange-800' :
+                            'bg-red-100 text-red-800'
                           }`}>
                           {track.status === 'open' ? '开放' :
                             track.status === 'full' ? '已满' : '关闭'}
@@ -188,7 +188,7 @@ const TracksPage: React.FC = () => {
             </table>
           </div>
         </div>
-      </section>
+      </section> */}
     </div>
   );
 };

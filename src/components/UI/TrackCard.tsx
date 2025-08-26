@@ -43,7 +43,7 @@ const TrackCard: React.FC<TrackCardProps> = ({ track, featured = false }) => {
       <Card
         hoverable
         className="h-full shadow-lg border-0 overflow-hidden"
-        bodyStyle={{ padding: 0 }}
+        // bodyStyle={{ padding: 0 }}
         cover={
           <div className="relative h-48 overflow-hidden">
             <img
@@ -58,8 +58,8 @@ const TrackCard: React.FC<TrackCardProps> = ({ track, featured = false }) => {
               </Tag>
             </div>
             <div className="absolute bottom-4 left-4 text-white">
-              <h3 className="text-xl font-bold mb-1 text-white">{track.name}</h3>
-              <p className="text-sm text-gray-200 mb-0">{track.description}</p>
+              <h3 className="text-xl font-bold mb-1" style={{ color: "#111" }}>{track.name}</h3>
+              {/* <p className="text-sm text-gray-200 mb-0">{track.description}</p> */}
             </div>
           </div>
         }
@@ -69,7 +69,7 @@ const TrackCard: React.FC<TrackCardProps> = ({ track, featured = false }) => {
             {track.detailDescription}
           </p>
 
-          <div className="grid grid-cols-2 gap-4 mb-4">
+          {/* <div className="grid grid-cols-2 gap-4 mb-4">
             <div className="flex items-center space-x-2 text-sm text-gray-500">
               <UserOutlined className="text-blue-500" />
               <span>已报名：{track.participantCount}人</span>
@@ -78,8 +78,8 @@ const TrackCard: React.FC<TrackCardProps> = ({ track, featured = false }) => {
               <CalendarOutlined className="text-green-500" />
               <span>截止：{new Date(track.deadline).toLocaleDateString()}</span>
             </div>
-          </div>
-
+          </div> */}
+          {/* 
           {track.maxParticipants && (
             <div className="mb-4">
               <div className="flex justify-between items-center mb-2">
@@ -95,9 +95,9 @@ const TrackCard: React.FC<TrackCardProps> = ({ track, featured = false }) => {
                 size="small"
               />
             </div>
-          )}
+          )} */}
 
-          <div className="mb-4">
+          {/* <div className="mb-4">
             <div className="flex items-center space-x-1 mb-2">
               <TrophyOutlined className="text-yellow-500" />
               <span className="text-sm font-medium text-gray-700">奖项设置</span>
@@ -112,10 +112,10 @@ const TrackCard: React.FC<TrackCardProps> = ({ track, featured = false }) => {
                 <Tag className="text-xs">+{track.awards.length - 3}项</Tag>
               )}
             </div>
-          </div>
+          </div> */}
 
           <div className="flex space-x-2">
-            <Link to={`/tracks/${track.id}`} className="flex-1">
+            <Link to={`/baitaibei/tracks/${track.id}`} className="flex-1">
               <Button type="default" block>
                 了解详情
               </Button>
