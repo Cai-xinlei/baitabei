@@ -7,7 +7,7 @@ import { TRACKS, TIMELINE, EXPERTS } from '../../constants';
 import TrackCard from '../../components/UI/TrackCard';
 import trackImages from '../../constants/imagesCover';
 import CompetitionNewsModule from './competitionNews';
-import CooperationPartners from './cooperationPartners';
+import ComperationPartners from './ComperationPartners';
 import CompetitionIntroductionPage from './competitionIntroduction';
 import CompetitionSetPage from './competitionSet';
 import { customNewsData } from '../../constants/home';
@@ -177,10 +177,10 @@ const HomePage: React.FC = () => {
         // loading={isLoading}
         />
         {/* 八、大赛支持单位 */}
-        <CooperationPartners />
+        <ComperationPartners />
         {/* CTA区域 */}
 
-        <section className="py-16 bg-gradient-to-r">
+        <section className="py-12 bg-gradient-to-r">
           <div className="max-w-4xl mx-auto text-center px-1">
             <motion.div
               initial={{ opacity: 0, y: 30 }}

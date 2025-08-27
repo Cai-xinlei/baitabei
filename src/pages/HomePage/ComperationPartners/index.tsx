@@ -1,5 +1,6 @@
 import React from 'react';
-import './cooperationPartners.css';
+import './index.css';
+import TitleWithLines from '@/components/TitleWithLines'
 
 interface PartnerData {
     columns: string[][];
@@ -33,15 +34,9 @@ const CooperationPartners: React.FC = () => {
     return (
         <div className="cooperation-page">
             <div className="cooperation-container">
-                {/* 标题区域 */}
-                <div className="title-section">
-                    <div className="title-line"></div>
-                    <h1 className="main-title">大赛支持单位</h1>
-                    <div className="title-line"></div>
-                </div>
-
+                <TitleWithLines text={'大赛支持单位'} />
                 {/* 合作单位列表 */}
-                <div className="partners-grid">
+                <div className="partners-grid" style={{ marginTop: 40 }}>
                     {partners.map((column, columnIndex) => (
                         <div key={columnIndex} className="partner-column">
                             {column.map((partner, index) => (
