@@ -7,6 +7,7 @@ import trackComprehensive from '@/assets/images/track-comprehensive.png';
 import teamImg from '@/assets/images/experts-team.jpeg';
 import nbgImg from '@/assets/images/nbg.png';
 import inxtbgImg from '@/assets/images/inxtbg.png';
+import LogoImg from '@/assets/images/logo.png';
 
 
 
@@ -20,7 +21,8 @@ export const trackImages = {
     trackComprehensive,
     teamImg,
     nbgImg,
-    inxtbgImg
+    inxtbgImg,
+    LogoImg
 };
 
 export default trackImages;

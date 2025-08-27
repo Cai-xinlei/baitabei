@@ -5,7 +5,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { NAVIGATION_MENU } from '../../constants';
 import NewFooter from '../../pages/HomePage/footer'
-
+import trackImages from '../../constants/imagesCover'
 const { Header, Content, Footer } = Layout;
 const { useBreakpoint } = Grid;
 
@@ -96,21 +96,8 @@ const AppLayout: React.FC<AppLayoutProps> = ({ children }) => {
       <Header className="bg-white shadow-md px-4 lg:px-8 relative z-10">
         <div className="max-w-7xl mx-auto flex items-center justify-between h-full">
           {/* Logo区域 */}
-          <Link to="/" className="flex items-center space-x-3">
-            <motion.div
-              initial={{ rotate: 0 }}
-              whileHover={{ rotate: 360 }}
-              transition={{ duration: 0.5 }}
-              className="w-12 h-12 bg-gradient-to-br from-red-600 to-red-700 rounded-lg flex items-center justify-center text-white font-bold text-lg"
-            >
-              白
-            </motion.div>
-            <div className="hidden sm:block">
-              <h1 className="text-xl font-bold text-gray-900 m-0">
-                2025年第四届“白塔杯”文化创意大赛
-              </h1>
-              <p className="text-sm text-gray-600 m-0">文化引领·创意西城</p>
-            </div>
+          <Link to="/baitabei/home" className="flex items-center space-x-3">
+            <img style={{ height: "60px" }} src={trackImages.LogoImg} />
           </Link>
 
           {/* 桌面端导航 */}
