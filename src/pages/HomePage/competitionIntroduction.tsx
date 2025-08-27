@@ -3,7 +3,7 @@ import { Typography } from 'antd';
 import './competitionIntroduction.css';
 import trackImages from '../../constants/imagesCover'
 import TitleWithLines from '@/components/TitleWithLines'
-const { Title, Paragraph } = Typography;
+const { Paragraph } = Typography;
 
 // 大赛综合介绍页面组件 - 高还原度版本
 const CompetitionIntroductionPage = () => {

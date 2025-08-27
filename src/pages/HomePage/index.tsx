@@ -120,42 +120,6 @@ const HomePage: React.FC = () => {
         </section>
         {/* 三、大赛专家 */}
         <ExpertList />
-        <section className="py-16 bg-gray-50">
-          <div className="max-w-7xl mx-auto px-4">
-            <div className="text-center mb-12">
-              <Title level={2} className="text-3xl font-bold mb-4">
-                专家评委
-              </Title>
-              <Paragraph className="text-lg text-gray-600">
-                汇聚行业顶尖专家，确保评审的专业性和权威性
-              </Paragraph>
-            </div>
-
-            <Row gutter={[32, 32]} justify="center">
-              {EXPERTS.map((expert, index) => (
-                <Col xs={24} sm={12} md={8} key={expert.id}>
-                  <motion.div
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: index * 0.1 }}
-                  >
-                    <Card className="text-center h-full shadow-lg border-0 hover:shadow-xl transition-shadow duration-300">
-                      <Avatar
-                        size={120}
-                        src={expert.avatar}
-                        className="mx-auto mb-4"
-                      />
-                      <Title level={4} className="mb-2">{expert.name}</Title>
-                      {/* <p className="text-gray-600 mb-2">{expert.title}</p>
-                      <p className="text-sm text-gray-500 mb-4">{expert.organization}</p> */}
-                      <p className="text-sm text-gray-700 leading-relaxed">{expert.bio}</p>
-                    </Card>
-                  </motion.div>
-                </Col>
-              ))}
-            </Row>
-          </div>
-        </section>
         {/* 四、奖项设置｜｜五、大赛服务包 */}
         <CompetitionSetPage />
         {/* 统计数据区域 */}
