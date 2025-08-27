@@ -1,0 +1,19 @@
+.title-with-lines {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .line {
+        width: 50px;
+        height: 4px;
+        background-color: red;
+    }
+
+    .text {
+        font-size: 36px;
+        margin: 0 24px;
+        white-space: nowrap;
+        font-weight: 700;
+        color: #111;
+    }
+}
