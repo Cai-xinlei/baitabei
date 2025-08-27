@@ -41,7 +41,7 @@ const HomePage: React.FC = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
             >
-              <Title level={1} className="text-white text-4xl md:text-6xl font-bold mb-4">
+              {/* <Title level={1} className="text-white text-4xl md:text-6xl font-bold mb-4">
                 2025年第四届"白塔杯"
               </Title>
               <Title level={2} className="text-white text-2xl md:text-3xl font-medium mb-6">
@@ -49,18 +49,18 @@ const HomePage: React.FC = () => {
               </Title>
               <Paragraph className="text-white text-lg md:text-xl mb-8 opacity-90">
                 文化引领·创意西城 | 聚焦"数字文化创新"与"消费新场景重构"
-              </Paragraph>
+              </Paragraph> */}
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 {/* <Link to="/baitabei/register">
                   <Button type="primary" size="large" className="bg-yellow-500 border-yellow-500 hover:bg-yellow-600 text-lg px-8 py-3 h-auto">
                     立即报名
                   </Button>
                 </Link> */}
-                <Link to="/baitabei/tracks">
+                {/* <Link to="/baitabei/tracks">
                   <Button size="large" className="border-white hover:bg-white hover:text-red-600 text-lg px-8 py-3 h-auto">
                     了解赛道
                   </Button>
-                </Link>
+                </Link> */}
               </div>
             </motion.div>
           </div>

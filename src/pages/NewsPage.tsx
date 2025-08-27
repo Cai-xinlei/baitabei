@@ -81,7 +81,7 @@ const NewsPage: React.FC = () => {
       </section>
 
       {/* 搜索和筛选 */}
-      <section className="py-8 bg-white">
+      {/* <section className="py-8 bg-white">
         <div className="max-w-7xl mx-auto px-4">
           <Row gutter={[24, 16]} align="middle">
             <Col xs={24} md={16}>
@@ -119,7 +119,7 @@ const NewsPage: React.FC = () => {
             </Col>
           </Row>
         </div>
-      </section>
+      </section> */}
 
       {/* 新闻列表 */}
       <section className="py-8">
@@ -162,28 +162,28 @@ const NewsPage: React.FC = () => {
                           <Paragraph className="text-gray-600 mb-4 line-clamp-3 flex-1">
                             {news.summary}
                           </Paragraph>
-
+                          {/* 
                           <div className="flex flex-wrap gap-1 mb-4">
                             {news.tags.map(tag => (
                               <Tag key={tag} className="text-xs">{tag}</Tag>
                             ))}
-                          </div>
+                          </div> */}
 
                           <div className="flex items-center justify-between text-sm text-gray-500">
                             <div className="flex items-center space-x-4">
-                              <div className="flex items-center space-x-1">
+                              {/* <div className="flex items-center space-x-1">
                                 <Avatar size="small">{news.author[0]}</Avatar>
                                 <span>{news.author}</span>
-                              </div>
+                              </div> */}
                               <div className="flex items-center space-x-1">
                                 <CalendarOutlined />
                                 <span>{new Date(news.publishedAt).toLocaleDateString()}</span>
                               </div>
                             </div>
-                            <div className="flex items-center space-x-1">
+                            {/* <div className="flex items-center space-x-1">
                               <EyeOutlined />
                               <span>{news.views}</span>
-                            </div>
+                            </div> */}
                           </div>
                         </div>
                       </Card>
