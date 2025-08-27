@@ -1,0 +1,61 @@
+.competition-schedule {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+
+    .schedule-title {
+        text-align: center;
+        margin-bottom: 40px;
+        color: #333;
+    }
+
+
+
+    .schedule-card {
+        width: calc((100% - 40px) / 3);
+        min-width: 300px;
+        background: #fff;
+        border-radius: 12px;
+        padding: 12px;
+        box-shadow: 0 0 30px rgba(137, 119, 120, 0.2);
+        transition: all 0.3s ease;
+        border: 2px solid transparent;
+        box-sizing: border-box;
+        position: relative;
+
+        .phase-name {
+            color: #a50203;
+            text-align: center;
+            line-height: 30px;
+            font-size: 18px;
+        }
+
+        .time-info {
+            font-weight: 600;
+            font-size: 24px;
+            color: #222;
+            text-align: center;
+            line-height: 1.5;
+            margin-bottom: 16px;
+        }
+
+        @media (max-width: 992px) {
+            width: calc((100% - 20px) / 2);
+        }
+
+        @media (max-width: 768px) {
+            width: 100%;
+            min-width: auto;
+        }
+    }
+
+}
+
+.competition-introduce {
+    font-size: 24px;
+    line-height: 32px;
+    height: 32px;
+    color: #333;
+    text-align: center;
+    margin-bottom: 24px;
+}

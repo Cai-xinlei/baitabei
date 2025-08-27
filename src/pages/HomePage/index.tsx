@@ -11,7 +11,9 @@ import CooperationPartners from './cooperationPartners';
 import CompetitionIntroductionPage from './competitionIntroduction';
 import CompetitionSetPage from './competitionSet';
 import { customNewsData } from '../../constants/home';
-import ExpertList from './ExpertList/index'
+import ExpertList from './ExpertList/index';
+import CompetitionSchedule from './CompetitionSchedule/index';
+import SetAward from './SetAward/index';
 const { Title, Paragraph } = Typography;
 const HomePage: React.FC = () => {
   // 统计数据
@@ -64,63 +66,12 @@ const HomePage: React.FC = () => {
         {/* 一、大赛介绍 */}
         <CompetitionIntroductionPage />
         {/* 二、大赛进程 */}
-        <section className="py-16 bg-white">
-          <div className="max-w-7xl mx-auto px-4">
-            <div className="text-center mb-12">
-              <Title level={2} className="text-3xl font-bold mb-4">
-                赛事进程
-              </Title>
-              <Paragraph className="text-lg text-gray-600">
-                2025年9月至12月，四个月精彩赛程
-              </Paragraph>
-            </div>
 
-            <Row gutter={[32, 32]}>
-              <Col xs={24} lg={12}>
-                <motion.div
-                  initial={{ opacity: 0, x: -30 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.6 }}
-                >
-                  <Timeline
-                    mode="left"
-                    items={TIMELINE.map(event => ({
-                      dot: event.status === 'current' ?
-                        <div className="w-4 h-4 bg-red-500 rounded-full border-4 border-red-200 animate-pulse" /> :
-                        <div className={`w-3 h-3 rounded-full ${event.status === 'completed' ? 'bg-green-500' : 'bg-gray-300'
-                          }`} />,
-                      children: (
-                        <div>
-                          <h4 className="font-semibold text-lg mb-1">{event.title}</h4>
-                          {/* <p className="text-gray-600 mb-2">{event.description}</p> */}
-                          {/* <p className="text-sm text-gray-500">{new Date(event.date).toLocaleDateString()}</p> */}
-                          <p className="text-sm text-gray-500">{event.date}</p>
-                        </div>
-                      )
-                    }))}
-                  />
-                </motion.div>
-              </Col>
-
-              <Col xs={24} lg={12}>
-                <motion.div
-                  initial={{ opacity: 0, x: 30 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.6 }}
-                >
-                  <img
-                    src={trackImages.trackBusiness}
-                    alt="白塔"
-                    className="w-full h-auto rounded-lg shadow-lg"
-                  />
-                </motion.div>
-              </Col>
-            </Row>
-          </div>
-        </section>
+        <CompetitionSchedule />
         {/* 三、大赛专家 */}
         <ExpertList />
         {/* 四、奖项设置｜｜五、大赛服务包 */}
+        <SetAward />
         <CompetitionSetPage />
         {/* 统计数据区域 */}
         {/* <section className="py-16 bg-white">
