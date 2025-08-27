@@ -40,9 +40,9 @@ function App() {
           <AppLayout>
             <Routes>
               <Route path="/baitabei/home" element={<HomePage />} />
-              <Route path="/baitabei/tracksDetail" element={<CompetitionDetail />} />
+              <Route path="/baitabei/detail" element={<CompetitionDetail />} />
               <Route path="/baitabei/tracks" element={<TracksPage />} />
-              {/* <Route path="/baitabei/tracksDetail" element={<TrackDetailPage />} /> */}
+              <Route path="/baitabei/tracks/:trackId" element={<TrackDetailPage />} />
               <Route path="/baitabei/register" element={<RegisterPage />} />
               <Route path="/baitabei/news" element={<NewsPage />} />
               <Route path="/baitabei/news/:newsId" element={<NewsDetailPage />} />

@@ -115,7 +115,7 @@ const TrackCard: React.FC<TrackCardProps> = ({ track, featured = false }) => {
           </div> */}
 
           <div className="flex space-x-2">
-            <Link to={`/baitaibei/tracksDetail`} className="flex-1">
+            <Link to={`/baitabei/tracks/${track.id}`} className="flex-1">
               <Button type="default" block>
                 了解详情
               </Button>
