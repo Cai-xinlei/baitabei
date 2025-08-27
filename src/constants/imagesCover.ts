@@ -8,6 +8,12 @@ import teamImg from '@/assets/images/experts-team.jpeg';
 import nbgImg from '@/assets/images/nbg.png';
 import inxtbgImg from '@/assets/images/inxtbg.png';
 import LogoImg from '@/assets/images/logo.png';
+import liubing from '@/assets/images/liubing.jpg';
+import qianzhe from '@/assets/images/qianzhe.jpg';
+import songweizu from '@/assets/images/songweizu.jpg';
+import wangjiang from '@/assets/images/wangjiang.jpg';
+import xidalong from '@/assets/images/xidalong.jpg';
+import zhangqi from '@/assets/images/zhangqi.jpg';
 
 
 
@@ -22,7 +28,13 @@ export const trackImages = {
     teamImg,
     nbgImg,
     inxtbgImg,
-    LogoImg
+    LogoImg,
+    liubing,
+    qianzhe,
+    songweizu,
+    wangjiang,
+    xidalong,
+    zhangqi
 };
 
 export default trackImages;

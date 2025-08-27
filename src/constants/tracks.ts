@@ -98,3 +98,43 @@ export const TRACKS: Track[] = [
     status: 'open'
   },
 ];
+
+//专家列表
+export const ExpertList = [
+  {
+    id: 1,
+    name: '宋慰祖',
+    track: '专家委员会主任',
+    image: trackImages.songweizu
+  },
+  {
+    id: 2,
+    name: '千哲',
+    track: '专家委员会主任',
+    image: trackImages.qianzhe
+  },
+  {
+    id: 3,
+    name: '奚大龙',
+    track: '城市消费场景设计赛道',
+    image: trackImages.xidalong
+  },
+  {
+    id: 4,
+    name: '王彊',
+    track: '文化消费内容创新赛道',
+    image: trackImages.wangjiang
+  },
+  {
+    id: 5,
+    name: '刘兵',
+    track: '文商旅体科技创新应用赛道',
+    image: trackImages.liubing
+  },
+  {
+    id: 6,
+    name: '张旗',
+    track: '非遗创新转化应用赛道',
+    image: trackImages.zhangqi
+  }
+];

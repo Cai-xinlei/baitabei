@@ -5,13 +5,14 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { TRACKS, TIMELINE, EXPERTS } from '../../constants';
 import TrackCard from '../../components/UI/TrackCard';
-import trackImages from '../../constants/imagesCover'
-import CompetitionNewsModule from './competitionNews'
-import CooperationPartners from './cooperationPartners'
-import CompetitionIntroductionPage from './competitionIntroduction'
-import CompetitionSetPage from './competitionSet'
+import trackImages from '../../constants/imagesCover';
+import CompetitionNewsModule from './competitionNews';
+import CooperationPartners from './cooperationPartners';
+import CompetitionIntroductionPage from './competitionIntroduction';
+import CompetitionSetPage from './competitionSet';
+import { customNewsData } from '../../constants/home';
+import ExpertList from './ExpertList/index'
 const { Title, Paragraph } = Typography;
-import { customNewsData } from '../../constants/home'
 const HomePage: React.FC = () => {
   // 统计数据
   const totalParticipants = TRACKS.reduce((sum, track) => sum + track.participantCount, 0);
@@ -118,6 +119,7 @@ const HomePage: React.FC = () => {
           </div>
         </section>
         {/* 三、大赛专家 */}
+        <ExpertList />
         <section className="py-16 bg-gray-50">
           <div className="max-w-7xl mx-auto px-4">
             <div className="text-center mb-12">
