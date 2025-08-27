@@ -40,9 +40,9 @@ const ScheduleCard = ({ bonus, prize }) => {
 
 const CompetitionSchedule = () => {
     return (
-        <div className="competition-schedule">
+        <div className="setAward-schedule">
             <TitleWithLines text={'奖项设置'} />
-            <div className='competition-introduce' style={{ margin: '40px auto' }}>
+            <div className='setAward-introduce' style={{ margin: '40px auto' }}>
                 综合评选出一、二、三等奖和单项奖，各赛道设置优秀奖
             </div>
             <Flex wrap gap="middle" justify="center" style={{ marginBottom: 24 }} >
@@ -54,10 +54,10 @@ const CompetitionSchedule = () => {
                     />
                 ))}
             </Flex>
-            <div className='competition-introduce'>
+            <div className='setAward-introduce'>
                 大赛奖励服务包，对于赛中涌现出的具有典型性、示范性的优秀项目给予落地转化赋能。
             </div>
-            <div className='competition-introduce'>
+            <div className='setAward-introduce'>
                 主要包括政策支持、空间赋能、展览展示、融资对接、传播推广、上市辅导、渠道合作等内容
             </div>
         </div>

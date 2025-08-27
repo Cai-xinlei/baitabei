@@ -1,4 +1,4 @@
-.competition-schedule {
+.setAward-schedule {
     max-width: 1200px;
     margin: 0 auto;
     padding: 40px 20px;
@@ -32,7 +32,7 @@
 
         .time-info {
             font-weight: 600;
-            font-size: 24px;
+            font-size: 26px;
             color: #222;
             text-align: center;
             line-height: 1.5;
@@ -51,7 +51,7 @@
 
 }
 
-.competition-introduce {
+.setAward-introduce {
     font-size: 24px;
     line-height: 32px;
     height: 32px;

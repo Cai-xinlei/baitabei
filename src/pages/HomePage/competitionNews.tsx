@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState, useCallback } from 'react';
 import { Row, Col, Card, List, Typography, Space, Skeleton } from 'antd';
 import { CalendarOutlined } from '@ant-design/icons';
 import './CompetitionNews.css';
+import TitleWithLines from '@/components/TitleWithLines'
 
 // 类型定义 - 资讯项
 export interface NewsItem {
@@ -32,16 +33,6 @@ export interface CompetitionNewsModuleProps {
     listMaxHeight?: number;
 }
 
-// 默认资讯数据
-const DEFAULT_NEWS_DATA: NewsItem[] = [
-    { id: 1, title: "2024第三届‘白塔杯’文化创意大赛 获奖名单公示", date: "2025-08-20", highlight: true },
-    { id: 2, title: "2024第三届‘白塔杯’文化创意大赛圆满落幕", date: "2025-08-15", highlight: false },
-    { id: 3, title: "‘白塔杯’文化创意大赛赋能西城文化产业发展", date: "2025-08-10", highlight: false },
-    { id: 4, title: "2024‘白塔杯’大赛吸引千余件作品参赛", date: "2025-08-05", highlight: false },
-    { id: 5, title: "2024第三届‘白塔杯’文化创意大赛 AIGC应用创新赛道举办主题沙龙", date: "2025-07-30", highlight: true },
-    { id: 6, title: "2024第三届‘白塔杯’文化创意大赛正式启动", date: "2025-07-01", highlight: false }
-];
-
 // 默认海报配置
 const DEFAULT_POSTER_CONFIG: PosterConfig = {
     title: "2024第三届白塔杯",
@@ -53,7 +44,7 @@ const DEFAULT_POSTER_CONFIG: PosterConfig = {
 
 // 大赛资讯模块 - 生产级TypeScript实现
 const CompetitionNewsModule: React.FC<CompetitionNewsModuleProps> = ({
-    newsData = DEFAULT_NEWS_DATA,
+    newsData,
     posterConfig = DEFAULT_POSTER_CONFIG,
     loading = false,
     listMaxHeight = 380 // 默认列表高度
@@ -125,17 +116,9 @@ const CompetitionNewsModule: React.FC<CompetitionNewsModuleProps> = ({
 
     return (
         <div className="competition-news-module" data-testid="competition-news-module">
-            {/* 标题区域 */}
-            <div className="module-title">
-                <Typography.Title level={2}>
-                    <span className="title-dash">—</span>
-                    <span className="title-text">大赛资讯</span>
-                    <span className="title-dash">—</span>
-                </Typography.Title>
-            </div>
-
+            <TitleWithLines text={'大赛资讯'} />
             {/* 主内容区 */}
-            <Row gutter={[32, 0]} className="content-container">
+            <Row gutter={[32, 0]} className="content-container" style={{ marginTop: 40 }}>
                 {/* 左侧海报区域 */}
                 <Col xs={24} lg={10} className="poster-column">
                     {loading ? (

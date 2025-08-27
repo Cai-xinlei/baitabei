@@ -14,6 +14,8 @@ import { customNewsData } from '../../constants/home';
 import ExpertList from './ExpertList/index';
 import CompetitionSchedule from './CompetitionSchedule/index';
 import SetAward from './SetAward/index';
+import TitleWithLines from '@/components/TitleWithLines'
+
 const { Title, Paragraph } = Typography;
 const HomePage: React.FC = () => {
   // 统计数据
@@ -72,7 +74,7 @@ const HomePage: React.FC = () => {
         <ExpertList />
         {/* 四、奖项设置｜｜五、大赛服务包 */}
         <SetAward />
-        <CompetitionSetPage />
+        {/* <CompetitionSetPage /> */}
         {/* 统计数据区域 */}
         {/* <section className="py-16 bg-white">
           <div className="max-w-7xl mx-auto px-4">
@@ -143,17 +145,9 @@ const HomePage: React.FC = () => {
         {/* 六、赛道设置 */}
         <section className="py-16 bg-gray-50">
           <div className="max-w-7xl mx-auto px-4">
-            <div className="text-center mb-12">
-              <Title level={2} className="text-3xl font-bold mb-4">
-                五大赛道
-              </Title>
-              <Paragraph className="text-lg text-gray-600 max-w-2xl mx-auto">
-                涵盖创意设计、技术创新、文化传播、商业模式、社会公益、综合创新六大领域，
-                为不同专业背景的参赛者提供展示平台
-              </Paragraph>
-            </div>
+            <TitleWithLines text={'五大赛道'} />
 
-            <Row gutter={[24, 24]}>
+            <Row gutter={[24, 24]} style={{ marginTop: 50 }}>
               {TRACKS.map((track, index) => (
                 <Col xs={24} md={12} lg={8} key={track.id}>
                   <motion.div
