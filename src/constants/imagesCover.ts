@@ -14,6 +14,11 @@ import songweizu from '@/assets/images/songweizu.jpg';
 import wangjiang from '@/assets/images/wangjiang.jpg';
 import xidalong from '@/assets/images/xidalong.jpg';
 import zhangqi from '@/assets/images/zhangqi.jpg';
+import saidaoone from '@/assets/images/saidaoone.jpg';
+import saidaotwo from '@/assets/images/saidaotwo.jpg';
+import saidaothree from '@/assets/images/saidaothree.jpg';
+import saidaofour from '@/assets/images/saidaofour.jpg';
+import saidaofive from '@/assets/images/saidaofive.jpg';
 
 
 
@@ -34,7 +39,12 @@ export const trackImages = {
     songweizu,
     wangjiang,
     xidalong,
-    zhangqi
+    zhangqi,
+    saidaoone,
+    saidaotwo,
+    saidaothree,
+    saidaofour,
+    saidaofive
 };
 
 export default trackImages;

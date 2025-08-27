@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import { TRACKS, TIMELINE, EXPERTS } from '../../constants';
 import TrackCard from '../../components/UI/TrackCard';
 import trackImages from '../../constants/imagesCover';
-import CompetitionNewsModule from './competitionNews';
+import CompetitionNewsModule from './CompetitionNews';
 import ComperationPartners from './ComperationPartners';
 import CompetitionIntroductionPage from './competitionIntroduction';
 import CompetitionSetPage from './competitionSet';

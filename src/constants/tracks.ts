@@ -7,7 +7,7 @@ export const TRACKS: Track[] = [
     name: '文创产品开发赛道',
     description: '文创产品开发赛道',
     detailDescription: '面向设计师、艺术家、创意工作者，征集具有创新性和实用性的设计作品，包括但不限于品牌设计、产品设计、空间设计、数字艺术等。',
-    image: trackImages.trackCreative,
+    image: trackImages.saidaoone,
     icon: 'PaintBrushIcon',
     requirements: [
       '作品需具有原创性和创新性',
@@ -26,7 +26,7 @@ export const TRACKS: Track[] = [
     name: '城市消费场景设计赛道',
     description: '城市消费场景设计赛道',
     detailDescription: '面向技术开发者、科研人员、技术团队，征集运用前沿技术推动文化创意产业发展的创新项目，包括AI应用、数字文化产品、智能硬件等。',
-    image: trackImages.trackCreative,
+    image: trackImages.saidaotwo,
     icon: 'CpuChipIcon',
     requirements: [
       '项目需具有技术先进性',
@@ -45,7 +45,7 @@ export const TRACKS: Track[] = [
     name: '文化消费内容创新赛道',
     description: '推动传统文化与现代传播方式的创新结合',
     detailDescription: '面向文化工作者、媒体从业者，征集运用现代传播手段弘扬传统文化的优秀项目，包括文化纪录片、新媒体内容、文化体验产品等。',
-    image: trackImages.trackCultural,
+    image: trackImages.saidaothree,
     icon: 'SpeakerWaveIcon',
     requirements: [
       '内容需具有文化价值和教育意义',
@@ -64,7 +64,7 @@ export const TRACKS: Track[] = [
     name: '文商旅体科技创新应用赛道',
     description: '探索文化创意产业的商业模式创新',
     detailDescription: '面向创业者、企业家、商业策划师，征集具有可持续发展潜力的文化创意商业模式，包括新型文化消费、文化金融、文化电商等创新模式。',
-    image: trackImages.trackBusiness,
+    image: trackImages.saidaofour,
     icon: 'BriefcaseIcon',
     requirements: [
       '商业模式需具有可行性和创新性',
@@ -83,7 +83,7 @@ export const TRACKS: Track[] = [
     name: '非遗创新转化应用赛道',
     description: '运用创意力量服务社会公益事业',
     detailDescription: '面向公益组织、志愿者、社会工作者，征集运用文化创意手段解决社会问题、服务弱势群体、推动社会进步的公益项目。',
-    image: trackImages.trackSocial,
+    image: trackImages.saidaofive,
     icon: 'HeartIcon',
     requirements: [
       '项目需具有明确的社会公益价值',

@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState, useCallback } from 'react';
 import { Row, Col, Card, List, Typography, Space, Skeleton } from 'antd';
 import { CalendarOutlined } from '@ant-design/icons';
-import './CompetitionNews.css';
+import './index.css';
 import TitleWithLines from '@/components/TitleWithLines'
 
 // 类型定义 - 资讯项

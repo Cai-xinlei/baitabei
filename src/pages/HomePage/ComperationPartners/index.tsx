@@ -32,8 +32,8 @@ const CooperationPartners: React.FC = () => {
     ];
 
     return (
-        <div className="cooperation-page">
-            <div className="cooperation-container">
+        <div className="coperation-page">
+            <div className="coperation-container">
                 <TitleWithLines text={'大赛支持单位'} />
                 {/* 合作单位列表 */}
                 <div className="partners-grid" style={{ marginTop: 40 }}>
