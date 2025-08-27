@@ -140,12 +140,12 @@ const NewsDetailPage: React.FC = () => {
               <Card className="shadow-lg border-0">
                 {/* 文章头部 */}
                 <div className="mb-6">
-                  <div className="mb-4">
+                  {/* <div className="mb-4">
                     <Tag color="red" className="mb-2">{article.category}</Tag>
                     {article.tags.map(tag => (
                       <Tag key={tag} className="mb-2">{tag}</Tag>
                     ))}
-                  </div>
+                  </div> */}
 
                   <Title level={1} className="mb-4 text-2xl md:text-3xl">
                     {article.title}
@@ -153,22 +153,22 @@ const NewsDetailPage: React.FC = () => {
 
                   <div className="flex flex-wrap items-center justify-between text-gray-500 text-sm mb-6">
                     <Space size="large">
-                      <div className="flex items-center">
+                      {/* <div className="flex items-center">
                         <UserOutlined className="mr-1" />
                         {article.author}
-                      </div>
+                      </div> */}
                       <div className="flex items-center">
                         <CalendarOutlined className="mr-1" />
                         {new Date(article.publishDate).toLocaleDateString()}
                       </div>
-                      <div className="flex items-center">
+                      {/* <div className="flex items-center">
                         <EyeOutlined className="mr-1" />
                         {article.viewCount} 次阅读
-                      </div>
+                      </div> */}
                     </Space>
 
                     <div className="flex space-x-2">
-                      <Button size="small" icon={<HeartOutlined />}>点赞</Button>
+                      {/* <Button size="small" icon={<HeartOutlined />}>点赞</Button> */}
                       <Button size="small" icon={<ShareAltOutlined />}>分享</Button>
                     </div>
                   </div>
@@ -203,12 +203,12 @@ const NewsDetailPage: React.FC = () => {
                 {/* 文章底部 */}
                 <div className="flex items-center justify-between">
                   <div className="flex items-center space-x-4">
-                    <Button type="text" icon={<HeartOutlined />} className="text-red-600">
+                    {/* <Button type="text" icon={<HeartOutlined />} className="text-red-600">
                       点赞 (42)
                     </Button>
                     <Button type="text" icon={<MessageOutlined />}>
                       评论 (8)
-                    </Button>
+                    </Button> */}
                     <Button type="text" icon={<ShareAltOutlined />}>
                       分享
                     </Button>
