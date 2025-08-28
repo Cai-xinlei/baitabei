@@ -3,9 +3,9 @@ import { useSearchParams } from 'react-router-dom';
 import { Form, Input, Select, Button, Card, Steps, Row, Col, Typography, Alert, Checkbox, Modal, message } from 'antd';
 import { CheckCircleOutlined, FileTextOutlined, UserOutlined } from '@ant-design/icons';
 import { motion } from 'framer-motion';
-import { TRACKS } from '../constants';
-import FileUpload from '../components/UI/FileUpload';
-
+import { TRACKS, PromiseBook } from '@/constants';
+import FileUpload from '@/components/UI/FileUpload';
+import RegisterModal from './registerModal'
 const { Title, Paragraph } = Typography;
 const { TextArea } = Input;
 const { Option } = Select;
@@ -16,7 +16,7 @@ const RegisterPage: React.FC = () => {
   const [currentStep, setCurrentStep] = useState(0);
   const [agreementVisible, setAgreementVisible] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
-  
+
   const selectedTrackId = searchParams.get('track');
   const selectedTrack = TRACKS.find(t => t.id === selectedTrackId);
 
@@ -50,10 +50,10 @@ const RegisterPage: React.FC = () => {
     try {
       // 这里将来会连接到后端 API
       console.log('提交的表单数据:', values);
-      
+
       // 模拟提交延迟
       await new Promise(resolve => setTimeout(resolve, 2000));
-      
+
       message.success('报名提交成功！请留意查收确认邮件。');
       setCurrentStep(2);
     } catch (error) {
@@ -127,7 +127,7 @@ const RegisterPage: React.FC = () => {
                 <Title level={3} className="mb-6">
                   选择参赛赛道
                 </Title>
-                
+
                 <Form.Item
                   name="trackId"
                   label="赛道选择"
@@ -164,14 +164,13 @@ const RegisterPage: React.FC = () => {
             )}
 
             {/* 步骤2: 填写信息 */}
-            {currentStep === 1 && (
+            {/* {currentStep === 1 && (
               <Card className="shadow-lg border-0">
                 <Title level={3} className="mb-6">
                   填写参赛信息
                 </Title>
-                
+
                 <Row gutter={[24, 0]}>
-                  {/* 个人信息 */}
                   <Col xs={24} md={12}>
                     <Form.Item
                       name="realName"
@@ -215,12 +214,11 @@ const RegisterPage: React.FC = () => {
                   </Col>
                 </Row>
 
-                {/* 项目信息 */}
                 <div className="mt-8">
                   <Title level={4} className="mb-4">
                     项目信息
                   </Title>
-                  
+
                   <Form.Item
                     name="projectTitle"
                     label="项目名称"
@@ -228,51 +226,49 @@ const RegisterPage: React.FC = () => {
                   >
                     <Input placeholder="请输入您的项目名称" />
                   </Form.Item>
-                  
+
                   <Form.Item
                     name="projectDescription"
                     label="项目描述"
                     rules={[{ required: true, message: '请输入项目描述' }]}
                   >
-                    <TextArea 
-                      rows={6} 
-                      placeholder="请详细描述您的项目内容、创新点、实现方案等（建议500字以上）" 
+                    <TextArea
+                      rows={6}
+                      placeholder="请详细描述您的项目内容、创新点、实现方案等（建议500字以上）"
                       showCount
                       maxLength={2000}
                     />
                   </Form.Item>
                 </div>
 
-                {/* 团队信息 */}
                 <div className="mt-8">
                   <Title level={4} className="mb-4">
                     团队信息（可选）
                   </Title>
-                  
+
                   <Form.Item
                     name="teamName"
                     label="团队名称"
                   >
                     <Input placeholder="如果是团队参赛，请输入团队名称" />
                   </Form.Item>
-                  
+
                   <Form.Item
                     name="teamMembers"
                     label="团队成员"
                   >
-                    <TextArea 
-                      rows={4} 
-                      placeholder="请列出团队成员姓名、职责分工等信息，每人一行" 
+                    <TextArea
+                      rows={4}
+                      placeholder="请列出团队成员姓名、职责分工等信息，每人一行"
                     />
                   </Form.Item>
                 </div>
 
-                {/* 文件上传 */}
                 <div className="mt-8">
                   <Title level={4} className="mb-4">
                     相关文件上传
                   </Title>
-                  
+
                   <Form.Item
                     name="attachments"
                     label="项目材料"
@@ -288,7 +284,7 @@ const RegisterPage: React.FC = () => {
                   </Form.Item>
                 </div>
               </Card>
-            )}
+            )} */}
 
             {/* 步骤3: 确认提交 */}
             {currentStep === 2 && (
@@ -296,7 +292,7 @@ const RegisterPage: React.FC = () => {
                 <Title level={3} className="mb-6">
                   确认并提交报名
                 </Title>
-                
+
                 <Alert
                   message="请仔细检查以下信息"
                   description="确认无误后点击提交，提交后将无法修改。我们将在工作日内对您的报名进行审核。"
@@ -304,7 +300,7 @@ const RegisterPage: React.FC = () => {
                   showIcon
                   className="mb-6"
                 />
-                
+
                 {/* 信息确认 */}
                 <div className="bg-gray-50 p-6 rounded-lg mb-6">
                   <Title level={4} className="mb-4">报名信息确认</Title>
@@ -315,16 +311,16 @@ const RegisterPage: React.FC = () => {
                   <p>联系电话：{form.getFieldValue('phone')}</p>
                   <p>邮箱地址：{form.getFieldValue('email')}</p>
                 </div>
-                
+
                 <Form.Item
                   name="agreement"
                   valuePropName="checked"
-                  rules={[{ required: true, message: '请阅读并同意参赛协议' }]}
+                  rules={[{ required: true, message: '请阅读并同意选手报名承诺书' }]}
                 >
                   <Checkbox>
                     我已阅读并同意
                     <Button type="link" className="p-0" onClick={() => setAgreementVisible(true)}>
-                      《参赛协议》
+                      《选手报名承诺书》
                     </Button>
                   </Checkbox>
                 </Form.Item>
@@ -347,9 +343,9 @@ const RegisterPage: React.FC = () => {
                       下一步
                     </Button>
                   ) : (
-                    <Button 
-                      type="primary" 
-                      size="large" 
+                    <Button
+                      type="primary"
+                      size="large"
                       htmlType="submit"
                       loading={isSubmitting}
                       className="px-8"
@@ -364,27 +360,10 @@ const RegisterPage: React.FC = () => {
         </motion.div>
 
         {/* 协议弹窗 */}
-        <Modal
-          title="参赛协议"
-          open={agreementVisible}
-          onCancel={() => setAgreementVisible(false)}
-          footer={[
-            <Button key="close" onClick={() => setAgreementVisible(false)}>
-              关闭
-            </Button>
-          ]}
-          width={800}
-        >
-          <div className="max-h-96 overflow-y-auto text-sm leading-relaxed">
-            <p className="font-semibold mb-4">参赛承诺书</p>
-            <p>1. 我们承诺本次参赛作品均为原创作品，不存在任何形式的知识产权纠纷。</p>
-            <p>2. 我们同意将参赛作品的相关信息提供给大赛组委会及相关机构进行评审。</p>
-            <p>3. 如作品获奖，我们同意大赛主办方在相关宣传活动中使用作品信息。</p>
-            <p>4. 我们保证所提供的个人信息真实有效，并愿意承担因信息不实导致的一切后果。</p>
-            <p>5. 我们理解并遵守大赛的相关规定，服从评审结果。</p>
-            <p>6. 本次参赛为公益性赛事，不收取任何报名费用。</p>
-          </div>
-        </Modal>
+        <RegisterModal
+          agreementVisible={agreementVisible}
+          setAgreementVisible={setAgreementVisible}
+        />
       </div>
     </div>
   );
