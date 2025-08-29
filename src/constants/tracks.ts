@@ -110,7 +110,7 @@ export const ExpertList = [
   {
     id: 2,
     name: '千哲',
-    track: '专家委员会主任',
+    track: '文创产品开发赛道',
     image: trackImages.qianzhe
   },
   {
