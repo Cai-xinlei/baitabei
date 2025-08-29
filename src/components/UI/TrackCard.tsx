@@ -4,7 +4,7 @@ import { TrophyOutlined, UserOutlined, CalendarOutlined } from '@ant-design/icon
 import { motion } from 'framer-motion';
 import { Track } from '../../types';
 import { Link } from 'react-router-dom';
-
+import './index.css';
 interface TrackCardProps {
   track: Track;
   featured?: boolean;
@@ -65,9 +65,9 @@ const TrackCard: React.FC<TrackCardProps> = ({ track, featured = false }) => {
         }
       >
         <div>
-          <p className="text-gray-600 mb-4 text-sm leading-relaxed">
+          <div className="detailDescription" >
             {track.detailDescription}
-          </p>
+          </div>
 
           {/* <div className="grid grid-cols-2 gap-4 mb-4">
             <div className="flex items-center space-x-2 text-sm text-gray-500">
