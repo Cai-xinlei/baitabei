@@ -141,18 +141,19 @@ const RegisterPage: React.FC = () => {
                   >
                     {TRACKS.filter(track => track.status === 'open').map(track => (
                       <Option key={track.id} value={track.id}>
-                        <div className="py-2">
+                        {/* <div className="py-2">
                           <div className="font-semibold">{track.name}</div>
                           <div className="text-sm text-gray-500">{track.description}</div>
                           <div className="text-xs text-gray-400 mt-1">
                             已报名: {track.participantCount}人 | 截止: {new Date(track.deadline).toLocaleDateString()}
                           </div>
-                        </div>
+                        </div> */}
+                        {track.name}
                       </Option>
                     ))}
                   </Select>
                 </Form.Item>
-
+                {/* 
                 {selectedTrack && (
                   <Alert
                     message={`已选择: ${selectedTrack.name}`}
@@ -162,7 +163,7 @@ const RegisterPage: React.FC = () => {
                     className="mt-4"
                     style={{ marginBottom: 16 }}
                   />
-                )}
+                )} */}
                 <Form.Item
                   name="reportType"
                   label="文创产品开发赛道征集报名表"

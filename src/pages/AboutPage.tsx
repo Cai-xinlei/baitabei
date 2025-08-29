@@ -2,7 +2,7 @@ import React from 'react';
 import { Typography, Card, Row, Col, Timeline, Statistic, Divider, Avatar } from 'antd';
 import { TrophyOutlined, TeamOutlined, BankOutlined, StarOutlined } from '@ant-design/icons';
 import { motion } from 'framer-motion';
-import { TIMELINE, EXPERTS } from '../constants';
+import { TIMELINE, EXPERTS, ExpertList } from '../constants';
 import trackImages from '../constants/imagesCover'
 const { Title, Paragraph } = Typography;
 
@@ -157,7 +157,7 @@ const AboutPage: React.FC = () => {
       </section>
 
       {/* 组织架构 */}
-      <section className="py-16 bg-white">
+      {/* <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-12">
             <Title level={2} className="mb-4">
@@ -222,7 +222,7 @@ const AboutPage: React.FC = () => {
             </Col>
           </Row>
         </div>
-      </section>
+      </section> */}
 
       {/* 专家团队 */}
       <section className="py-16 bg-gray-50">
@@ -237,7 +237,7 @@ const AboutPage: React.FC = () => {
           </div>
 
           <Row gutter={[32, 32]} justify="center">
-            {EXPERTS.map((expert, index) => (
+            {ExpertList.map((expert, index) => (
               <Col xs={24} sm={12} md={8} key={expert.id}>
                 <motion.div
                   initial={{ opacity: 0, y: 30 }}
@@ -247,20 +247,20 @@ const AboutPage: React.FC = () => {
                   <Card className="text-center h-full shadow-lg border-0 hover:shadow-xl transition-shadow duration-300">
                     <Avatar
                       size={100}
-                      src={expert.avatar}
+                      src={expert.image}
                       className="mx-auto mb-4"
                     />
                     <Title level={4} className="mb-2">{expert.name}</Title>
                     {/* <p className="text-gray-600 mb-2">{expert.title}</p>
                     <p className="text-sm text-gray-500 mb-4">{expert.organization}</p> */}
-                    <div className="mb-4">
+                    {/* <div className="mb-4">
                       {expert.expertise.map((skill, idx) => (
                         <span key={idx} className="inline-block bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full mr-2 mb-2">
                           {skill}
                         </span>
                       ))}
-                    </div>
-                    <p className="text-sm text-gray-700 leading-relaxed">{expert.bio}</p>
+                    </div> */}
+                    <p className="text-sm text-gray-700 leading-relaxed">{expert.track}</p>
                   </Card>
                 </motion.div>
               </Col>

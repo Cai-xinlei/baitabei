@@ -331,6 +331,7 @@ const App = ({ form }) => {
                                     type="dashed"
                                     onClick={() => add()}
                                     block
+                                    disabled={fields.length >= 8}
                                     icon={<PlusOutlined />}
                                 >
                                     添加成员
