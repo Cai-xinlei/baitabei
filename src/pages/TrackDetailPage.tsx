@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { Typography, Button, Card, Row, Col, Tag, Timeline, Divider, Alert } from 'antd';
 import { ArrowLeftOutlined, TrophyOutlined, UserOutlined, CalendarOutlined, CheckCircleOutlined } from '@ant-design/icons';
@@ -28,6 +28,31 @@ const TrackDetailPage: React.FC = () => {
 
   const progressPercentage = track.maxParticipants ?
     Math.round((track.participantCount / track.maxParticipants) * 100) : 0;
+
+  const renderOrganization = (organize) => {
+    if (organize?.length) {
+      return organize?.map((v, index) => (
+        <Paragraph key={index} className="text-gray-700 leading-relaxed text-base">
+          {v}
+        </Paragraph>
+      ))
+    }
+
+  }
+
+  const renderContent = (list) => {
+    if (list.length) {
+      return list?.map((item, index) => (
+        <Fragment key={item.id}>
+          <Title level={5} className="mb-5" >
+            {item.title}
+          </Title>
+          {renderOrganization(item.content)}
+        </Fragment>
+      ))
+    }
+
+  }
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -59,10 +84,10 @@ const TrackDetailPage: React.FC = () => {
             <Title level={1} className="text-white text-4xl font-bold mb-4">
               {track.name}
             </Title>
-            <Paragraph className="text-white text-lg mb-6 opacity-90">
+            {/* <Paragraph className="text-white text-lg mb-6 opacity-90">
               {track.description}
-            </Paragraph>
-            <div className="flex flex-wrap justify-center gap-4 mb-8">
+            </Paragraph> */}
+            {/* <div className="flex flex-wrap justify-center gap-4 mb-8">
               <div className="bg-white/20 backdrop-blur-sm px-4 py-2 rounded-lg">
                 <UserOutlined className="mr-2" />
                 已报名：{track.participantCount}人
@@ -75,14 +100,14 @@ const TrackDetailPage: React.FC = () => {
                 <TrophyOutlined className="mr-2" />
                 奖项：{track.awards.length}个
               </div>
-            </div>
-            {track.status === 'open' && (
+            </div> */}
+            {/* {track.status === 'open' && (
               <Link to={`/baitabei/register?track=${track.id}`}>
                 <Button type="primary" size="large" className="bg-yellow-500 border-yellow-500 hover:bg-yellow-600 px-8">
                   立即报名此赛道
                 </Button>
               </Link>
-            )}
+            )} */}
           </motion.div>
         </div>
       </section>
@@ -99,58 +124,30 @@ const TrackDetailPage: React.FC = () => {
                 transition={{ duration: 0.6 }}
               >
                 <Card className="mb-8 shadow-lg border-0">
-                  <Title level={3} className="mb-4">
+                  <Title level={3} className="mb-4" >
                     赛道介绍
                   </Title>
                   <Paragraph className="text-gray-700 leading-relaxed text-base">
                     {track.detailDescription}
                   </Paragraph>
-                </Card>
-
-                <Card className="mb-8 shadow-lg border-0">
-                  <Title level={3} className="mb-4">
+                  <Title level={3} className="mb-4" >
+                    组织架构
+                  </Title>
+                  {renderOrganization(track.organization)}
+                  <Title level={3} className="mb-4" >
+                    征集内容
+                  </Title>
+                  {renderContent(track.collectionContent)}
+                  <Title level={3} className="mb-4" >
                     参赛要求
                   </Title>
-                  <Timeline
-                    items={track.requirements.map((requirement, index) => ({
-                      dot: <CheckCircleOutlined className="text-green-500" />,
-                      children: (
-                        <div className="text-gray-700">
-                          {requirement}
-                        </div>
-                      )
-                    }))}
-                  />
-                </Card>
-
-                <Card className="shadow-lg border-0">
-                  <Title level={3} className="mb-4">
-                    奖项设置
+                  {renderContent(track.requirements)}
+                  <Title level={3} className="mb-4" >
+                    联系方式
                   </Title>
-                  <Row gutter={[16, 16]}>
-                    {track.awards.map((award, index) => (
-                      <Col xs={24} sm={12} md={8} key={index}>
-                        <div className="bg-gradient-to-r from-yellow-50 to-yellow-100 p-4 rounded-lg border border-yellow-200">
-                          <TrophyOutlined className="text-yellow-600 text-xl mb-2" />
-                          <div className="font-semibold text-gray-800">{award}</div>
-                        </div>
-                      </Col>
-                    ))}
-                  </Row>
-
-                  <Divider />
-
-                  <div className="bg-blue-50 p-4 rounded-lg">
-                    <Title level={5} className="text-blue-800 mb-2">
-                      获奖福利
-                    </Title>
-                    <ul className="text-blue-700 space-y-1 mb-0">
-                      <li>办公场地租金折扣</li>
-                      <li>媒体宣传机会</li>
-                      <li>优先对接政府采购项目</li>
-                      <li>参加企业特色交流活动优先权</li>
-                    </ul>
-                  </div>
+                  <Paragraph className="text-gray-700 leading-relaxed text-base">
+                    {track.zixun}
+                  </Paragraph>
                 </Card>
               </motion.div>
             </Col>
@@ -163,59 +160,6 @@ const TrackDetailPage: React.FC = () => {
                 transition={{ duration: 0.6 }}
                 className="sticky top-24"
               >
-                {/* 报名状态 */}
-                <Card className="mb-6 shadow-lg border-0">
-                  <Title level={4} className="mb-4">
-                    报名状态
-                  </Title>
-
-                  <div className="space-y-4">
-                    <div className="flex justify-between items-center">
-                      <span className="text-gray-600">当前状态</span>
-                      <Tag color={track.status === 'open' ? 'green' : track.status === 'full' ? 'orange' : 'red'}>
-                        {track.status === 'open' ? '报名开放' :
-                          track.status === 'full' ? '报名已满' : '报名关闭'}
-                      </Tag>
-                    </div>
-
-                    <div className="flex justify-between items-center">
-                      <span className="text-gray-600">已报名人数</span>
-                      <span className="font-semibold">{track.participantCount}人</span>
-                    </div>
-
-                    {track.maxParticipants && (
-                      <div className="flex justify-between items-center">
-                        <span className="text-gray-600">容量上限</span>
-                        <span className="font-semibold">{track.maxParticipants}人</span>
-                      </div>
-                    )}
-
-                    <div className="flex justify-between items-center">
-                      <span className="text-gray-600">报名截止</span>
-                      <span className="font-semibold">
-                        {new Date(track.deadline).toLocaleDateString()}
-                      </span>
-                    </div>
-                  </div>
-
-                  {track.maxParticipants && (
-                    <div className="mt-4">
-                      <div className="flex justify-between items-center mb-2">
-                        <span className="text-sm text-gray-500">报名进度</span>
-                        <span className="text-sm font-medium">{progressPercentage}%</span>
-                      </div>
-                      <div className="w-full bg-gray-200 rounded-full h-2">
-                        <div
-                          className={`h-2 rounded-full transition-all duration-300 ${progressPercentage > 80 ? 'bg-red-500' :
-                            progressPercentage > 50 ? 'bg-yellow-500' : 'bg-green-500'
-                            }`}
-                          style={{ width: `${progressPercentage}%` }}
-                        />
-                      </div>
-                    </div>
-                  )}
-                </Card>
-
                 {/* 重要提醒 */}
                 <Card className="mb-6 shadow-lg border-0">
                   <Title level={4} className="mb-4">
@@ -228,14 +172,6 @@ const TrackDetailPage: React.FC = () => {
                     type="warning"
                     showIcon
                     className="mb-4"
-                  />
-
-                  <Alert
-                    message="竞争激烈度"
-                    description={progressPercentage > 80 ? '竞争激烈，建议尽快报名' :
-                      progressPercentage > 50 ? '竞争中等，还有机会' : '竞争相对宽松'}
-                    type={progressPercentage > 80 ? 'error' : progressPercentage > 50 ? 'warning' : 'success'}
-                    showIcon
                   />
                 </Card>
 

@@ -17,9 +17,12 @@ export interface Track {
   name: string;
   description: string;
   detailDescription: string;
+  collectionContent: any;
+  organization: string[],
+  zixun: string,
   image: string;
   icon: string;
-  requirements: string[];
+  requirements: any[];
   awards: string[];
   deadline: string;
   participantCount: number;
