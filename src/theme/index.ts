@@ -4,7 +4,7 @@ import { ThemeConfig } from 'antd';
 export const baitabeiTheme: ThemeConfig = {
   token: {
     // 主色调：中国红
-    colorPrimary: '#C41E3A',
+    colorPrimary: '#0070D2',
     // 辅助色：墨绿
     colorSuccess: '#2F5233',
     // 强调色：金色
@@ -30,7 +30,6 @@ export const baitabeiTheme: ThemeConfig = {
   },
   components: {
     Button: {
-      primaryShadow: '0 2px 0 rgba(196, 30, 58, 0.1)',
       borderRadius: 8,
     },
     Card: {

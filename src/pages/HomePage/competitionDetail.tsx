@@ -69,7 +69,7 @@ const RaceDetail: React.FC = () => {
             {/* 按钮区域 */}
             <div className="card-actions">
                 <a href="#" className="btn btn-outline">返回列表</a>
-                <Link to="/baitabei/register" className="btn btn-primary">立即报名</Link>
+                <Link to="/baitabei/register">立即报名</Link>
             </div>
         </div>
     );

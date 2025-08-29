@@ -166,7 +166,7 @@ const LoginPage: React.FC = () => {
                       loading={loginLoading}
                       size="large"
                       block
-                      className="bg-red-600 border-red-600 hover:bg-red-700"
+
                     >
                       登录
                     </Button>
@@ -297,7 +297,7 @@ const LoginPage: React.FC = () => {
                       loading={registerLoading}
                       size="large"
                       block
-                      className="bg-red-600 border-red-600 hover:bg-red-700"
+
                     >
                       注册
                     </Button>

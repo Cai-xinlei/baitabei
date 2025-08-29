@@ -131,7 +131,7 @@ const AppLayout: React.FC<AppLayoutProps> = ({ children }) => {
                     </Button>
                   </Link>
                   <Link to="/baitabei/register">
-                    <Button type="primary" className="bg-red-600 border-red-600 hover:bg-red-700">
+                    <Button type="primary">
                       报名参赛
                     </Button>
                   </Link>

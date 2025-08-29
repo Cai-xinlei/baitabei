@@ -168,12 +168,12 @@ const HomePage: React.FC = () => {
               </Paragraph> */}
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link to="/baitabei/register">
-                  <Button type="primary" size="large" className="bg-yellow-500 border-yellow-500 hover:bg-yellow-600 text-lg px-8 py-3 h-auto">
+                  <Button type="primary" size="large">
                     立即报名参赛
                   </Button>
                 </Link>
                 <Link to="/baitabei/tracks">
-                  <Button size="large" className="border-white hover:bg-white hover:text-red-600 text-lg px-8 py-3 h-auto">
+                  <Button size="large">
                     了解赛道
                   </Button>
                 </Link>

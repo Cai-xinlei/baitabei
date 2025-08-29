@@ -198,7 +198,7 @@ const TrackDetailPage: React.FC = () => {
                       立即报名参加{track.name}，展示您的创意才华！
                     </Paragraph>
                     <Link to={`/baitabei/register?track=${track.id}`}>
-                      <Button type="primary" size="large" block className="h-12 text-lg">
+                      <Button type="primary" size="large" block>
                         立即报名
                       </Button>
                     </Link>

@@ -18,7 +18,7 @@
     }
 
     .title-dash {
-        color: #D91E18;
+        color: #0070dc;
     }
 
     /* 内容布局 */
@@ -108,12 +108,12 @@
     }
 
     .news-header {
-        border-bottom: 2px solid #D91E18;
+        border-bottom: 2px solid #0070dc;
         margin-bottom: 16px;
     }
 
     .news-header .ant-typography {
-        color: #D91E18;
+        color: #0070dc;
         font-weight: 700;
         padding-bottom: 8px;
         margin-bottom: 0;
@@ -172,12 +172,12 @@
     }
 
     .news-title.highlight {
-        color: #D91E18;
+        color: #0070dc;
         font-weight: 500;
     }
 
     .news-title:hover {
-        color: #D91E18;
+        color: #0070dc;
     }
 
     .news-date {
@@ -210,7 +210,7 @@
 
     /* 滚动条滑块（红色主题） */
     .news-list-container::-webkit-scrollbar-thumb {
-        background: #D91E18;
+        background: #0070dc;
         /* 红色滑块 */
         border-radius: 2px;
         /* 滑块圆角从3px调整为2px */
@@ -233,7 +233,7 @@
         .news-list-container {
             scrollbar-width: thin;
             /* 细滚动条 */
-            scrollbar-color: #D91E18 #f5f5f5;
+            scrollbar-color: #0070dc #f5f5f5;
             /* 滑块颜色(红色) 轨道颜色 */
         }
 

@@ -267,7 +267,7 @@ const NewsDetailPage: React.FC = () => {
                     抓住机会，展示您的创意才华！
                   </Paragraph>
                   <Link to="/baitabei/register">
-                    <Button type="primary" size="large" block className="bg-red-600 border-red-600 hover:bg-red-700">
+                    <Button type="primary" size="large" block >
                       立即报名
                     </Button>
                   </Link>
