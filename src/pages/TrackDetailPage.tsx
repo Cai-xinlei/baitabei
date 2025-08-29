@@ -81,7 +81,7 @@ const TrackDetailPage: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <Title level={1} className="text-white text-4xl font-bold mb-4">
+            <Title level={1} style={{ color: '#fff' }} className="text-white text-4xl font-bold mb-4">
               {track.name}
             </Title>
             {/* <Paragraph className="text-white text-lg mb-6 opacity-90">
@@ -142,12 +142,12 @@ const TrackDetailPage: React.FC = () => {
                     参赛要求
                   </Title>
                   {renderContent(track.requirements)}
-                  <Title level={3} className="mb-4" >
-                    联系方式
+                  {/* <Title level={3} className="mb-4" >
+                    赛道咨询
                   </Title>
                   <Paragraph className="text-gray-700 leading-relaxed text-base">
                     {track.zixun}
-                  </Paragraph>
+                  </Paragraph> */}
                 </Card>
               </motion.div>
             </Col>
@@ -165,7 +165,6 @@ const TrackDetailPage: React.FC = () => {
                   <Title level={4} className="mb-4">
                     重要提醒
                   </Title>
-
                   <Alert
                     message="报名截止时间"
                     description={`距离报名截止还有 ${Math.ceil((new Date(track.deadline).getTime() - new Date().getTime()) / (1000 * 60 * 60 * 24))} 天`}
@@ -173,6 +172,20 @@ const TrackDetailPage: React.FC = () => {
                     showIcon
                     className="mb-4"
                   />
+                </Card>
+                {/* 重要提醒 */}
+                <Card className="mb-6 shadow-lg border-0">
+                  <Title level={4} className="mb-4">
+                    赛道咨询
+                  </Title>
+                  <Alert
+                    message="赛道咨询"
+                    description={track.zixun}
+                    type='info'
+                    showIcon
+                    className="mb-4"
+                  />
+
                 </Card>
 
                 {/* 立即报名 */}

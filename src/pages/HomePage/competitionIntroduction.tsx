@@ -8,7 +8,7 @@ const { Paragraph } = Typography;
 // 大赛综合介绍页面组件 - 高还原度版本
 const CompetitionIntroductionPage = () => {
     return (
-        <div className="competition-container" style={{ background: `url(${trackImages.nbgImg}) left top repeat-x` }} >
+        <div className="competition-container" >
             <div className="competition-intro-page">
                 {/* 大赛介绍部分 */}
                 <div className="intro-section">

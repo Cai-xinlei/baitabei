@@ -27,43 +27,15 @@ const HomePage: React.FC = () => {
       <div className="min-h-screen">
         {/* 主横幅区域 */}
         <section
-          className="relative h-[600px] flex items-center justify-center overflow-hidden"
-          style={{
-            backgroundImage: `url(${trackImages.homebg})`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center'
-          }}
+        // className="relative flex items-center justify-center overflow-hidden"
+        // style={{
+        //   backgroundImage: `url(${trackImages.homebg})`,
+        //   backgroundSize: 'cover',
+        //   width: '100%',
+        //   height: '600px'
+        // }}
         >
-          <div className="absolute inset-0 bg-gradient-to-r from-red-900/50 to-green-900/30" />
-          <div className="relative z-10 text-center text-white max-w-4xl mx-auto px-4">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-            >
-              {/* <Title level={1} className="text-white text-4xl md:text-6xl font-bold mb-4">
-                2025年第四届"白塔杯"
-              </Title>
-              <Title level={2} className="text-white text-2xl md:text-3xl font-medium mb-6">
-                文化创意大赛
-              </Title>
-              <Paragraph className="text-white text-lg md:text-xl mb-8 opacity-90">
-                文化引领·创意西城 | 聚焦"数字文化创新"与"消费新场景重构"
-              </Paragraph> */}
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                {/* <Link to="/baitabei/register">
-                  <Button type="primary" size="large" className="bg-yellow-500 border-yellow-500 hover:bg-yellow-600 text-lg px-8 py-3 h-auto">
-                    立即报名
-                  </Button>
-                </Link> */}
-                {/* <Link to="/baitabei/tracks">
-                  <Button size="large" className="border-white hover:bg-white hover:text-red-600 text-lg px-8 py-3 h-auto">
-                    了解赛道
-                  </Button>
-                </Link> */}
-              </div>
-            </motion.div>
-          </div>
+          <img src={trackImages.homebg} />
         </section>
         {/* 一、大赛介绍 */}
         <CompetitionIntroductionPage />
@@ -143,7 +115,7 @@ const HomePage: React.FC = () => {
         </section> */}
 
         {/* 六、赛道设置 */}
-        <section className="py-16 bg-gray-50">
+        <section className="py-16 bg-gray-50" style={{ background: "#fff" }}>
           <div className="max-w-7xl mx-auto px-4">
             <TitleWithLines text={'五大赛道'} />
 
@@ -180,7 +152,7 @@ const HomePage: React.FC = () => {
         <ComperationPartners />
         {/* CTA区域 */}
 
-        <section className="py-12 bg-gradient-to-r">
+        <section className="py-12 bg-gradient-to-r" style={{ background: "#fff" }}>
           <div className="max-w-4xl mx-auto text-center px-1">
             <motion.div
               initial={{ opacity: 0, y: 30 }}

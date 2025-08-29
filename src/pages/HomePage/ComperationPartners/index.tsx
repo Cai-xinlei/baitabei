@@ -32,7 +32,7 @@ const CooperationPartners: React.FC = () => {
     ];
 
     return (
-        <div className="coperation-page">
+        <section className="coperation-page" style={{ background: "#fff" }}>
             <div className="coperation-container">
                 <TitleWithLines text={'大赛支持单位'} />
                 {/* 合作单位列表 */}
@@ -48,7 +48,7 @@ const CooperationPartners: React.FC = () => {
                     ))}
                 </div>
             </div>
-        </div>
+        </section>
     );
 };
 

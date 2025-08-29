@@ -153,7 +153,7 @@ const App = ({ form }) => {
                         </Form.Item>
 
                         <Form.Item
-                            label="单位负责人联系电话"
+                            label="负责人联系电话"
                             name="phone"
                             rules={[
                                 { required: true, message: '请输入联系电话!' },
@@ -273,7 +273,7 @@ const App = ({ form }) => {
                                                 {...restField}
                                                 label="职务"
                                                 name={[name, 'position']}
-                                                rules={[{ required: true, message: '请输入职务' }]}
+                                                rules={[{ message: '请输入职务' }]}
                                             >
                                                 <Input placeholder="请输入职务" />
                                             </Form.Item>

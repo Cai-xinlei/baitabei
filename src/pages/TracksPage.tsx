@@ -34,7 +34,7 @@ const TracksPage: React.FC = () => {
       </section>
 
       {/* 统计数据 */}
-      <section className="py-12 bg-white">
+      {/* <section className="py-12 bg-white">
         <div className="max-w-7xl mx-auto px-4">
           <Row gutter={[32, 32]}>
             <Col xs={24} sm={8}>
@@ -90,7 +90,7 @@ const TracksPage: React.FC = () => {
             </Col>
           </Row>
         </div>
-      </section>
+      </section> */}
 
       {/* 赛道列表 */}
       <section className="py-16">
@@ -104,7 +104,7 @@ const TracksPage: React.FC = () => {
             </Paragraph>
           </div>
 
-          <Row gutter={[24, 24]}>
+          <Row gutter={[24, 24]} style={{ marginTop: 50, justifyContent: 'center', display: 'flex' }}>
             {TRACKS.map((track, index) => (
               <Col xs={24} md={12} lg={8} key={track.id}>
                 <motion.div

@@ -10,21 +10,21 @@ export const baitabeiTheme: ThemeConfig = {
     // 强调色：金色
     colorWarning: '#FFD700',
     colorError: '#FF4D4F',
-    
+
     // 布局配置
     borderRadius: 8,
     wireframe: false,
-    
+
     // 字体配置
     fontSize: 14,
     fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"',
-    
+
     // 颜色配置
     colorBgContainer: '#ffffff',
     colorBgLayout: '#f5f5f5',
     colorText: '#333333',
     colorTextSecondary: '#666666',
-    
+
     // 阴影配置
     boxShadow: '0 1px 2px 0 rgba(0, 0, 0, 0.03), 0 1px 6px -1px rgba(0, 0, 0, 0.02), 0 2px 4px 0 rgba(0, 0, 0, 0.02)',
   },

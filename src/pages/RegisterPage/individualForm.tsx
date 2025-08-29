@@ -181,9 +181,9 @@ const IndividualForm = ({ form }) => {
                         <Form.Item
                             label="所学专业"
                             name="major"
-                            rules={[{ required: true, message: '请输入所学专业!' }]}
+                            rules={[{ message: '请输入所学专业!' }]}
                         >
-                            <Input placeholder="请输入所学专业" />
+                            <Input placeholder="学生请输入所学专业" />
                         </Form.Item>
                     </Col>
 
@@ -191,7 +191,7 @@ const IndividualForm = ({ form }) => {
                         <Form.Item
                             label="学历"
                             name="education"
-                            rules={[{ required: true, message: '请选择学历!' }]}
+                            rules={[{ message: '请选择学历!' }]}
                         >
                             <Select placeholder="请选择学历">
                                 {educationOptions.map((education) => (
@@ -244,6 +244,24 @@ const IndividualForm = ({ form }) => {
                         />
                     </Form.Item>
                 )}
+                {/* 作品简介 */}
+                <Divider orientation="left">作品介绍</Divider>
+
+                <Form.Item
+                    label="作品简介"
+                    name="workDescription"
+                    rules={[
+                        { required: true, message: '请输入作品简介!' },
+                        { max: 500, message: '作品简介不能超过500字' }
+                    ]}
+                >
+                    <Input.TextArea
+                        rows={6}
+                        placeholder="填写创作思路，不超过200字。"
+                        showCount
+                        maxLength={200}
+                    />
+                </Form.Item>
 
                 {/* 视频上传 */}
                 <Divider orientation="left">作品视频上传</Divider>

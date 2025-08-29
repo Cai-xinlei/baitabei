@@ -3,6 +3,8 @@
     /* background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); */
     padding: 40px 20px;
     box-sizing: border-box;
+    background-color: #fff;
+
 }
 
 .content-wrapper {
@@ -117,7 +119,7 @@
 
         .image-container {
             .text-overlay {
-                padding: 10px 8px;
+                padding: 10px 0px 16px 10px;
 
                 .person-name {
                     font-size: 14px;
