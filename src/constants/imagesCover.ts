@@ -19,6 +19,8 @@ import saidaotwo from '@/assets/images/saidaotwo.jpg';
 import saidaothree from '@/assets/images/saidaothree.jpg';
 import saidaofour from '@/assets/images/saidaofour.jpg';
 import saidaofive from '@/assets/images/saidaofive.jpg';
+import homebg from '@/assets/images/homebg.jpg';
+import zixun from '@/assets/images/zixun.jpg';
 
 
 
@@ -44,7 +46,9 @@ export const trackImages = {
     saidaotwo,
     saidaothree,
     saidaofour,
-    saidaofive
+    saidaofive,
+    homebg,
+    zixun
 };
 
 export default trackImages;

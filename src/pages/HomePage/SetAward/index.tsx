@@ -42,7 +42,7 @@ const CompetitionSchedule = () => {
     return (
         <div className="setAward-schedule">
             <TitleWithLines text={'奖项设置'} />
-            <div className='setAward-introduce' style={{ margin: '40px auto' }}>
+            <div className='setAward-introduce' style={{ margin: '10px auto' }}>
                 综合评选出一、二、三等奖和单项奖，各赛道设置优秀奖
             </div>
             <Flex wrap gap="middle" justify="center" style={{ marginBottom: 24 }} >
@@ -54,8 +54,8 @@ const CompetitionSchedule = () => {
                     />
                 ))}
             </Flex>
-            <div className='setAward-introduce'>
-                大赛奖励服务包，对于赛中涌现出的具有典型性、示范性的优秀项目给予落地转化赋能。
+            <div style={{ color: '#333' }}>
+                设置大赛奖励服务包，对于赛中涌现出的具有典型性、示范性的优秀项目提供全方位落地转化支持与赋能。服务包主要包括政策咨询与申报支持、优质空间资源对接与入驻支持、成果展览展示、投融资对接服务、全媒体传播推广、上市辅导及资本市场对接、产业链渠道合作等，助力优秀项目实现从创意到产业化的高效转化与可持续发展。
             </div>
             <div className='setAward-introduce'>
                 主要包括政策支持、空间赋能、展览展示、融资对接、传播推广、上市辅导、渠道合作等内容

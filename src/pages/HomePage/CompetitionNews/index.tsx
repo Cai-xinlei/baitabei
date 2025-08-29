@@ -3,7 +3,7 @@ import { Row, Col, Card, List, Typography, Space, Skeleton } from 'antd';
 import { CalendarOutlined } from '@ant-design/icons';
 import './index.css';
 import TitleWithLines from '@/components/TitleWithLines'
-
+import trackImages from '@/constants/imagesCover'
 // 类型定义 - 资讯项
 export interface NewsItem {
     id: number;
@@ -121,21 +121,11 @@ const CompetitionNewsModule: React.FC<CompetitionNewsModuleProps> = ({
             <Row gutter={[32, 0]} className="content-container" style={{ marginTop: 40 }}>
                 {/* 左侧海报区域 */}
                 <Col xs={24} lg={10} className="poster-column">
-                    {loading ? (
-                        <Skeleton.Avatar style={{ width: '100%', height: 480 }} active />
-                    ) : (
-                        <div className="poster-container">
-                            <div className="poster-gradient">
-                                <div className="poster-content">
-                                    <div className="poster-title">{mergedPosterConfig.title}</div>
-                                    <div className="poster-subtitle">{mergedPosterConfig.subtitle}</div>
-                                    <div className="poster-slogan">{mergedPosterConfig.slogan}</div>
-                                    <div className="poster-awards">{mergedPosterConfig.awards}</div>
-                                    <div className="poster-footer">{mergedPosterConfig.footer}</div>
-                                </div>
-                            </div>
-                        </div>
-                    )}
+                    <img
+                        src={trackImages.zixun}
+                        alt="北京白塔"
+                        className="w-full h-auto rounded-lg shadow-lg"
+                    />
                 </Col>
 
                 {/* 右侧资讯列表区域 */}

@@ -52,10 +52,8 @@
 }
 
 .setAward-introduce {
-    font-size: 24px;
     line-height: 32px;
-    height: 32px;
     color: #333;
     text-align: center;
-    margin-bottom: 24px;
+    margin-bottom: 12px;
 }

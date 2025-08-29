@@ -77,5 +77,7 @@ const OrganizationPage = () => {
 
                         <Divider type="vertical" className="vertical-divider" />
 
-                    </Col> {/* 右侧栏 */} <Col xs={24} lg={12} className="organization-column"> {organizationData[1].map((item, index) => (<div key={index} className="organization-item"> <Text strong className="item-title">{item.title}:</Text> <div className="item-content"> {Array.isArray(item.content) ? (item.content.map((text, i) => (<Paragraph key={i} className="content-text">{text}</Paragraph>))) : (<Paragraph className="content-text">{item.content}</Paragraph>)} </div> </div>))} </Col> </Row> </div> {/* 联系电话 */} <div className="contact-info"> <Text className="contact-text">{contactInfo}</Text> </div> </div>);
+                    </Col> {/* 右侧栏 */} <Col xs={24} lg={12} className="organization-column"> {organizationData[1].map((item, index) => (<div key={index} className="organization-item"> <Text strong className="item-title">{item.title}:</Text> <div className="item-content"> {Array.isArray(item.content) ? (item.content.map((text, i) => (<Paragraph key={i} className="content-text">{text}</Paragraph>))) : (<Paragraph className="content-text">{item.content}</Paragraph>)} </div> </div>))} </Col> </Row> </div> {/* 联系电话 */}
+            <div className="contact-info">
+                <Text className="contact-text">{contactInfo}</Text> </div> </div>);
 }; export default OrganizationPage;

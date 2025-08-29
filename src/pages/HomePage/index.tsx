@@ -29,7 +29,7 @@ const HomePage: React.FC = () => {
         <section
           className="relative h-[600px] flex items-center justify-center overflow-hidden"
           style={{
-            backgroundImage: `linear-gradient(rgba(196, 30, 58, 0.8), rgba(47, 82, 51, 0.6)), url(${trackImages.trackBusiness})`,
+            backgroundImage: `url(${trackImages.homebg})`,
             backgroundSize: 'cover',
             backgroundPosition: 'center'
           }}
@@ -147,7 +147,7 @@ const HomePage: React.FC = () => {
           <div className="max-w-7xl mx-auto px-4">
             <TitleWithLines text={'五大赛道'} />
 
-            <Row gutter={[24, 24]} style={{ marginTop: 50 }}>
+            <Row gutter={[24, 24]} style={{ marginTop: 50, justifyContent: 'center', display: 'flex' }}>
               {TRACKS.map((track, index) => (
                 <Col xs={24} md={12} lg={8} key={track.id}>
                   <motion.div
