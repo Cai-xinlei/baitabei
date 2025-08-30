@@ -44,11 +44,16 @@ const LoginPage: React.FC = () => {
       username,
       password
     }).then(res => {
-      message.success('登录成功！');
-      setLoginLoading(false);
-      window.location.href = '/baitabei/home'
-      // 重定向到原页面或首页
-      navigate(from, { replace: true });
+      if (res.code === 200) {
+
+        message.success('登录成功！');
+        setLoginLoading(false);
+        window.location.href = '/baitabei/home'
+        // 重定向到原页面或首页
+        navigate(from, { replace: true });
+      }
+    }).finally(() => {
+      setLoginLoading(false)
     })
     // try {
     //   // TODO: 连接后端登录API

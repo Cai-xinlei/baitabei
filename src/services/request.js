@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { Form, Input, Button, Card, Typography, Tabs, message, Checkbox } from 'antd';
 
 // 创建axios实例
 const service = axios.create({
@@ -50,21 +51,26 @@ service.interceptors.response.use(
             switch (response.status) {
                 case 401:
                     // token过期处理
+                    message.error('登录已过期，请重新登录');
                     return Promise.reject(new Error('登录已过期，请重新登录'));
                 case 403:
+                    message.error('拒绝访问');
                     return Promise.reject(new Error('拒绝访问'));
                 case 404:
+                    message.error('请求资源不存在');
                     return Promise.reject(new Error('请求资源不存在'));
                 case 500:
+                    message.error('服务器内部错误');
                     return Promise.reject(new Error('服务器内部错误'));
                 default:
-                    return Promise.reject(new Error('网络错误'));
+                    return message.error('网络错误');
             }
         } else {
             // 网络错误
             if (!window.navigator.onLine) {
                 return Promise.reject(new Error('网络已断开，请检查网络连接'));
             }
+            message.error('网络错误');
             return Promise.reject(new Error('网络错误'));
         }
     }
