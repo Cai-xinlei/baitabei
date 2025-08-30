@@ -55,28 +55,28 @@ const RegisterPage: React.FC = () => {
     try {
       const params = {
         projectDto: {
-          trackId: taskIdMap[formValues?.trackId], trackJson: JSON.stringify({
-            "trackId": "cultural_innovation",
-            "reportType": "individual",
-            "projectTitle": "作品名称",
-            "realName": "姓名",
-            "gender": "男",
-            "birthDate": "2025-05-29T16:00:00.000Z",
-            "phone": "17624939922",
-            "workUnit": "工作单位(学生填在读学校)",
-            "major": "所学专业",
-            "education": "高中/中专",
-            "idCard": "320382199901129283",
-            "useAI": "是",
-            "aiRemark": "备注(请注明所使用AI模型具体名称和使用程度)\n",
-            "workDescription": "作品简介",
-            "agreement": true
-          })
-          // trackId: formValues?.trackId, trackJson: JSON.stringify(formValues)
+          // trackId: taskIdMap[formValues?.trackId], trackJson: JSON.stringify({
+          //   "trackId": "cultural_innovation",
+          //   "reportType": "individual",
+          //   "projectTitle": "作品名称",
+          //   "realName": "姓名",
+          //   "gender": "男",
+          //   "birthDate": "2025-05-29T16:00:00.000Z",
+          //   "phone": "17624939922",
+          //   "workUnit": "工作单位(学生填在读学校)",
+          //   "major": "所学专业",
+          //   "education": "高中/中专",
+          //   "idCard": "320382199901129283",
+          //   "useAI": "是",
+          //   "aiRemark": "备注(请注明所使用AI模型具体名称和使用程度)\n",
+          //   "workDescription": "作品简介",
+          //   "agreement": true
+          // })
+          trackId: taskIdMap[formValues?.trackId], trackJson: JSON.stringify(formValues)
         },
         userPrincipal: userInfo,
       }
-      projectsSubmit(params, formValues.trackId).then(res => {
+      projectsSubmit(params).then(res => {
         if (res) {
           message.success('报名提交成功');
           setCurrentStep(2);
@@ -262,9 +262,9 @@ const RegisterPage: React.FC = () => {
                       <Button type="primary" size="large" onClick={handleNext}>
                         下一步
                       </Button>
-                      {/* <Button type="primary" size="large" onClick={handleSubmit}>
+                      <Button type="primary" size="large" onClick={handleSubmit}>
                         测试用的按钮
-                      </Button> */}
+                      </Button>
                     </>
                   ) : (
                     <Button

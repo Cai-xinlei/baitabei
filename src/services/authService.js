@@ -38,12 +38,13 @@ export const login = async (loginData) => {
         localStorage.setItem('token', accessToken);
         localStorage.setItem('refreshToken', refreshToken);
         localStorage.setItem('user', JSON.stringify({
-            userId: response?.userId,
+            id: response?.userId,
             username: response?.username,
             email: response?.email,
             expiresAt: response?.expiresAt,
             realName: response?.realName,
             avatar: response?.avatar,
+            userId: response?.userId,
         }));
         return response;
     } catch (error) {
@@ -120,26 +121,11 @@ export const checkAndRefreshToken = async () => {
 
 
 // 登录
-export const projectsSubmit = async (loginData, id = '') => {
+export const projectsSubmit = async (loginData) => {
     let url = ''
-    if (!id) return
-    url = `/api/projects/${id}/submit`
+    url = `/api/project/submit`
     try {
         const response = await request.post(url, loginData);
-
-        const { token, refreshToken, tokenType, id } = response;
-
-        // 存储token到localStorage
-        localStorage.setItem('token', token);
-        localStorage.setItem('refreshToken', refreshToken);
-        localStorage.setItem('tokenType', tokenType);
-        localStorage.setItem('user', JSON.stringify({
-            id,
-            username: response?.username,
-            email: response?.email,
-            loginTime: response?.expiresAt,
-            realName: response?.realName,
-        }));
         return response;
     } catch (error) {
         throw error;

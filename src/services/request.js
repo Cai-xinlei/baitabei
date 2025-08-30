@@ -1,10 +1,9 @@
-// src/utils/request.js
 import axios from 'axios';
 import { message } from 'antd';
 
 // 创建axios实例
 const service = axios.create({
-    // baseURL: 'http://39.106.56.69:8080', // 代理地址
+    baseURL: 'http://39.106.56.69:8080', // 代理地址
     timeout: 15000,
     withCredentials: true
 });
