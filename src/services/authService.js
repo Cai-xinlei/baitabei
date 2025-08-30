@@ -8,7 +8,7 @@ const refreshToken = async () => {
     }
 
     try {
-        const response = await request.post('/auth/refresh', {}, {
+        const response = await request.post('/api/auth/refresh', {}, {
             headers: {
                 Authorization: `Bearer ${refreshToken}`
             }
@@ -30,19 +30,20 @@ const refreshToken = async () => {
 // 登录
 export const login = async (loginData) => {
     try {
-        const response = await request.post('/auth/login', loginData);
+        const response = await request.post('/api/auth/login', loginData);
 
         console.log(response, '获取登陆信息');
-        const { accessToken, refreshToken, tokenType, id } = response;
+        const { accessToken, refreshToken } = response;
         // 存储token到localStorage
         localStorage.setItem('token', accessToken);
         localStorage.setItem('refreshToken', refreshToken);
         localStorage.setItem('user', JSON.stringify({
-            id,
+            userId: response?.userId,
             username: response?.username,
             email: response?.email,
-            loginTime: response?.expiresAt,
+            expiresAt: response?.expiresAt,
             realName: response?.realName,
+            avatar: response?.avatar,
         }));
         return response;
     } catch (error) {
@@ -53,7 +54,7 @@ export const login = async (loginData) => {
 // 注册
 export const register = async (registerData) => {
     try {
-        const response = await request.post('/auth/register', registerData);
+        const response = await request.post('/api/auth/register', registerData);
         return response;
     } catch (error) {
         throw error;
@@ -73,7 +74,7 @@ export const logout = async () => {
     try {
         const token = localStorage.getItem('token');
         if (token) {
-            await request.post('/auth/logout', {}, {
+            await request.post('/api/auth/logout', {}, {
                 headers: {
                     Authorization: `Bearer ${token}`
                 }
@@ -91,7 +92,7 @@ export const logout = async () => {
 // 获取用户信息
 export const getUserInfo = async () => {
     try {
-        const response = await request.get('/user/profile');
+        const response = await request.get('/api/user/profile');
         console.log(response, 'responseresponse');
         return response.userInfo;
     } catch (error) {
