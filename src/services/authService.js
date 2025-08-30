@@ -91,7 +91,8 @@ export const logout = async () => {
 // 获取用户信息
 export const getUserInfo = async () => {
     try {
-        const response = await request.get('/auth/profile');
+        const response = await request.get('/user/profile');
+        console.log(response, 'responseresponse');
         return response.userInfo;
     } catch (error) {
         throw error;

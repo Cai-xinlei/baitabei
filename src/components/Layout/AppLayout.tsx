@@ -6,7 +6,7 @@ import { motion } from 'framer-motion';
 import { NAVIGATION_MENU } from '../../constants';
 import NewFooter from '../../pages/HomePage/footer';
 import trackImages from '../../constants/imagesCover';
-import { login, register, logout, getUserInfo } from '@/services/authService';
+import { logout } from '@/services/authService';
 
 const { Header, Content, Footer } = Layout;
 const { useBreakpoint } = Grid;
@@ -25,10 +25,6 @@ const AppLayout: React.FC<AppLayoutProps> = ({ children }) => {
   useEffect(() => {
     // 检查用户登录状态
     const userData = localStorage.getItem('user');
-    // getUserInfo().then(res => {
-    //   console.log(res, '2332443324');
-
-    // })
     if (userData) {
       setUser(JSON.parse(userData));
     }
@@ -130,10 +126,10 @@ const AppLayout: React.FC<AppLayoutProps> = ({ children }) => {
                   <Space className="cursor-pointer hover:bg-gray-50 px-3 py-2 rounded-lg transition-colors">
                     <Avatar
                       size="small"
-                      src={user.avatar}
+                      src={user?.avatar}
                       icon={<UserOutlined />}
                     />
-                    <span className="text-gray-700">{user.realName || user.username}</span>
+                    <span className="text-gray-700">{user?.realName || user?.username}</span>
                   </Space>
                 </Dropdown>
               ) : (
@@ -160,7 +156,7 @@ const AppLayout: React.FC<AppLayoutProps> = ({ children }) => {
                 <Dropdown menu={{ items: userMenuItems }} placement="bottomLeft">
                   <Avatar
                     size="small"
-                    src={user.avatar}
+                    src={user?.avatar}
                     icon={<UserOutlined />}
                     className="cursor-pointer"
                   />

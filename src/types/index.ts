@@ -20,6 +20,7 @@ export interface Track {
   collectionContent: any;
   organization: string[],
   zixun: string,
+  tips: string,
   image: string;
   icon: string;
   requirements: any[];
