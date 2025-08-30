@@ -32,12 +32,11 @@ export const login = async (loginData) => {
     try {
         const response = await request.post('/auth/login', loginData);
 
-        const { token, refreshToken, tokenType, id } = response;
-
+        console.log(response, '获取登陆信息');
+        const { accessToken, refreshToken, tokenType, id } = response;
         // 存储token到localStorage
-        localStorage.setItem('token', token);
+        localStorage.setItem('token', accessToken);
         localStorage.setItem('refreshToken', refreshToken);
-        localStorage.setItem('tokenType', tokenType);
         localStorage.setItem('user', JSON.stringify({
             id,
             username: response?.username,
@@ -116,11 +115,41 @@ export const checkAndRefreshToken = async () => {
     }
 };
 
+
+
+// 登录
+export const projectsSubmit = async (loginData, id = '') => {
+    let url = ''
+    if (!id) return
+    url = `/projects/submit`
+    try {
+        const response = await request.post(url, loginData);
+
+        const { token, refreshToken, tokenType, id } = response;
+
+        // 存储token到localStorage
+        localStorage.setItem('token', token);
+        localStorage.setItem('refreshToken', refreshToken);
+        localStorage.setItem('tokenType', tokenType);
+        localStorage.setItem('user', JSON.stringify({
+            id,
+            username: response?.username,
+            email: response?.email,
+            loginTime: response?.expiresAt,
+            realName: response?.realName,
+        }));
+        return response;
+    } catch (error) {
+        throw error;
+    }
+};
+
 export default {
     login,
     register,
     logout,
     getUserInfo,
     refreshToken,
-    checkAndRefreshToken
+    checkAndRefreshToken,
+    projectsSubmit
 };

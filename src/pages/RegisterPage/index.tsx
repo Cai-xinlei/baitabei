@@ -4,7 +4,7 @@ import { Form, Input, Select, Button, Card, Steps, Row, Col, Typography, Alert, 
 import { CheckCircleOutlined, FileTextOutlined, UserOutlined } from '@ant-design/icons';
 import { motion } from 'framer-motion';
 import type { RadioChangeEvent } from 'antd';
-
+import { projectsSubmit } from '@/services/authService'
 import { TRACKS, PromiseBook } from '@/constants';
 import FileUpload from '@/components/UI/FileUpload';
 import RegisterModal from './registerModal';
@@ -48,17 +48,33 @@ const RegisterPage: React.FC = () => {
   // 提交表单
   const handleSubmit = async (values: any) => {
     console.log(form.getFieldsValue(true), '打印信息')
-    return
     setIsSubmitting(true);
     try {
       // 这里将来会连接到后端 API
       console.log('提交的表单数据:', values);
-
-      // 模拟提交延迟
-      await new Promise(resolve => setTimeout(resolve, 2000));
-
-      message.success('报名提交成功！请留意查收确认邮件。');
-      setCurrentStep(2);
+      // const params = form.getFieldsValue(true)
+      // const params = form.getFieldsValue(true)
+      const params = {
+        "trackId": "creative-design",
+        "reportType": "individual",
+        "projectTitle": "作品名称",
+        "realName": "姓名",
+        "gender": "男",
+        "birthDate": "2025-05-29T16:00:00.000Z",
+        "phone": "17624939922",
+        "workUnit": "工作单位(学生填在读学校)",
+        "major": "所学专业",
+        "education": "高中/中专",
+        "idCard": "320382199901129283",
+        "useAI": "是",
+        "aiRemark": "备注(请注明所使用AI模型具体名称和使用程度)\n",
+        "workDescription": "作品简介",
+        "agreement": true
+      }
+      projectsSubmit(params, params.trackId).then(res => {
+        message.success('报名提交成功！请留意查收确认邮件。');
+        setCurrentStep(2);
+      })
     } catch (error) {
       message.error('提交失败，请稍后重试。');
     } finally {
@@ -84,10 +100,12 @@ const RegisterPage: React.FC = () => {
         message.warning('请填写必要信息');
       });
     }
+    window.scrollTo(0, 0);
   };
 
   // 上一步
   const handlePrev = () => {
+    window.scrollTo(0, 0);
     setCurrentStep(currentStep - 1);
   };
   console.log(form.getFieldValue('reportType'), '222');
@@ -251,9 +269,14 @@ const RegisterPage: React.FC = () => {
                 </div>
                 <div>
                   {currentStep < 2 ? (
-                    <Button type="primary" size="large" onClick={handleNext}>
-                      下一步
-                    </Button>
+                    <>
+                      <Button type="primary" size="large" onClick={handleNext}>
+                        下一步
+                      </Button>
+                      <Button type="primary" size="large" onClick={handleSubmit}>
+                        测试用的按钮
+                      </Button>
+                    </>
                   ) : (
                     <Button
                       type="primary"

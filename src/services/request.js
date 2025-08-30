@@ -1,5 +1,6 @@
+// src/utils/request.js
 import axios from 'axios';
-import { Form, Input, Button, Card, Typography, Tabs, message, Checkbox } from 'antd';
+import { message } from 'antd';
 
 // 创建axios实例
 const service = axios.create({
@@ -14,6 +15,8 @@ service.interceptors.request.use(
         // 从localStorage中获取token
         const token = localStorage.getItem('token');
         if (token) {
+            // 确保headers对象存在
+            config.headers = config.headers || {};
             config.headers.Authorization = `Bearer ${token}`;
         }
         return config;
@@ -26,11 +29,12 @@ service.interceptors.request.use(
 // 响应拦截器
 service.interceptors.response.use(
     (response) => {
-        const { code, data, message } = response.data;
+        const { code, data, message: msg } = response.data;
 
         // 请求成功
         if (code === 200) {
             return data;
+
         }
 
         // token过期或无效
@@ -38,19 +42,30 @@ service.interceptors.response.use(
             // 清除本地存储的token
             localStorage.removeItem('token');
             localStorage.removeItem('refreshToken');
+            localStorage.removeItem('tokenType');
+            localStorage.removeItem('user');
             // 跳转到登录页或执行其他操作
             window.location.href = '/#/login';
+            return Promise.reject(new Error('登录已过期，请重新登录'));
         }
 
-        return Promise.reject(new Error(message || '请求失败'));
+        // 其他业务错误
+        const errorMsg = msg || '请求失败';
+        message.error(errorMsg);
+        return Promise.reject(new Error(errorMsg));
     },
-    async (error) => {
+    (error) => {
         const { response } = error;
 
         if (response) {
             switch (response.status) {
                 case 401:
                     // token过期处理
+                    localStorage.removeItem('token');
+                    localStorage.removeItem('refreshToken');
+                    localStorage.removeItem('tokenType');
+                    localStorage.removeItem('user');
+                    window.location.href = '/#/login';
                     message.error('登录已过期，请重新登录');
                     return Promise.reject(new Error('登录已过期，请重新登录'));
                 case 403:
@@ -63,11 +78,13 @@ service.interceptors.response.use(
                     message.error('服务器内部错误');
                     return Promise.reject(new Error('服务器内部错误'));
                 default:
-                    return message.error('网络错误');
+                    message.error(`请求错误: ${response.status}`);
+                    return Promise.reject(new Error(`请求错误: ${response.status}`));
             }
         } else {
             // 网络错误
             if (!window.navigator.onLine) {
+                message.error('网络已断开，请检查网络连接');
                 return Promise.reject(new Error('网络已断开，请检查网络连接'));
             }
             message.error('网络错误');

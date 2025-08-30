@@ -46,12 +46,14 @@ const LoginPage: React.FC = () => {
       username,
       password
     }).then(res => {
+      console.log(res, '222');
+
       if (res?.userId) {
         message.success('登录成功！');
         setLoginLoading(false);
         // 重定向到原页面或首页
-        navigate(from, { replace: true });
-        window.location.href = '/baitabei/home'
+        navigate('/baitabei/home');
+        // window.location.href = '/baitabei/home'
       }
     }).finally(() => {
       setLoginLoading(false)

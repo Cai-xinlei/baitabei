@@ -125,7 +125,7 @@ const AppLayout: React.FC<AppLayoutProps> = ({ children }) => {
               />
 
               {/* 用户状态 */}
-              {user ? (
+              {localStorage.getItem('user') ? (
                 <Dropdown menu={{ items: userMenuItems }} placement="bottomRight">
                   <Space className="cursor-pointer hover:bg-gray-50 px-3 py-2 rounded-lg transition-colors">
                     <Avatar

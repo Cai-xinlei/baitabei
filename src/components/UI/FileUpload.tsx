@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Upload, Button, message, Progress, Card } from 'antd';
 import { UploadOutlined, DeleteOutlined, FileOutlined } from '@ant-design/icons';
 import type { UploadFile, UploadProps } from 'antd';
+import axios from 'axios';
 
 interface FileUploadProps {
   maxCount?: number;
@@ -26,7 +27,8 @@ const FileUpload: React.FC<FileUploadProps> = ({
 }) => {
   const [fileList, setFileList] = useState<UploadFile[]>(value);
   const [uploading, setUploading] = useState(false);
-
+  const [progress, setProgress] = useState(0);
+  const [uploadSuccess, setUploadSuccess] = useState(false);
   // 文件上传前检查
   const beforeUpload = (file: File) => {
     // 检查文件大小
@@ -57,91 +59,70 @@ const FileUpload: React.FC<FileUploadProps> = ({
   };
 
   // 模拟上传到阿里云OSS
-  const customUpload = async (options: any) => {
-    const { file, onProgress, onSuccess, onError } = options;
+  // 自定义上传逻辑
+  const customUpload = async (options) => {
+    const { file, onSuccess, onError, onProgress } = options;
 
     try {
       setUploading(true);
-
-      // TODO: 这里集成真实的阿里云OSS上传
-      // 目前使用模拟上传
+      setUploadSuccess(false);
+      setProgress(0);
 
       // 创建 FormData 对象
       const formData = new FormData();
       formData.append('file', file);
-      // 添加可选参数
-      // 发送上传请求
-      const xhr = new XMLHttpRequest();
-      // 监听上传进度
-      xhr.upload.onprogress = (event) => {
-        if (event.lengthComputable) {
-          const percent = Math.round((event.loaded / event.total) * 100);
+
+      // 添加其他表单数据（示例）
+      formData.append('userId', '12345');
+      formData.append('category', 'documents');
+
+      // 设置上传配置
+      const config = {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+          // 添加 Authorization 头
+          'Authorization': `Bearer ${localStorage.getItem('accessToken') || 'your-token-here'}`
+        },
+        // 监听上传进度
+        onUploadProgress: (progressEvent) => {
+          const { loaded, total } = progressEvent;
+          const percent = Math.round((loaded / total) * 100);
+          setProgress(percent);
           onProgress({ percent });
-        }
+        },
+        withCredentials: true
       };
+
+      // 发送 POST 请求
+      const response = await axios.post(
+        'http://39.106.56.69:8080/api/auth/files/upload',
+        formData,
+        config
+      );
+
       // 处理响应
-      xhr.onload = () => {
-        if (xhr.status === 200) {
-          try {
-            const response = JSON.parse(xhr.responseText);
-            if (response.code === 200) {
-              onSuccess({
-                name: response.data.fileName,
-                url: response.data.fileUrl,
-                status: 'done',
-                fileId: response.data.fileId,
-                fileSize: response.data.fileSize,
-                fileType: response.data.fileType
-              });
-            } else {
-              onError(new Error(response.message || '上传失败'));
-            }
-          } catch (e) {
-            onError(new Error('响应解析失败'));
-          }
-        } else {
-          onError(new Error('上传失败'));
-        }
-        setUploading(false);
-      };
-      xhr.onerror = () => {
-        onError(new Error('网络错误'));
-        setUploading(false);
-      };
+      if (response.data.code === 200) {
+        onSuccess({
+          name: response.data.data.fileName,
+          url: response.data.data.fileUrl,
+          status: 'done',
+          fileId: response.data.data.fileId,
+          fileSize: response.data.data.fileSize,
+          fileType: response.data.data.fileType
+        });
 
-      // 发送请求到您的API地址
-      xhr.open('POST', 'http://39.106.56.69:8080/api/auth/files/upload');
-      xhr.withCredentials = true; // 包含凭据
-      xhr.send(formData);
-      // 模拟上传进度
-      let progress = 0;
-      const timer = setInterval(() => {
-        progress += Math.random() * 30;
-        if (progress > 100) progress = 100;
-
-        onProgress({ percent: Math.round(progress) });
-
-        if (progress >= 100) {
-          clearInterval(timer);
-
-          // 模拟上传成功
-          const mockUrl = `https://example-bucket.oss-cn-beijing.aliyuncs.com/uploads/${Date.now()}_${file.name}`;
-
-          onSuccess({
-            name: file.name,
-            url: mockUrl,
-            status: 'done'
-          });
-
-          setUploading(false);
-        }
-      }, 100);
-
+        setUploadSuccess(true);
+        message.success('文件上传成功！');
+      } else {
+        onError(new Error(response.data.message || '上传失败'));
+        message.error(response.data.message || '上传失败');
+      }
     } catch (error) {
       console.error('Upload error:', error);
       onError(error);
+      message.error('文件上传失败: ' + (error.response?.data?.message || error.message));
+    } finally {
       setUploading(false);
-      message.error('文件上传失败');
     }
   };
 
@@ -246,7 +227,7 @@ const FileUpload: React.FC<FileUploadProps> = ({
                     </div>
                     {file.status === 'uploading' && (
                       <Progress
-                        percent={file.percent}
+                        percent={progress}
                         size="small"
                         className="mt-1"
                         strokeColor="#ff4d4f"
