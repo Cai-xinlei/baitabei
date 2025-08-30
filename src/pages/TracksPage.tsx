@@ -4,6 +4,7 @@ import { TrophyOutlined, UserOutlined, CalendarOutlined } from '@ant-design/icon
 import { motion } from 'framer-motion';
 import { TRACKS } from '../constants';
 import TrackCard from '../components/UI/TrackCard';
+import trackImages from '../constants/imagesCover';
 
 const { Title, Paragraph } = Typography;
 
@@ -16,8 +17,14 @@ const TracksPage: React.FC = () => {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* 页面头部 */}
-      <section className="bg-gradient-to-r from-red-600 to-red-700 py-16">
-        <div className="max-w-7xl mx-auto px-4 text-center">
+      <section className="bg-gradient-to-r py-16"
+        style={{
+          backgroundImage: `url(${trackImages.toutu1})`,
+          backgroundSize: 'cover',
+          width: '100%',
+        }}
+      >
+        <div className="max-w-7xl mx-auto px-4 text-center" >
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -26,7 +33,7 @@ const TracksPage: React.FC = () => {
             <Title level={1} className="text-white text-4xl font-bold mb-4">
               五大赛道设置
             </Title>
-            <Paragraph className="text-white text-lg opacity-90 max-w-3xl mx-auto">
+            <Paragraph className="text-lg opacity-90 max-w-3xl mx-auto">
               遵循“文化创意解码-场景创新构建－内容生态升级－数字科技赋能”的立体化发展路径，共设置五大赛道
             </Paragraph>
           </motion.div>

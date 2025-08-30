@@ -21,6 +21,8 @@ import saidaofour from '@/assets/images/saidaofour.jpg';
 import saidaofive from '@/assets/images/saidaofive.jpg';
 import homebg from '@/assets/images/homebg.jpg';
 import zixun from '@/assets/images/zixun.jpg';
+import toutu1 from '@/assets/images/toutu1.jpg';
+import toutu2 from '@/assets/images/toutu2.jpg';
 
 
 
@@ -48,7 +50,9 @@ export const trackImages = {
     saidaofour,
     saidaofive,
     homebg,
-    zixun
+    zixun,
+    toutu1,
+    toutu2
 };
 
 export default trackImages;

@@ -4,6 +4,7 @@ import { CalendarOutlined, EyeOutlined, SearchOutlined } from '@ant-design/icons
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { NEWS_ARTICLES } from '../constants';
+import trackImages from '../constants/imagesCover';
 
 const { Title, Paragraph } = Typography;
 const { Search } = Input;
@@ -63,7 +64,13 @@ const NewsPage: React.FC = () => {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* 页面头部 */}
-      <section className="bg-gradient-to-r from-red-600 to-red-700 py-16">
+      <section className="bg-gradient-to-r from-red-600 to-red-700 py-16"
+        style={{
+          backgroundImage: `url(${trackImages.toutu2})`,
+          backgroundSize: 'cover',
+          width: '100%',
+        }}
+      >
         <div className="max-w-7xl mx-auto px-4 text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -73,7 +80,7 @@ const NewsPage: React.FC = () => {
             <Title level={1} className="text-white text-4xl font-bold mb-4">
               大赛资讯
             </Title>
-            <Paragraph className="text-white text-lg opacity-90 max-w-2xl mx-auto">
+            <Paragraph className=" text-lg opacity-90 max-w-2xl mx-auto">
               关注最新大赛动态，获取第一手赛事信息和参赛指导
             </Paragraph>
           </motion.div>

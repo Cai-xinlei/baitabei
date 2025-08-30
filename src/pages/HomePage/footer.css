@@ -1,6 +1,7 @@
 /* OrganizationPage.css */
 .organization-page {
-  background-color: rgb(226, 205, 188);
+  /* background-color: rgb(226, 205, 188); */
+  background: linear-gradient(0deg, #44acc1, rgb(220, 235, 191, 0.3));
   /* 红色背景 */
   color: white;
   /* 文字颜色 */
