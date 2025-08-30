@@ -24,10 +24,6 @@ export default (props) => {
                         {item}
                     </div>)
                 }
-                <div style={{ paddingRight: 200 }}>
-                    <div className='promiseBookItem' style={{ textAlign: 'right' }} > 承诺人：</div>
-                    <div className='promiseBookItem' style={{ textAlign: 'right' }} >日期：</div>
-                </div>
             </div>
         </Modal>
     )
