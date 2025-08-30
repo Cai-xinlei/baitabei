@@ -66,6 +66,53 @@ const FileUpload: React.FC<FileUploadProps> = ({
       // TODO: 这里集成真实的阿里云OSS上传
       // 目前使用模拟上传
 
+      // 创建 FormData 对象
+      const formData = new FormData();
+      formData.append('file', file);
+      // 添加可选参数
+      // 发送上传请求
+      const xhr = new XMLHttpRequest();
+      // 监听上传进度
+      xhr.upload.onprogress = (event) => {
+        if (event.lengthComputable) {
+          const percent = Math.round((event.loaded / event.total) * 100);
+          onProgress({ percent });
+        }
+      };
+      // 处理响应
+      xhr.onload = () => {
+        if (xhr.status === 200) {
+          try {
+            const response = JSON.parse(xhr.responseText);
+            if (response.code === 200) {
+              onSuccess({
+                name: response.data.fileName,
+                url: response.data.fileUrl,
+                status: 'done',
+                fileId: response.data.fileId,
+                fileSize: response.data.fileSize,
+                fileType: response.data.fileType
+              });
+            } else {
+              onError(new Error(response.message || '上传失败'));
+            }
+          } catch (e) {
+            onError(new Error('响应解析失败'));
+          }
+        } else {
+          onError(new Error('上传失败'));
+        }
+        setUploading(false);
+      };
+      xhr.onerror = () => {
+        onError(new Error('网络错误'));
+        setUploading(false);
+      };
+
+      // 发送请求到您的API地址
+      xhr.open('POST', 'http://39.106.56.69:8080/api/auth/files/upload');
+      xhr.withCredentials = true; // 包含凭据
+      xhr.send(formData);
       // 模拟上传进度
       let progress = 0;
       const timer = setInterval(() => {

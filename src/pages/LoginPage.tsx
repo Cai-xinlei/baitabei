@@ -3,7 +3,7 @@ import { Form, Input, Button, Card, Typography, Tabs, message, Checkbox } from '
 import { UserOutlined, LockOutlined, MailOutlined, PhoneOutlined } from '@ant-design/icons';
 import { motion } from 'framer-motion';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
-import { login, register, logout, getUserInfo } from '@/services/authService';
+import { login, register, } from '@/services/authService';
 import trackImages from '@/constants/imagesCover';
 
 const { Title, Text } = Typography;

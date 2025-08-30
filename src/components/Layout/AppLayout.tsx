@@ -27,6 +27,10 @@ const AppLayout: React.FC<AppLayoutProps> = ({ children }) => {
   useEffect(() => {
     // 检查用户登录状态
     const userData = localStorage.getItem('user');
+    // getUserInfo().then(res => {
+    //   console.log(res, '2332443324');
+
+    // })
     if (userData) {
       setUser(JSON.parse(userData));
     }
@@ -34,6 +38,8 @@ const AppLayout: React.FC<AppLayoutProps> = ({ children }) => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [location.pathname]);
+
+
 
 
   // 菜单图标映射
@@ -78,19 +84,19 @@ const AppLayout: React.FC<AppLayoutProps> = ({ children }) => {
 
   // 用户菜单
   const userMenuItems = [
-    {
-      key: 'profile',
-      icon: <UserOutlined />,
-      label: <Link to="/baitabei/profile">个人中心</Link>,
-    },
-    {
-      key: 'settings',
-      icon: <SettingOutlined />,
-      label: '账户设置',
-    },
-    {
-      type: 'divider' as const,
-    },
+    // {
+    //   key: 'profile',
+    //   icon: <UserOutlined />,
+    //   label: <Link to="/baitabei/profile">个人中心</Link>,
+    // },
+    // {
+    //   key: 'settings',
+    //   icon: <SettingOutlined />,
+    //   label: '账户设置',
+    // },
+    // {
+    //   type: 'divider' as const,
+    // },
     {
       key: 'logout',
       icon: <LogoutOutlined />,
