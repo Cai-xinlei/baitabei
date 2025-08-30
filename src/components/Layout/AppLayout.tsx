@@ -4,8 +4,10 @@ import { MenuOutlined, HomeOutlined, TrophyOutlined, FileTextOutlined, InfoCircl
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { NAVIGATION_MENU } from '../../constants';
-import NewFooter from '../../pages/HomePage/footer'
-import trackImages from '../../constants/imagesCover'
+import NewFooter from '../../pages/HomePage/footer';
+import trackImages from '../../constants/imagesCover';
+import { login, register, logout, getUserInfo } from '@/services/authService';
+
 const { Header, Content, Footer } = Layout;
 const { useBreakpoint } = Grid;
 
@@ -60,11 +62,14 @@ const AppLayout: React.FC<AppLayoutProps> = ({ children }) => {
     .map(item => item.key);
 
   // 处理登出
-  const handleLogout = () => {
-    localStorage.removeItem('user');
-    setUser(null);
-    message.success('已成功登出');
-    navigate('/baitabei/login');
+  const handleLogout = async () => {
+    try {
+      await logout();
+      setUser(null);
+      message.success('登出成功');
+    } catch (error) {
+      message.error('登出失败');
+    }
   };
 
   // 用户菜单

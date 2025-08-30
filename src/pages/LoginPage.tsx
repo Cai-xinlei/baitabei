@@ -3,12 +3,13 @@ import { Form, Input, Button, Card, Typography, Tabs, message, Checkbox } from '
 import { UserOutlined, LockOutlined, MailOutlined, PhoneOutlined } from '@ant-design/icons';
 import { motion } from 'framer-motion';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
+import { login, register, logout, getUserInfo } from '@/services/authService';
 
 const { Title, Text } = Typography;
 const { TabPane } = Tabs;
 
 interface LoginFormData {
-  account: string;
+  username: string;
   password: string;
   remember?: boolean;
 }
@@ -33,35 +34,46 @@ const LoginPage: React.FC = () => {
   const location = useLocation();
 
   // 获取重定向路径
-  const from = (location.state as any)?.from?.pathname || '/';
+  const from = (location.state as any)?.from?.pathname || '/baitabei/home';
 
   // 处理登录
   const handleLogin = async (values: LoginFormData) => {
     setLoginLoading(true);
-    try {
-      // TODO: 连接后端登录API
-      console.log('登录数据:', values);
-
-      // 模拟登录请求
-      await new Promise(resolve => setTimeout(resolve, 1000));
-
+    const { username, password } = values
+    login({
+      username,
+      password
+    }).then(res => {
       message.success('登录成功！');
-
-      // 保存用户信息到localStorage (临时方案)
-      localStorage.setItem('user', JSON.stringify({
-        id: 'user_' + Date.now(),
-        username: values.account,
-        email: values.account.includes('@') ? values.account : `${values.account}@example.com`,
-        loginTime: new Date().toISOString()
-      }));
+      setLoginLoading(false);
       window.location.href = '/baitabei/home'
       // 重定向到原页面或首页
       navigate(from, { replace: true });
-    } catch (error) {
-      message.error('登录失败，请检查账号密码');
-    } finally {
-      setLoginLoading(false);
-    }
+    })
+    // try {
+    //   // TODO: 连接后端登录API
+    //   console.log('登录数据:', values);
+
+    //   // 模拟登录请求
+    //   await new Promise(resolve => setTimeout(resolve, 1000));
+
+    //   message.success('登录成功！');
+
+    //   // 保存用户信息到localStorage (临时方案)
+    //   localStorage.setItem('user', JSON.stringify({
+    //     id: 'user_' + Date.now(),
+    //     username: values.account,
+    //     email: values.account.includes('@') ? values.account : `${values.account}@example.com`,
+    //     loginTime: new Date().toISOString()
+    //   }));
+    //   window.location.href = '/baitabei/home'
+    //   // 重定向到原页面或首页
+    //   navigate(from, { replace: true });
+    // } catch (error) {
+    //   message.error('登录失败，请检查账号密码');
+    // } finally {
+    //   setLoginLoading(false);
+    // }
   };
 
   // 处理注册
@@ -121,15 +133,16 @@ const LoginPage: React.FC = () => {
                   className="mt-4"
                 >
                   <Form.Item
-                    name="account"
-                    label="邮箱/手机号"
+                    name="username"
+                    label="用户名"
                     rules={[
-                      { required: true, message: '请输入邮箱或手机号!' },
+                      { required: true, message: '请输入用户名!' },
+                      { min: 3, message: '用户名至少3个字符!' },
                     ]}
                   >
                     <Input
                       prefix={<UserOutlined />}
-                      placeholder="邮箱或手机号"
+                      placeholder="用户名"
                       size="large"
                     />
                   </Form.Item>
@@ -185,19 +198,17 @@ const LoginPage: React.FC = () => {
                 >
                   <Form.Item
                     name="username"
-                    label="用户名"
+                    label="邮箱/手机号"
                     rules={[
-                      { required: true, message: '请输入用户名!' },
-                      { min: 3, message: '用户名至少3个字符!' },
+                      { required: true, message: '请输入邮箱或手机号!' },
                     ]}
                   >
                     <Input
                       prefix={<UserOutlined />}
-                      placeholder="用户名"
+                      placeholder="邮箱或手机号"
                       size="large"
                     />
                   </Form.Item>
-
                   <Form.Item
                     name="email"
                     label="邮箱"
