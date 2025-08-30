@@ -49,6 +49,7 @@ const RegisterPage: React.FC = () => {
   // 提交表单
   const handleSubmit = async (values: any) => {
     console.log(form.getFieldsValue(true), '打印信息')
+    const formValues = form.getFieldsValue(true);
     setIsSubmitting(true);
     try {
       // 这里将来会连接到后端 API
@@ -56,24 +57,26 @@ const RegisterPage: React.FC = () => {
       // const params = form.getFieldsValue(true)
       // const params = form.getFieldsValue(true)
       const params = {
-        id: userInfo?.id,
-        userjson: JSON.stringify({
-          "trackId": "creative-design",
-          "reportType": "individual",
-          "projectTitle": "作品名称",
-          "realName": "姓名",
-          "gender": "男",
-          "birthDate": "2025-05-29T16:00:00.000Z",
-          "phone": "17624939922",
-          "workUnit": "工作单位(学生填在读学校)",
-          "major": "所学专业",
-          "education": "高中/中专",
-          "idCard": "320382199901129283",
-          "useAI": "是",
-          "aiRemark": "备注(请注明所使用AI模型具体名称和使用程度)\n",
-          "workDescription": "作品简介",
-          "agreement": true
-        })
+        projectDto: {
+          trackId: formValues?.trackId, trackJson: JSON.stringify({
+            "trackId": "creative-design",
+            "reportType": "individual",
+            "projectTitle": "作品名称",
+            "realName": "姓名",
+            "gender": "男",
+            "birthDate": "2025-05-29T16:00:00.000Z",
+            "phone": "17624939922",
+            "workUnit": "工作单位(学生填在读学校)",
+            "major": "所学专业",
+            "education": "高中/中专",
+            "idCard": "320382199901129283",
+            "useAI": "是",
+            "aiRemark": "备注(请注明所使用AI模型具体名称和使用程度)\n",
+            "workDescription": "作品简介",
+            "agreement": true
+          })
+        },
+        userPrincipal: userInfo,
       }
       // projectsSubmit(params, params.trackId).then(res => {
       projectsSubmit(params, 'creative-design').then(res => {
