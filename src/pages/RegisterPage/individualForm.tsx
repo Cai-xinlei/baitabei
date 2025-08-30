@@ -264,10 +264,10 @@ const IndividualForm = ({ form }) => {
                 </Form.Item>
 
                 {/* 视频上传 */}
-                <Divider orientation="left">作品视频上传</Divider>
+                <Divider orientation="left">项目资料上传</Divider>
                 <Form.Item
                     name="attachments"
-                    label="项目材料"
+                    label=""
                 >
                     <FileUpload
                         maxCount={1}

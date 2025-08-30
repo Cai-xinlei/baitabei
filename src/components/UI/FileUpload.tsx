@@ -47,7 +47,7 @@ const FileUpload: React.FC<FileUploadProps> = ({
       }
       return type === fileExt;
     });
-    
+
     if (!isValidType) {
       message.error(`不支持的文件格式！支持: ${accept}`);
       return false;
@@ -62,34 +62,34 @@ const FileUpload: React.FC<FileUploadProps> = ({
 
     try {
       setUploading(true);
-      
+
       // TODO: 这里集成真实的阿里云OSS上传
       // 目前使用模拟上传
-      
+
       // 模拟上传进度
       let progress = 0;
       const timer = setInterval(() => {
         progress += Math.random() * 30;
         if (progress > 100) progress = 100;
-        
+
         onProgress({ percent: Math.round(progress) });
-        
+
         if (progress >= 100) {
           clearInterval(timer);
-          
+
           // 模拟上传成功
           const mockUrl = `https://example-bucket.oss-cn-beijing.aliyuncs.com/uploads/${Date.now()}_${file.name}`;
-          
+
           onSuccess({
             name: file.name,
             url: mockUrl,
             status: 'done'
           });
-          
+
           setUploading(false);
         }
       }, 100);
-      
+
     } catch (error) {
       console.error('Upload error:', error);
       onError(error);
@@ -198,16 +198,16 @@ const FileUpload: React.FC<FileUploadProps> = ({
                       {(file.size! / 1024 / 1024).toFixed(2)} MB
                     </div>
                     {file.status === 'uploading' && (
-                      <Progress 
-                        percent={file.percent} 
-                        size="small" 
+                      <Progress
+                        percent={file.percent}
+                        size="small"
                         className="mt-1"
                         strokeColor="#ff4d4f"
                       />
                     )}
                   </div>
                 </div>
-                
+
                 <div className="flex items-center space-x-2">
                   {file.status === 'done' && (
                     <span className="text-green-500 text-sm">✓ 上传成功</span>
@@ -218,10 +218,10 @@ const FileUpload: React.FC<FileUploadProps> = ({
                   {file.status === 'uploading' && (
                     <span className="text-blue-500 text-sm">上传中...</span>
                   )}
-                  
-                  <Button 
-                    type="text" 
-                    size="small" 
+
+                  <Button
+                    type="text"
+                    size="small"
                     icon={<DeleteOutlined />}
                     onClick={() => handleRemove(file)}
                     className="text-red-500 hover:text-red-700"

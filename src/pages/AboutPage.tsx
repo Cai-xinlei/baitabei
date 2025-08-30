@@ -10,7 +10,13 @@ const AboutPage: React.FC = () => {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* 页面头部 */}
-      <section className="bg-gradient-to-r from-red-600 to-red-700 py-16">
+      <section className="bg-gradient-to-r from-red-600 to-red-700 py-16"
+        style={{
+          backgroundImage: `url(${trackImages.toutu2})`,
+          backgroundSize: 'cover',
+          width: '100%',
+        }}
+      >
         <div className="max-w-7xl mx-auto px-4 text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -20,7 +26,7 @@ const AboutPage: React.FC = () => {
             <Title level={1} className="text-white text-4xl font-bold mb-4">
               关于白塔杯
             </Title>
-            <Paragraph className="text-white text-lg opacity-90 max-w-3xl mx-auto">
+            <Paragraph className="text-lg opacity-90 max-w-3xl mx-auto">
               了解大赛的历史、使命与愿景，感受文化创意的力量与魅力
             </Paragraph>
           </motion.div>

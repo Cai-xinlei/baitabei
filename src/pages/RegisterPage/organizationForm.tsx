@@ -396,7 +396,7 @@ const App = ({ form }) => {
 
                 <Form.Item
                     name="attachments"
-                    label="项目材料"
+                    label=""
                 >
                     <FileUpload
                         maxCount={1}
