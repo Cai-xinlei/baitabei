@@ -262,9 +262,9 @@ const RegisterPage: React.FC = () => {
                       <Button type="primary" size="large" onClick={handleNext}>
                         下一步
                       </Button>
-                      <Button type="primary" size="large" onClick={handleSubmit}>
+                      {/* <Button type="primary" size="large" onClick={handleSubmit}>
                         测试用的按钮
-                      </Button>
+                      </Button> */}
                     </>
                   ) : (
                     <Button

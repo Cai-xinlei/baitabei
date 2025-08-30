@@ -208,7 +208,6 @@ const FileUpload: React.FC<FileUploadProps> = ({
             {selectedTrack?.tips}
           </div>}
         type="warning"
-        className="mb-6"
       />
       {/* 上传区域 */}
       <Upload.Dragger {...uploadProps} className="!border-dashed !border-2 !border-gray-300 hover:!border-red-400">
