@@ -4,6 +4,7 @@ import { UserOutlined, LockOutlined, MailOutlined, PhoneOutlined } from '@ant-de
 import { motion } from 'framer-motion';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { login, register, logout, getUserInfo } from '@/services/authService';
+import trackImages from '@/constants/imagesCover';
 
 const { Title, Text } = Typography;
 const { TabPane } = Tabs;
@@ -21,6 +22,7 @@ interface RegisterFormData {
   password: string;
   confirmPassword: string;
   agreement: boolean;
+  realName: string;
 }
 
 const LoginPage: React.FC = () => {
@@ -44,13 +46,12 @@ const LoginPage: React.FC = () => {
       username,
       password
     }).then(res => {
-      if (res.code === 200) {
-
+      if (res?.userId) {
         message.success('登录成功！');
         setLoginLoading(false);
-        window.location.href = '/baitabei/home'
         // 重定向到原页面或首页
         navigate(from, { replace: true });
+        window.location.href = '/baitabei/home'
       }
     }).finally(() => {
       setLoginLoading(false)
@@ -88,10 +89,17 @@ const LoginPage: React.FC = () => {
       // TODO: 连接后端注册API
       console.log('注册数据:', values);
 
-      // 模拟注册请求
-      await new Promise(resolve => setTimeout(resolve, 1500));
-
-      message.success('注册成功！请登录您的账户。');
+      register(values).then(res => {
+        if (res?.userId) {
+          message.success('注册成功！');
+          setRegisterLoading(false);
+          // 重定向到原页面或首页
+          // navigate(from, { replace: true });
+          // window.location.href = '/baitabei/home'
+        }
+      }).finally(() => {
+        setRegisterLoading(false)
+      })
 
       // 切换到登录标签
       setActiveTab('login');
@@ -113,10 +121,8 @@ const LoginPage: React.FC = () => {
         >
           {/* 品牌标识 */}
           <div className="text-center mb-8">
-            <Link to="/" className="inline-block">
-              <div className="w-16 h-16 bg-gradient-to-br from-red-600 to-red-700 rounded-lg flex items-center justify-center text-white font-bold text-2xl mx-auto mb-4">
-                白
-              </div>
+            <Link to="/baitabei/login" className="inline-block">
+              <img style={{ height: "60px" }} src={trackImages.LogoImg} />
             </Link>
             <Title level={2} className="mb-2">
               欢迎回来
@@ -203,14 +209,14 @@ const LoginPage: React.FC = () => {
                 >
                   <Form.Item
                     name="username"
-                    label="邮箱/手机号"
+                    label="用户名"
                     rules={[
-                      { required: true, message: '请输入邮箱或手机号!' },
+                      { required: true, message: '请输入用户名!' },
                     ]}
                   >
                     <Input
                       prefix={<UserOutlined />}
-                      placeholder="邮箱或手机号"
+                      placeholder="用户名"
                       size="large"
                     />
                   </Form.Item>
@@ -228,7 +234,19 @@ const LoginPage: React.FC = () => {
                       size="large"
                     />
                   </Form.Item>
-
+                  <Form.Item
+                    name="realName"
+                    label="职位"
+                    rules={[
+                      { required: true, message: '请输入职位!' },
+                    ]}
+                  >
+                    <Input
+                      prefix={<UserOutlined />}
+                      placeholder="职位"
+                      size="large"
+                    />
+                  </Form.Item>
                   <Form.Item
                     name="phone"
                     label="手机号"
@@ -283,7 +301,7 @@ const LoginPage: React.FC = () => {
                   </Form.Item>
 
                   <Form.Item
-                    name="agreement"
+                    name="agreeToTerms"
                     valuePropName="checked"
                     rules={[
                       {

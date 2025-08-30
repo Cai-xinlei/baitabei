@@ -23,7 +23,7 @@ const RegisterPage: React.FC = () => {
   const [reportType, setreportType] = useState<string>('individual')
   const [selectedTrackId, setSelectedTrackId] = useState(searchParams.get('track'))
   const selectedTrack = TRACKS.find(t => t.id === selectedTrackId);
-
+  const [forminfo, setForminfo] = useState({})
   // 步骤配置
   const steps = [
     {
@@ -47,6 +47,9 @@ const RegisterPage: React.FC = () => {
 
   // 提交表单
   const handleSubmit = async (values: any) => {
+    console.log(values, '个人项目提交信息');
+    console.log(form.getFieldsValue(true), '打印信息')
+    return
     setIsSubmitting(true);
     try {
       // 这里将来会连接到后端 API

@@ -64,13 +64,16 @@ const AppLayout: React.FC<AppLayoutProps> = ({ children }) => {
 
   // 处理登出
   const handleLogout = async () => {
-    try {
-      await logout();
-      setUser(null);
-      message.success('登出成功');
-    } catch (error) {
-      message.error('登出失败');
-    }
+
+    logout().then(res => {
+      if (res) {
+        setUser(null);
+        message.success('登出成功');
+      } else {
+        message.error('登出失败');
+      }
+
+    });
   };
 
   // 用户菜单

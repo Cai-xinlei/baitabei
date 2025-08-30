@@ -61,6 +61,14 @@ export const register = async (registerData) => {
     }
 };
 
+export const RemoveAll = () => {
+    localStorage.removeItem('token');
+    localStorage.removeItem('refreshToken');
+    localStorage.removeItem('token');
+    localStorage.removeItem('tokenType');
+    localStorage.removeItem('user')
+}
+
 // 登出
 export const logout = async () => {
     try {
@@ -73,19 +81,10 @@ export const logout = async () => {
             });
         }
         // 清除本地存储的token
-        localStorage.removeItem('token');
-        localStorage.removeItem('refreshToken');
-        localStorage.removeItem('token');
-        localStorage.removeItem('tokenType');
-        localStorage.removeItem('user')
+        RemoveAll()
         return true;
     } catch (error) {
-        // 即使服务器登出失败，也清除本地token
-        localStorage.removeItem('token');
-        localStorage.removeItem('refreshToken');
-        localStorage.removeItem('token');
-        localStorage.removeItem('tokenType');
-        localStorage.removeItem('user');
+        RemoveAll()
         throw error;
     }
 };
