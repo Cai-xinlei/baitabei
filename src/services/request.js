@@ -45,7 +45,7 @@ service.interceptors.response.use(
             localStorage.removeItem('tokenType');
             localStorage.removeItem('user');
             // 跳转到登录页或执行其他操作
-            window.location.href = '/#/login';
+            window.location.href = '/baitabei/login';
             return Promise.reject(new Error('登录已过期，请重新登录'));
         }
 
@@ -65,7 +65,7 @@ service.interceptors.response.use(
                     localStorage.removeItem('refreshToken');
                     localStorage.removeItem('tokenType');
                     localStorage.removeItem('user');
-                    window.location.href = '/#/login';
+                    window.location.href = '/baitabei/login';
                     message.error('登录已过期，请重新登录');
                     return Promise.reject(new Error('登录已过期，请重新登录'));
                 case 403:

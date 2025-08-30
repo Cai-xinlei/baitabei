@@ -150,7 +150,7 @@ const ProfilePage: React.FC = () => {
                 <div className="relative inline-block">
                   <Avatar
                     size={120}
-                    src={user.avatar}
+                    src={user?.avatar}
                     icon={<UserOutlined />}
                     className="border-4 border-white shadow-lg"
                   />
@@ -167,27 +167,27 @@ const ProfilePage: React.FC = () => {
                 <div className="flex justify-between items-start">
                   <div>
                     <Title level={2} className="mb-2">
-                      {user.realName || user.username}
+                      {user?.realName}
                     </Title>
                     <div className="space-y-2">
                       <div className="flex items-center space-x-2">
                         <UserOutlined className="text-gray-500" />
-                        <Text>{user.username}</Text>
+                        <Text>{user?.username}</Text>
                       </div>
                       <div className="flex items-center space-x-2">
                         <MailOutlined className="text-gray-500" />
-                        <Text>{user.email}</Text>
+                        <Text>{user?.email}</Text>
                       </div>
-                      {user.phone && (
+                      {user?.phone && (
                         <div className="flex items-center space-x-2">
                           <PhoneOutlined className="text-gray-500" />
-                          <Text>{user.phone}</Text>
+                          <Text>{user?.phone}</Text>
                         </div>
                       )}
-                      {user.organization && (
+                      {user?.organization && (
                         <div className="flex items-center space-x-2">
                           <Text className="text-gray-500">机构:</Text>
-                          <Text>{user.organization}</Text>
+                          <Text>{user?.organization}</Text>
                         </div>
                       )}
                     </div>
@@ -357,7 +357,7 @@ const ProfilePage: React.FC = () => {
           <div className="text-center py-8">
             <Avatar
               size={120}
-              src={user.avatar}
+              src={user?.avatar}
               icon={<UserOutlined />}
               className="mb-6"
             />
