@@ -161,9 +161,12 @@ const NewsPage: React.FC = () => {
                       >
                         <div className="h-full flex flex-col">
                           <Title level={4} className="mb-3 line-clamp-2">
-                            <Link to={`/baitabei/news/${news.id}`} className="text-gray-900 hover:text-red-600">
+                            {/* <Link to={`/baitabei/news/${news.id}`} className="text-gray-900 hover:text-red-600">
                               {news.title}
-                            </Link>
+                            </Link> */}
+                            <div className="text-gray-900 hover:text-red-600">
+                              {news.title}
+                            </div>
                           </Title>
 
                           <Paragraph className="text-gray-600 mb-4 line-clamp-3 flex-1">

@@ -190,17 +190,17 @@ export const NEWS_ARTICLES = [
   //   category: '专家观点',
   //   tags: ['数字文化', '创新趋势', '专家解读']
   // },
-  {
-    id: '3',
-    title: '往届获奖作品回顾：创意点亮生活',
-    excerpt: '回顾历届白塔杯获奖作品，展示文化创意如何融入日常生活，启发更多创新思路。',
-    coverImage: trackImages.trackBusiness,
-    author: '文创编辑部',
-    publishDate: '2025-09-03',
-    viewCount: 756,
-    category: '作品展示',
-    tags: ['获奖作品', '创意展示', '作品回顾']
-  },
+  // {
+  //   id: '3',
+  //   title: '往届获奖作品回顾：创意点亮生活',
+  //   excerpt: '回顾历届白塔杯获奖作品，展示文化创意如何融入日常生活，启发更多创新思路。',
+  //   coverImage: trackImages.trackBusiness,
+  //   author: '文创编辑部',
+  //   publishDate: '2025-09-03',
+  //   viewCount: 756,
+  //   category: '作品展示',
+  //   tags: ['获奖作品', '创意展示', '作品回顾']
+  // },
   // {
   //   id: '4',
   //   title: '报名攻略：如何选择适合的赛道',

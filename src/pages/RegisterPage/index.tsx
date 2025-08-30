@@ -23,6 +23,7 @@ const RegisterPage: React.FC = () => {
   const [reportType, setreportType] = useState<string>('individual')
   const [selectedTrackId, setSelectedTrackId] = useState(searchParams.get('track'))
   const selectedTrack = TRACKS.find(t => t.id === selectedTrackId);
+  const userInfo = JSON.parse(localStorage.getItem("user") ?? '{}')
   const [forminfo, setForminfo] = useState({})
   // 步骤配置
   const steps = [
@@ -55,23 +56,27 @@ const RegisterPage: React.FC = () => {
       // const params = form.getFieldsValue(true)
       // const params = form.getFieldsValue(true)
       const params = {
-        "trackId": "creative-design",
-        "reportType": "individual",
-        "projectTitle": "作品名称",
-        "realName": "姓名",
-        "gender": "男",
-        "birthDate": "2025-05-29T16:00:00.000Z",
-        "phone": "17624939922",
-        "workUnit": "工作单位(学生填在读学校)",
-        "major": "所学专业",
-        "education": "高中/中专",
-        "idCard": "320382199901129283",
-        "useAI": "是",
-        "aiRemark": "备注(请注明所使用AI模型具体名称和使用程度)\n",
-        "workDescription": "作品简介",
-        "agreement": true
+        id: userInfo?.id,
+        userjson: JSON.stringify({
+          "trackId": "creative-design",
+          "reportType": "individual",
+          "projectTitle": "作品名称",
+          "realName": "姓名",
+          "gender": "男",
+          "birthDate": "2025-05-29T16:00:00.000Z",
+          "phone": "17624939922",
+          "workUnit": "工作单位(学生填在读学校)",
+          "major": "所学专业",
+          "education": "高中/中专",
+          "idCard": "320382199901129283",
+          "useAI": "是",
+          "aiRemark": "备注(请注明所使用AI模型具体名称和使用程度)\n",
+          "workDescription": "作品简介",
+          "agreement": true
+        })
       }
-      projectsSubmit(params, params.trackId).then(res => {
+      // projectsSubmit(params, params.trackId).then(res => {
+      projectsSubmit(params, 'creative-design').then(res => {
         message.success('报名提交成功！请留意查收确认邮件。');
         setCurrentStep(2);
       })
