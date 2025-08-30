@@ -47,7 +47,6 @@ const RegisterPage: React.FC = () => {
 
   // 提交表单
   const handleSubmit = async (values: any) => {
-    console.log(values, '个人项目提交信息');
     console.log(form.getFieldsValue(true), '打印信息')
     return
     setIsSubmitting(true);

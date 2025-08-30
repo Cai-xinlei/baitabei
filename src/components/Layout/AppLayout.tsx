@@ -22,8 +22,6 @@ const AppLayout: React.FC<AppLayoutProps> = ({ children }) => {
   const navigate = useNavigate();
   const screens = useBreakpoint();
   const isMobile = !screens.md;
-  console.log(location, 'locationlocation');
-
   useEffect(() => {
     // 检查用户登录状态
     const userData = localStorage.getItem('user');
