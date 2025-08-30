@@ -1,16 +1,13 @@
 import React, { useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import { Form, Input, Select, Button, Card, Steps, Row, Col, Typography, Alert, Radio, Checkbox, message } from 'antd';
+import { Form, Select, Button, Card, Steps, Typography, Alert, Radio, Checkbox, message } from 'antd';
 import { CheckCircleOutlined, FileTextOutlined, UserOutlined } from '@ant-design/icons';
 import { motion } from 'framer-motion';
 import type { RadioChangeEvent } from 'antd';
 import { projectsSubmit } from '@/services/authService'
-import { TRACKS, PromiseBook } from '@/constants';
-import FileUpload from '@/components/UI/FileUpload';
+import { TRACKS } from '@/constants';
 import RegisterModal from './registerModal';
-import StepTwo from './stepTwo'
 const { Title, Paragraph } = Typography;
-const { TextArea } = Input;
 const { Option } = Select;
 import OrganizationForm from './organizationForm'
 import IndividualForm from './individualForm'
@@ -24,7 +21,6 @@ const RegisterPage: React.FC = () => {
   const [selectedTrackId, setSelectedTrackId] = useState(searchParams.get('track'))
   const selectedTrack = TRACKS.find(t => t.id === selectedTrackId);
   const userInfo = JSON.parse(localStorage.getItem("user") ?? '{}')
-  const [forminfo, setForminfo] = useState({})
   // 步骤配置
   const steps = [
     {
@@ -44,22 +40,23 @@ const RegisterPage: React.FC = () => {
     }
   ];
 
-
+  const taskIdMap = {
+    'cultural_innovation': 1,
+    "creative_design": 2,
+    "business_model": 3,
+    "social_innovation": 4,
+    'communication_promotion': 5
+  }
 
   // 提交表单
   const handleSubmit = async (values: any) => {
-    console.log(form.getFieldsValue(true), '打印信息')
     const formValues = form.getFieldsValue(true);
     setIsSubmitting(true);
     try {
-      // 这里将来会连接到后端 API
-      console.log('提交的表单数据:', values);
-      // const params = form.getFieldsValue(true)
-      // const params = form.getFieldsValue(true)
       const params = {
         projectDto: {
-          trackId: formValues?.trackId, trackJson: JSON.stringify({
-            "trackId": "creative-design",
+          trackId: taskIdMap[formValues?.trackId], trackJson: JSON.stringify({
+            "trackId": "cultural_innovation",
             "reportType": "individual",
             "projectTitle": "作品名称",
             "realName": "姓名",
@@ -75,13 +72,15 @@ const RegisterPage: React.FC = () => {
             "workDescription": "作品简介",
             "agreement": true
           })
+          // trackId: formValues?.trackId, trackJson: JSON.stringify(formValues)
         },
         userPrincipal: userInfo,
       }
-      // projectsSubmit(params, params.trackId).then(res => {
-      projectsSubmit(params, 'creative-design').then(res => {
-        message.success('报名提交成功！请留意查收确认邮件。');
-        setCurrentStep(2);
+      projectsSubmit(params, formValues.trackId).then(res => {
+        if (res) {
+          message.success('报名提交成功');
+          setCurrentStep(2);
+        }
       })
     } catch (error) {
       message.error('提交失败，请稍后重试。');
@@ -169,29 +168,11 @@ const RegisterPage: React.FC = () => {
                   >
                     {TRACKS.filter(track => track.status === 'open').map(track => (
                       <Option key={track.id} value={track.id}>
-                        {/* <div className="py-2">
-                          <div className="font-semibold">{track.name}</div>
-                          <div className="text-sm text-gray-500">{track.description}</div>
-                          <div className="text-xs text-gray-400 mt-1">
-                            已报名: {track.participantCount}人 | 截止: {new Date(track.deadline).toLocaleDateString()}
-                          </div>
-                        </div> */}
                         {track.name}
                       </Option>
                     ))}
                   </Select>
                 </Form.Item>
-                {/* 
-                {selectedTrack && (
-                  <Alert
-                    message={`已选择: ${selectedTrack.name}`}
-                    description={selectedTrack.detailDescription}
-                    type="info"
-                    showIcon
-                    className="mt-4"
-                    style={{ marginBottom: 16 }}
-                  />
-                )} */}
                 <Form.Item
                   name="reportType"
                   label="文创产品开发赛道征集报名表"

@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import { Upload, Button, message, Progress, Card } from 'antd';
+import { Upload, Button, message, Progress, Card, Alert } from 'antd';
 import { UploadOutlined, DeleteOutlined, FileOutlined } from '@ant-design/icons';
 import type { UploadFile, UploadProps } from 'antd';
 import axios from 'axios';
+import { TRACKS } from '@/constants';
 
 interface FileUploadProps {
   maxCount?: number;
@@ -12,6 +13,7 @@ interface FileUploadProps {
   value?: UploadFile[];
   disabled?: boolean;
   title?: string;
+  trackId?: string;
   description?: string;
 }
 
@@ -23,11 +25,15 @@ const FileUpload: React.FC<FileUploadProps> = ({
   value = [],
   disabled = false,
   title = '上传文件',
+  trackId = '',
   description = '支持 PDF、Word、压缩包、图片等格式'
 }) => {
   const [fileList, setFileList] = useState<UploadFile[]>(value);
   const [uploading, setUploading] = useState(false);
   const [progress, setProgress] = useState(0);
+  const selectedTrack = TRACKS.find(t => t.id === trackId);
+  console.log(selectedTrack?.tips, '2222');
+
   const [uploadSuccess, setUploadSuccess] = useState(false);
   // 文件上传前检查
   const beforeUpload = (file: File) => {
@@ -194,6 +200,16 @@ const FileUpload: React.FC<FileUploadProps> = ({
 
   return (
     <div className="space-y-4">
+
+      <Alert
+        message="注意事项"
+        description={
+          <div>
+            {selectedTrack?.tips}
+          </div>}
+        type="warning"
+        className="mb-6"
+      />
       {/* 上传区域 */}
       <Upload.Dragger {...uploadProps} className="!border-dashed !border-2 !border-gray-300 hover:!border-red-400">
         <div className="py-8">

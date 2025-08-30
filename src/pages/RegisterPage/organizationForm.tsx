@@ -24,96 +24,16 @@ import {
 } from '@ant-design/icons';
 import FileUpload from '@/components/UI/FileUpload';
 
-const { Title, Text } = Typography;
+const { Title } = Typography;
 const { Option } = Select;
 
-const trackOptions = [
-    '文创产品开发赛道',
-    '城市消费场景设计赛道',
-    '文化消费内容创新赛道',
-    '文商旅体科技创新应用赛道',
-    '非遗创新转化应用赛道'
-];
-
 const App = ({ form }) => {
-    const [submitting, setSubmitting] = useState(false);
-    const [submitted, setSubmitted] = useState(false);
-    const [fileList, setFileList] = useState([]);
-    const [previewOpen, setPreviewOpen] = useState(false);
-    const [previewUrl, setPreviewUrl] = useState('');
 
     const subjectType = Form.useWatch('subjectType', form);
     const useAI = Form.useWatch('useAI', form);
-
-    const onFinish = (values) => {
-        setSubmitting(true);
-        console.log('表单数据:', values);
-
-        // 模拟提交过程
-        setTimeout(() => {
-            setSubmitting(false);
-            setSubmitted(true);
-            message.success('作品提交成功！');
-        }, 1500);
+    const handleFileChange = (files: any[]) => {
+        form.setFieldsValue({ attachments: files });
     };
-
-    const onFinishFailed = (errorInfo) => {
-        console.log('校验失败:', errorInfo);
-        message.error('请检查表单内容是否完整且符合要求');
-    };
-
-    const handleReset = () => {
-        form.resetFields();
-        setFileList([]);
-    };
-
-    const normFile = (e) => {
-        if (Array.isArray(e)) {
-            return e;
-        }
-        return e?.fileList;
-    };
-
-    const beforeUpload = (file) => {
-        const isMp4 = file.type === 'video/mp4';
-        const isLt1G = file.size / 1024 / 1024 < 1024;
-
-        if (!isMp4) {
-            message.error('请上传MP4格式的视频文件!');
-        }
-        if (!isLt1G) {
-            message.error('视频文件大小不能超过1GB!');
-        }
-
-        return isMp4 && isLt1G;
-    };
-
-    const handlePreview = async (file) => {
-        setPreviewUrl(file.url || file.preview);
-        setPreviewOpen(true);
-    };
-
-    const handleChange = ({ fileList: newFileList }) => {
-        setFileList(newFileList);
-    };
-
-    if (submitted) {
-        return (
-            <div className="result-container">
-                <Result
-                    status="success"
-                    title="作品提交成功!"
-                    subTitle="您的作品已成功提交，我们将尽快审核并与您联系。"
-                    extra={[
-                        <Button type="primary" key="again" onClick={() => setSubmitted(false)}>
-                            继续提交新作品
-                        </Button>
-                    ]}
-                />
-            </div>
-        );
-    }
-
     return (
         <div className="form-container">
             <Card className="form-card">
@@ -390,10 +310,6 @@ const App = ({ form }) => {
 
                 {/* 视频上传 */}
                 <Divider orientation="left">附件上传</Divider>
-                <p className="section-description">
-                    作品上传，视频大小50M以内，一次报名仅支持一个作品，多个作品需单独报名上传
-                </p>
-
                 <Form.Item
                     name="attachments"
                     label=""
@@ -402,7 +318,8 @@ const App = ({ form }) => {
                         maxCount={1}
                         maxSize={50}
                         accept=".pdf,.doc,.docx,.zip,.rar,.jpg,.jpeg,.png,.mp4"
-                        // onFileChange={handleFileChange}
+                        onFileChange={handleFileChange}
+                        trackId={form.getFieldValue('trackId')}
                         title="上传项目相关文件"
                         description="支持 PDF、Word、压缩包、图片等格式，展示您的项目成果"
                     />

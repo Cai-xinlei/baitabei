@@ -123,7 +123,7 @@ export const checkAndRefreshToken = async () => {
 export const projectsSubmit = async (loginData, id = '') => {
     let url = ''
     if (!id) return
-    url = `/projects/${id}/submit`
+    url = `/api/projects/${id}/submit`
     try {
         const response = await request.post(url, loginData);
 

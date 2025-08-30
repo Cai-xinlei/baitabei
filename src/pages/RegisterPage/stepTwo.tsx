@@ -1,13 +1,10 @@
-import { Form, Input, Select, Button, Card, Steps, Row, Col, Typography, Alert, Radio, Checkbox, message } from 'antd';
+import { Form, Input, Card, Row, Col, Typography } from 'antd';
 import FileUpload from '@/components/UI/FileUpload';
 
-const { Title, Paragraph } = Typography;
+const { Title } = Typography;
 const { TextArea } = Input;
 
-
-
 export default ({ form }) => {
-
     // 文件上传变化处理
     const handleFileChange = (files: any[]) => {
         form.setFieldsValue({ attachments: files });

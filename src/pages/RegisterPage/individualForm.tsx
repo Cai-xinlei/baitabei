@@ -1,31 +1,18 @@
-import React, { useState } from 'react';
 import {
     Form,
     Input,
     Select,
     Radio,
-    Button,
     Card,
-    Space,
     Row,
     Col,
     Typography,
     Divider,
-    Upload,
-    message,
-    Result,
-    Checkbox,
     DatePicker
 } from 'antd';
-import {
-    PlusOutlined,
-    UploadOutlined,
-    CheckCircleOutlined,
-    CloseCircleOutlined
-} from '@ant-design/icons';
 import FileUpload from '@/components/UI/FileUpload';
 
-const { Title, Text } = Typography;
+const { Title } = Typography;
 const { Option } = Select;
 
 const educationOptions = [
@@ -38,65 +25,10 @@ const educationOptions = [
 ];
 
 const IndividualForm = ({ form }) => {
-    const [submitting, setSubmitting] = useState(false);
-    const [submitted, setSubmitted] = useState(false);
-    const [fileList, setFileList] = useState([]);
-    const [agreePolicy, setAgreePolicy] = useState(false);
     const useAI = Form.useWatch('useAI', form);
-
-    const onFinishFailed = (errorInfo) => {
-        console.log('校验失败:', errorInfo);
-        message.error('请检查表单内容是否完整且符合要求');
+    const handleFileChange = (files: any[]) => {
+        form.setFieldsValue({ attachments: files });
     };
-
-    const handleReset = () => {
-        form.resetFields();
-        setFileList([]);
-        setAgreePolicy(false);
-    };
-
-    const normFile = (e) => {
-        if (Array.isArray(e)) {
-            return e;
-        }
-        return e?.fileList;
-    };
-
-    const beforeUpload = (file) => {
-        const isVideo = file.type === 'video/mp4' || file.type === 'video/quicktime';
-        const isLt1G = file.size / 1024 / 1024 < 1024;
-
-        if (!isVideo) {
-            message.error('请上传MP4或MOV格式的视频文件!');
-        }
-        if (!isLt1G) {
-            message.error('视频文件大小不能超过1GB!');
-        }
-
-        return isVideo && isLt1G;
-    };
-
-    const handleChange = ({ fileList: newFileList }) => {
-        setFileList(newFileList);
-    };
-
-    if (submitted) {
-        return (
-            <div className="result-container">
-                <Result
-                    status="success"
-                    title="作品提交成功!"
-                    subTitle="您的作品已成功提交，我们将尽快审核并与您联系。"
-                    extra={[
-                        <Button type="primary" key="again" onClick={() => setSubmitted(false)}>
-                            继续提交新作品
-                        </Button>
-                    ]}
-                />
-            </div>
-        );
-    }
-
     return (
         <div className="form-container">
             <Card className="form-card">
@@ -224,6 +156,7 @@ const IndividualForm = ({ form }) => {
                 <Form.Item
                     label="是否使用AI工具参与创作"
                     name="useAI"
+                    initialValue={'是'}
                     rules={[{ required: true, message: '请选择是否使用AI工具!' }]}
                 >
                     <Radio.Group>
@@ -273,7 +206,8 @@ const IndividualForm = ({ form }) => {
                         maxCount={1}
                         maxSize={50}
                         accept=".pdf,.doc,.docx,.zip,.rar,.jpg,.jpeg,.png,.mp4"
-                        // onFileChange={handleFileChange}
+                        onFileChange={handleFileChange}
+                        trackId={form.getFieldValue('trackId')}
                         title="上传项目相关文件"
                         description="支持 PDF、Word、压缩包、图片、Mp4等格式，展示您的项目成果"
                     />
