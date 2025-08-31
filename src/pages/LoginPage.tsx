@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { login, register } from '@/services/authService';
 import trackImages from '@/constants/imagesCover';
-
+import RegisterModal from '../pages/RegisterPage/registerModal';
 const { Title, Text } = Typography;
 const { TabPane } = Tabs;
 
@@ -31,6 +31,7 @@ const LoginPage: React.FC = () => {
   const [loginLoading, setLoginLoading] = useState(false);
   const [registerLoading, setRegisterLoading] = useState(false);
   const [activeTab, setActiveTab] = useState('login');
+  const [agreementVisible, setAgreementVisible] = useState(false);
 
   const navigate = useNavigate();
   const location = useLocation();
@@ -319,13 +320,9 @@ const LoginPage: React.FC = () => {
                   >
                     <Checkbox>
                       我已阅读并同意
-                      <a href="#" className="text-red-600 hover:text-red-700">
-                        《用户服务协议》
-                      </a>
-                      和
-                      <a href="#" className="text-red-600 hover:text-red-700">
-                        《隐私政策》
-                      </a>
+                      <Button type="link" className="p-0" onClick={() => setAgreementVisible(true)}>
+                        《承诺书》
+                      </Button>
                     </Checkbox>
                   </Form.Item>
 
@@ -345,6 +342,11 @@ const LoginPage: React.FC = () => {
               </TabPane>
             </Tabs>
           </Card>
+          {/* 协议弹窗 */}
+          <RegisterModal
+            agreementVisible={agreementVisible}
+            setAgreementVisible={setAgreementVisible}
+          />
 
           <div className="text-center mt-6">
             <Text className="text-gray-600">
