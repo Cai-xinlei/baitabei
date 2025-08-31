@@ -94,6 +94,6 @@ export const checkAndRefreshToken = async () => {
 // 项目提交
 export const projectsSubmit = async (submitData) => {
     const response = await request.post('/api/project/submit', submitData);
-    const { data } = response;
-    return data;
+    console.log(response, '提交的信息');
+    return response;
 };

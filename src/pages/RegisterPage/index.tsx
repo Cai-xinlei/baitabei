@@ -5,6 +5,8 @@ import { CheckCircleOutlined, FileTextOutlined, UserOutlined } from '@ant-design
 import { motion } from 'framer-motion';
 import type { RadioChangeEvent } from 'antd';
 import { projectsSubmit } from '@/services/authService'
+import { useNavigate } from 'react-router-dom';
+
 import { TRACKS } from '@/constants';
 import RegisterModal from './registerModal';
 const { Title, Paragraph } = Typography;
@@ -14,6 +16,7 @@ import IndividualForm from './individualForm'
 const RegisterPage: React.FC = () => {
   const [searchParams] = useSearchParams();
   const [form] = Form.useForm();
+  const navigate = useNavigate();
   const [currentStep, setCurrentStep] = useState(0);
   const [agreementVisible, setAgreementVisible] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -77,9 +80,11 @@ const RegisterPage: React.FC = () => {
         userPrincipal: userInfo,
       }
       projectsSubmit(params).then(res => {
-        if (res) {
+
+        if (res.code === 200) {
           message.success('报名提交成功');
           setCurrentStep(2);
+          navigate('/baitabei/home');
         }
       })
     } catch (error) {
