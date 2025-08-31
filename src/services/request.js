@@ -3,7 +3,7 @@ import { message } from 'antd';
 
 // 创建axios实例
 const service = axios.create({
-    // baseURL: 'http://39.106.56.69:8080', // 代理地址
+    baseURL: 'http://39.106.56.69:8080', // 代理地址
     timeout: 15000,
     withCredentials: true
 });
@@ -29,13 +29,21 @@ service.interceptors.request.use(
 service.interceptors.response.use(
     (response) => {
         // 直接返回完整响应数据，包含code, data, message等
+        console.log(response, '信息');
+        const { success } = response.data || {};
+        if (!success) {
+            message.error(response?.data?.message);
+            return;
+        }
+
         return response.data;
     },
     (error) => {
         const { response } = error;
 
+        console.log(response, '错误信息');
         if (response) {
-            const { code, message: msg } = response.data || {};
+            const { code } = response.data || {};
 
             // token过期或无效
             if (code === 401) {
@@ -46,12 +54,12 @@ service.interceptors.response.use(
                 localStorage.removeItem('user');
                 // 跳转到登录页或执行其他操作
                 window.location.href = '/baitabei/login';
-                message.error('登录已过期，请重新登录');
+                message.error(response?.message ?? '登录已过期，请重新登录');
                 return Promise.reject(new Error('登录已过期，请重新登录'));
             }
 
             // 其他业务错误
-            const errorMsg = msg || '请求失败';
+            const errorMsg = response?.message || '请求失败';
             message.error(errorMsg);
             return Promise.reject(new Error(errorMsg));
         } else {

@@ -45,7 +45,6 @@ export const login = async (loginData) => {
 export const register = async (registerData) => {
     const response = await request.post('/api/auth/register', registerData);
     const { data } = response;
-    // console.log(response, '注册的数据');
     return response;
 };
 

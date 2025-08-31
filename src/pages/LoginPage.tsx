@@ -93,6 +93,8 @@ const LoginPage: React.FC = () => {
         if (res.code === 200) {
           message.success('注册成功！');
           setRegisterLoading(false);
+          setActiveTab('login');
+          registerForm.resetFields();
           // 重定向到原页面或首页
           // navigate('/baitabei/home');
           // window.location.href = '/baitabei/home'
@@ -100,10 +102,7 @@ const LoginPage: React.FC = () => {
       }).finally(() => {
         setRegisterLoading(false)
       })
-
       // 切换到登录标签
-      setActiveTab('login');
-      registerForm.resetFields();
     } catch (error) {
       message.error('注册失败，请稍后重试');
     } finally {
