@@ -24,7 +24,7 @@ const educationOptions = [
     '其他'
 ];
 
-const IndividualForm = ({ form }) => {
+const IndividualForm = ({ form, selectedTrack }) => {
     const useAI = Form.useWatch('useAI', form);
     const handleFileChange = (files: any[]) => {
         form.setFieldsValue({ attachments: files });
@@ -32,7 +32,7 @@ const IndividualForm = ({ form }) => {
     return (
         <div className="form-container">
             <Card className="form-card">
-                <Title level={2} className="form-title">文创产品开发赛道征集报名表（个人）</Title>
+                <Title level={2} className="form-title">{`${selectedTrack.name}征集报名表（个人）`}</Title>
                 {/* 作品名称 */}
                 <Divider orientation="left">作品信息</Divider>
                 <Form.Item

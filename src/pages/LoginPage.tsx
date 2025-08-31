@@ -88,8 +88,12 @@ const LoginPage: React.FC = () => {
   // 处理注册
   const handleRegister = async (values: RegisterFormData) => {
     setRegisterLoading(true);
+    const params = {
+      ...values,
+      realName: values?.username
+    }
     try {
-      register(values).then(res => {
+      register(params).then(res => {
         if (res.code === 200) {
           message.success('注册成功！');
           setRegisterLoading(false);
@@ -234,19 +238,6 @@ const LoginPage: React.FC = () => {
                     <Input
                       prefix={<MailOutlined />}
                       placeholder="请输入邮箱地址"
-                      size="large"
-                    />
-                  </Form.Item>
-                  <Form.Item
-                    name="realName"
-                    label="账号名称"
-                    rules={[
-                      { required: true, message: '请输入账号名称!' },
-                    ]}
-                  >
-                    <Input
-                      prefix={<UserOutlined />}
-                      placeholder="请输入账号名称"
                       size="large"
                     />
                   </Form.Item>

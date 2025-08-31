@@ -60,7 +60,7 @@ const RegisterPage: React.FC = () => {
     try {
       const params = {
         projectDto: {
-          projectname: formValues.projectTitle,
+          projectName: formValues.projectTitle,
           trackId: taskIdMap[formValues?.trackId],
           trackJson: JSON.stringify(formValues),
           // trackJson: JSON.stringify({
@@ -126,7 +126,6 @@ const RegisterPage: React.FC = () => {
     window.scrollTo(0, 0);
     setCurrentStep(currentStep - 1);
   };
-  console.log(form.getFieldValue('reportType'), '222');
 
   return (
     <div className="min-h-screen bg-gray-50 py-8">
@@ -186,7 +185,7 @@ const RegisterPage: React.FC = () => {
                 </Form.Item>
                 <Form.Item
                   name="reportType"
-                  label="文创产品开发赛道征集报名表"
+                  label={`${selectedTrack?.name}征集报名表`}
                   required
                   initialValue={reportType}
                 >
@@ -212,8 +211,8 @@ const RegisterPage: React.FC = () => {
             {/* 步骤2: 填写信息 */}
             {currentStep === 1 && <>
               {
-                form.getFieldValue('reportType') === 'individual' ? <IndividualForm form={form} /> :
-                  <OrganizationForm form={form} />
+                form.getFieldValue('reportType') === 'individual' ? <IndividualForm form={form} selectedTrack={selectedTrack} /> :
+                  <OrganizationForm form={form} selectedTrack={selectedTrack} />
               }
             </>}
 
@@ -273,9 +272,9 @@ const RegisterPage: React.FC = () => {
                       <Button type="primary" size="large" onClick={handleNext}>
                         下一步
                       </Button>
-                      {/* <Button type="primary" size="large" onClick={handleSubmit}>
+                      <Button type="primary" size="large" onClick={handleSubmit}>
                         测试用的按钮
-                      </Button> */}
+                      </Button>
                     </>
                   ) : (
                     <Button

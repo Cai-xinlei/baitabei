@@ -27,7 +27,7 @@ import FileUpload from '@/components/UI/FileUpload';
 const { Title } = Typography;
 const { Option } = Select;
 
-const App = ({ form }) => {
+const App = ({ form, selectedTrack }) => {
 
     const subjectType = Form.useWatch('subjectType', form);
     const useAI = Form.useWatch('useAI', form);
@@ -37,7 +37,7 @@ const App = ({ form }) => {
     return (
         <div className="form-container">
             <Card className="form-card">
-                <Title level={2} className="form-title">文创产品开发赛道征集报名表（单位/团队）</Title>
+                <Title level={2} className="form-title">{`${selectedTrack.name}征集报名表（单位/团队）`}</Title>
                 {/* 作品名称 */}
                 <Form.Item
                     label="作品名称"
