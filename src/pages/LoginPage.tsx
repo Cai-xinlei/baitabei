@@ -3,7 +3,7 @@ import { Form, Input, Button, Card, Typography, Tabs, message, Checkbox } from '
 import { UserOutlined, LockOutlined, MailOutlined, PhoneOutlined } from '@ant-design/icons';
 import { motion } from 'framer-motion';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
-import { login, register, getUserInfo } from '@/services/authService';
+import { login, register } from '@/services/authService';
 import trackImages from '@/constants/imagesCover';
 
 const { Title, Text } = Typography;
@@ -46,7 +46,7 @@ const LoginPage: React.FC = () => {
       username,
       password
     }).then(res => {
-      if (res?.userId) {
+      if (res?.code === 200) {
         // 可以从登陆信息中获取
         // getUserInfo()
         message.success('登录成功！');
@@ -88,15 +88,12 @@ const LoginPage: React.FC = () => {
   const handleRegister = async (values: RegisterFormData) => {
     setRegisterLoading(true);
     try {
-      // TODO: 连接后端注册API
-      console.log('注册数据:', values);
-
       register(values).then(res => {
-        if (res) {
+        if (res.code === 200) {
           message.success('注册成功！');
           setRegisterLoading(false);
           // 重定向到原页面或首页
-          // navigate(from, { replace: true });
+          // navigate('/baitabei/home');
           // window.location.href = '/baitabei/home'
         }
       }).finally(() => {

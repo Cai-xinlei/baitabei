@@ -1,75 +1,53 @@
 import request from './request';
 
 // 刷新token
-const refreshToken = async () => {
+export const refreshToken = async () => {
     const refreshToken = localStorage.getItem('refreshToken');
     if (!refreshToken) {
         throw new Error('没有刷新令牌');
     }
 
-    try {
-        const response = await request.post('/api/auth/refresh', {}, {
-            headers: {
-                Authorization: `Bearer ${refreshToken}`
-            }
-        });
+    const response = await request.post('/api/auth/refresh', {}, {
+        headers: {
+            Authorization: `Bearer ${refreshToken}`
+        }
+    });
 
-        const { token, refreshToken: newRefreshToken, expiresIn } = response;
-        localStorage.setItem('token', token);
-        localStorage.setItem('refreshToken', newRefreshToken);
+    const { data } = response;
+    const { token, refreshToken: newRefreshToken, expiresIn } = data;
+    localStorage.setItem('token', token);
+    localStorage.setItem('refreshToken', newRefreshToken);
 
-        return { token, refreshToken: newRefreshToken, expiresIn };
-    } catch (error) {
-        // 刷新失败，清除本地存储
-        localStorage.removeItem('token');
-        localStorage.removeItem('refreshToken');
-        throw error;
-    }
+    return { token, refreshToken: newRefreshToken, expiresIn };
 };
 
 // 登录
 export const login = async (loginData) => {
-    try {
-        const response = await request.post('/api/auth/login', loginData);
-
-        console.log(response, '获取登陆信息');
-        const { accessToken, refreshToken } = response;
-        // 存储token到localStorage
-        localStorage.setItem('token', accessToken);
-        localStorage.setItem('refreshToken', refreshToken);
-        localStorage.setItem('user', JSON.stringify({
-            id: response?.userId,
-            username: response?.username,
-            email: response?.email,
-            expiresAt: response?.expiresAt,
-            realName: response?.realName,
-            avatar: response?.avatar,
-            userId: response?.userId,
-        }));
-        return response;
-    } catch (error) {
-        throw error;
-    }
+    const response = await request.post('/api/auth/login', loginData);
+    const { data } = response;
+    const { accessToken, refreshToken } = data;
+    // 存储token到localStorage
+    localStorage.setItem('token', accessToken);
+    localStorage.setItem('refreshToken', refreshToken);
+    localStorage.setItem('user', JSON.stringify({
+        id: data?.userId,
+        username: data?.username,
+        email: data?.email,
+        expiresAt: data?.expiresAt,
+        realName: data?.realName,
+        avatar: data?.avatar,
+        userId: data?.userId,
+    }));
+    return response;
 };
 
 // 注册
 export const register = async (registerData) => {
-    try {
-        const response = await request.post('/api/auth/register', registerData);
-        console.log(response, 'responseresponse');
-        return true;
-    } catch (error) {
-        throw error;
-    }
+    const response = await request.post('/api/auth/register', registerData);
+    const { data } = response;
+    console.log(response, '注册的数据');
+    return response;
 };
-
-export const RemoveAll = () => {
-    localStorage.removeItem('token');
-    localStorage.removeItem('refreshToken');
-    localStorage.removeItem('token');
-    localStorage.removeItem('tokenType');
-    localStorage.removeItem('user')
-}
 
 // 登出
 export const logout = async () => {
@@ -82,24 +60,21 @@ export const logout = async () => {
                 }
             });
         }
+    } finally {
         // 清除本地存储的token
-        RemoveAll()
-        return true;
-    } catch (error) {
-        RemoveAll()
-        throw error;
+        localStorage.removeItem('token');
+        localStorage.removeItem('refreshToken');
+        localStorage.removeItem('tokenType');
+        localStorage.removeItem('user');
     }
+    return true;
 };
 
 // 获取用户信息
 export const getUserInfo = async () => {
-    try {
-        const response = await request.get('/api/user/profile');
-        console.log(response, 'responseresponse');
-        return response.userInfo;
-    } catch (error) {
-        throw error;
-    }
+    const response = await request.get('/api/user/profile');
+    const { data } = response;
+    return data.userInfo;
 };
 
 // 检查token是否过期，如果过期则刷新
@@ -112,33 +87,13 @@ export const checkAndRefreshToken = async () => {
     // 这里可以添加检查token是否过期的逻辑
     // 例如解析JWT token获取过期时间
     // 为了简化示例，我们直接尝试刷新token
-    try {
-        await refreshToken();
-    } catch (error) {
-        throw new Error('登录已过期，请重新登录');
-    }
+    await refreshToken();
 };
 
 
-
-// 登录
-export const projectsSubmit = async (loginData) => {
-    let url = ''
-    url = `/api/project/submit`
-    try {
-        const response = await request.post(url, loginData);
-        return response;
-    } catch (error) {
-        throw error;
-    }
-};
-
-export default {
-    login,
-    register,
-    logout,
-    getUserInfo,
-    refreshToken,
-    checkAndRefreshToken,
-    projectsSubmit
+// 项目提交
+export const projectsSubmit = async (submitData) => {
+    const response = await request.post('/api/project/submit', submitData);
+    const { data } = response;
+    return data;
 };

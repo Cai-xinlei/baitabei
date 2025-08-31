@@ -28,58 +28,32 @@ service.interceptors.request.use(
 // 响应拦截器
 service.interceptors.response.use(
     (response) => {
-        const { code, data, message: msg } = response.data;
-
-        // 请求成功
-        if (code === 200) {
-            return data;
-
-        }
-
-        // token过期或无效
-        if (code === 401) {
-            // 清除本地存储的token
-            localStorage.removeItem('token');
-            localStorage.removeItem('refreshToken');
-            localStorage.removeItem('tokenType');
-            localStorage.removeItem('user');
-            // 跳转到登录页或执行其他操作
-            window.location.href = '/baitabei/login';
-            return Promise.reject(new Error('登录已过期，请重新登录'));
-        }
-
-        // 其他业务错误
-        const errorMsg = msg || '请求失败';
-        message.error(errorMsg);
-        return Promise.reject(new Error(errorMsg));
+        // 直接返回完整响应数据，包含code, data, message等
+        return response.data;
     },
     (error) => {
         const { response } = error;
 
         if (response) {
-            switch (response.status) {
-                case 401:
-                    // token过期处理
-                    localStorage.removeItem('token');
-                    localStorage.removeItem('refreshToken');
-                    localStorage.removeItem('tokenType');
-                    localStorage.removeItem('user');
-                    window.location.href = '/baitabei/login';
-                    message.error('登录已过期，请重新登录');
-                    return Promise.reject(new Error('登录已过期，请重新登录'));
-                case 403:
-                    message.error('拒绝访问');
-                    return Promise.reject(new Error('拒绝访问'));
-                case 404:
-                    message.error('请求资源不存在');
-                    return Promise.reject(new Error('请求资源不存在'));
-                case 500:
-                    message.error('服务器内部错误');
-                    return Promise.reject(new Error('服务器内部错误'));
-                default:
-                    message.error(`请求错误: ${response.status}`);
-                    return Promise.reject(new Error(`请求错误: ${response.status}`));
+            const { code, message: msg } = response.data || {};
+
+            // token过期或无效
+            if (code === 401) {
+                // 清除本地存储的token
+                localStorage.removeItem('token');
+                localStorage.removeItem('refreshToken');
+                localStorage.removeItem('tokenType');
+                localStorage.removeItem('user');
+                // 跳转到登录页或执行其他操作
+                window.location.href = '/baitabei/login';
+                message.error('登录已过期，请重新登录');
+                return Promise.reject(new Error('登录已过期，请重新登录'));
             }
+
+            // 其他业务错误
+            const errorMsg = msg || '请求失败';
+            message.error(errorMsg);
+            return Promise.reject(new Error(errorMsg));
         } else {
             // 网络错误
             if (!window.navigator.onLine) {
@@ -91,5 +65,41 @@ service.interceptors.response.use(
         }
     }
 );
+
+// 封装通用请求方法
+export const request = {
+    get: async (url, config = {}) => {
+        try {
+            const response = await service.get(url, config);
+            return response;
+        } catch (error) {
+            throw error;
+        }
+    },
+    post: async (url, data = {}, config = {}) => {
+        try {
+            const response = await service.post(url, data, config);
+            return response;
+        } catch (error) {
+            throw error;
+        }
+    },
+    put: async (url, data = {}, config = {}) => {
+        try {
+            const response = await service.put(url, data, config);
+            return response;
+        } catch (error) {
+            throw error;
+        }
+    },
+    delete: async (url, config = {}) => {
+        try {
+            const response = await service.delete(url, config);
+            return response;
+        } catch (error) {
+            throw error;
+        }
+    }
+};
 
 export default service;
