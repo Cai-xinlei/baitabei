@@ -38,7 +38,7 @@ const HomePage: React.FC = () => {
           <img src={trackImages.homebg} />
         </section>
         {/* 一、大赛介绍 */}
-        <CompetitionIntroductionPage />
+        {/* <CompetitionIntroductionPage /> */}
         {/* 二、大赛进程 */}
 
         <CompetitionSchedule />
