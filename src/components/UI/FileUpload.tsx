@@ -200,11 +200,9 @@ const FileUpload: React.FC<FileUploadProps> = ({
 
       <Alert
         message={
-          <div style={{ width: 700 }}>
-            <p>
-              {selectedTrack?.tips}
-            </p>
-          </div>
+          <p>
+            {selectedTrack?.tips}
+          </p>
         }
         type="warning"
       />
