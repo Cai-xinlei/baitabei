@@ -4,6 +4,7 @@ import { UploadOutlined, DeleteOutlined, FileOutlined } from '@ant-design/icons'
 import type { UploadFile, UploadProps } from 'antd';
 import axios from 'axios';
 import { TRACKS } from '@/constants';
+import { customUpload } from '@/services/authService';
 
 interface FileUploadProps {
   maxCount?: number;
@@ -64,73 +65,69 @@ const FileUpload: React.FC<FileUploadProps> = ({
     return true;
   };
 
-  // 模拟上传到阿里云OSS
-  // 自定义上传逻辑
-  const customUpload = async (options) => {
-    const { file, onSuccess, onError, onProgress } = options;
+  // // 模拟上传到阿里云OSS
+  // // 自定义上传逻辑
+  // const customUpload = async (options) => {
+  //   const { file, onSuccess, onError, onProgress } = options;
 
-    try {
-      setUploading(true);
-      setUploadSuccess(false);
-      setProgress(0);
+  //   try {
+  //     setUploading(true);
+  //     setUploadSuccess(false);
+  //     setProgress(0);
 
-      // 创建 FormData 对象
-      const formData = new FormData();
-      formData.append('file', file);
+  //     // 创建 FormData 对象
+  //     const formData = new FormData();
+  //     formData.append('file', file);
 
-      // 添加其他表单数据（示例）
-      formData.append('userId', '12345');
-      formData.append('category', 'documents');
+  //     // 设置上传配置
+  //     const config = {
+  //       headers: {
+  //         'Content-Type': 'multipart/form-data',
+  //         // 添加 Authorization 头
+  //         'Authorization': `Bearer ${localStorage.getItem('token')}`
+  //       },
+  //       // 监听上传进度
+  //       onUploadProgress: (progressEvent) => {
+  //         const { loaded, total } = progressEvent;
+  //         const percent = Math.round((loaded / total) * 100);
+  //         setProgress(percent);
+  //         onProgress({ percent });
+  //       },
+  //       withCredentials: true
+  //     };
 
-      // 设置上传配置
-      const config = {
-        headers: {
-          'Content-Type': 'multipart/form-data',
-          // 添加 Authorization 头
-          'Authorization': `Bearer ${localStorage.getItem('accessToken') || 'your-token-here'}`
-        },
-        // 监听上传进度
-        onUploadProgress: (progressEvent) => {
-          const { loaded, total } = progressEvent;
-          const percent = Math.round((loaded / total) * 100);
-          setProgress(percent);
-          onProgress({ percent });
-        },
-        withCredentials: true
-      };
+  //     // 发送 POST 请求
+  //     const response = await axios.post(
+  //       'http://39.106.56.69:8080/api/files/upload',
+  //       formData,
+  //       config
+  //     );
 
-      // 发送 POST 请求
-      const response = await axios.post(
-        'http://39.106.56.69:8080/api/auth/files/upload',
-        formData,
-        config
-      );
+  //     // 处理响应
+  //     if (response.data.code === 200) {
+  //       onSuccess({
+  //         name: response.data.data.fileName,
+  //         url: response.data.data.fileUrl,
+  //         status: 'done',
+  //         fileId: response.data.data.fileId,
+  //         fileSize: response.data.data.fileSize,
+  //         fileType: response.data.data.fileType
+  //       });
 
-      // 处理响应
-      if (response.data.code === 200) {
-        onSuccess({
-          name: response.data.data.fileName,
-          url: response.data.data.fileUrl,
-          status: 'done',
-          fileId: response.data.data.fileId,
-          fileSize: response.data.data.fileSize,
-          fileType: response.data.data.fileType
-        });
-
-        setUploadSuccess(true);
-        message.success('文件上传成功！');
-      } else {
-        onError(new Error(response.data.message || '上传失败'));
-        message.error(response.data.message || '上传失败');
-      }
-    } catch (error) {
-      console.error('Upload error:', error);
-      onError(error);
-      message.error('文件上传失败: ' + (error.response?.data?.message || error.message));
-    } finally {
-      setUploading(false);
-    }
-  };
+  //       setUploadSuccess(true);
+  //       message.success('文件上传成功！');
+  //     } else {
+  //       onError(new Error(response.data.message || '上传失败'));
+  //       message.error(response.data.message || '上传失败');
+  //     }
+  //   } catch (error) {
+  //     console.error('Upload error:', error);
+  //     onError(error);
+  //     message.error('文件上传失败: ' + (error.response?.data?.message || error.message));
+  //   } finally {
+  //     setUploading(false);
+  //   }
+  // };
 
   // 文件列表变化处理
   const handleChange: UploadProps['onChange'] = (info) => {
@@ -202,11 +199,13 @@ const FileUpload: React.FC<FileUploadProps> = ({
     <div className="space-y-4">
 
       <Alert
-        message="注意事项"
-        description={
-          <div>
-            {selectedTrack?.tips}
-          </div>}
+        message={
+          <div style={{ width: 700 }}>
+            <p>
+              {selectedTrack?.tips}
+            </p>
+          </div>
+        }
         type="warning"
       />
       {/* 上传区域 */}

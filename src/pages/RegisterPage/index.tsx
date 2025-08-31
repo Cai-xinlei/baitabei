@@ -54,11 +54,16 @@ const RegisterPage: React.FC = () => {
   // 提交表单
   const handleSubmit = async (values: any) => {
     const formValues = form.getFieldsValue(true);
+    console.log(formValues, 'formValuesformValues');
+
     setIsSubmitting(true);
     try {
       const params = {
         projectDto: {
-          // trackId: taskIdMap[formValues?.trackId], trackJson: JSON.stringify({
+          projectname: formValues.projectTitle,
+          trackId: taskIdMap[formValues?.trackId],
+          trackJson: JSON.stringify(formValues),
+          // trackJson: JSON.stringify({
           //   "trackId": "cultural_innovation",
           //   "reportType": "individual",
           //   "projectTitle": "作品名称",
@@ -74,8 +79,7 @@ const RegisterPage: React.FC = () => {
           //   "aiRemark": "备注(请注明所使用AI模型具体名称和使用程度)\n",
           //   "workDescription": "作品简介",
           //   "agreement": true
-          // })
-          trackId: taskIdMap[formValues?.trackId], trackJson: JSON.stringify(formValues)
+          // }),
         },
         userPrincipal: userInfo,
       }
@@ -85,6 +89,8 @@ const RegisterPage: React.FC = () => {
           message.success('报名提交成功');
           setCurrentStep(2);
           navigate('/baitabei/home');
+        } else {
+          message.error(res.message)
         }
       })
     } catch (error) {

@@ -1,5 +1,5 @@
 import request from './request';
-
+import axios from 'axios';
 // 刷新token
 export const refreshToken = async () => {
     const refreshToken = localStorage.getItem('refreshToken');
@@ -96,4 +96,103 @@ export const projectsSubmit = async (submitData) => {
     const response = await request.post('/api/project/submit', submitData);
     console.log(response, '提交的信息');
     return response;
+};
+
+
+// 文件上传
+export const uploadFile = async (file, onProgress) => {
+    const formData = new FormData();
+    formData.append('file', file);
+
+    // 配置上传参数
+    const config = {
+        headers: {
+            'Content-Type': 'multipart/form-data',
+
+        },
+        // 如果需要上传进度回调
+        onUploadProgress: onProgress
+    };
+
+    try {
+        const response = await request.post('/api/files/upload', formData, config);
+        const { data } = response;
+        return data;
+    } catch (error) {
+        throw error;
+    }
+};
+
+
+// 文件上传方法
+export const customUpload = async (options) => {
+    const { file, onSuccess, onError, onProgress } = options;
+
+    try {
+        // 创建 FormData 对象
+        const formData = new FormData();
+        formData.append('file', file);
+
+        // 设置上传配置
+        const config = {
+            headers: {
+                'Content-Type': 'multipart/form-data',
+                // 添加 Authorization 头
+                'Authorization': `Bearer ${localStorage.getItem('token')}`,
+                'token': localStorage.getItem('token')
+            },
+            // 监听上传进度
+            onUploadProgress: (progressEvent) => {
+                const { loaded, total } = progressEvent;
+                const percent = Math.round((loaded / total) * 100);
+                onProgress({ percent });
+            },
+            withCredentials: true
+        };
+
+        // 发送 POST 请求
+        const response = await axios.post(
+            'http://39.106.56.69:8080/api/file/upload',
+            formData,
+            config
+        );
+        console.log(response, 'responseresponse');
+        // 处理响应
+        if (response.data.code === 200) {
+            onSuccess({
+                name: response.data.data.fileName,
+                url: response.data.data,
+                status: 'done',
+                fileId: response.data.data.fileId,
+                fileSize: response.data.data.fileSize,
+                fileType: response.data.data.fileType
+            });
+
+            return {
+                success: true,
+                data: {
+                    name: response.data.data.fileName,
+                    url: response.data.data,
+                    fileId: response.data.data.fileId,
+                    fileSize: response.data.data.fileSize,
+                    fileType: response.data.data.fileType
+                }
+            };
+        } else {
+            const errorMessage = response.data.message || '上传失败';
+            onError(new Error(errorMessage));
+            return {
+                success: false,
+                error: errorMessage
+            };
+        }
+    } catch (error) {
+        console.error('Upload error:', error);
+        const errorMessage = error.response?.data?.message || error.message || '文件上传失败';
+        onError(error);
+        return {
+            success: false,
+            error: errorMessage
+        };
+    }
 };
