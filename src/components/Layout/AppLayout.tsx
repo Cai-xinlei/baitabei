@@ -22,13 +22,13 @@ const AppLayout: React.FC<AppLayoutProps> = ({ children }) => {
   const navigate = useNavigate();
   const screens = useBreakpoint();
   const isMobile = !screens.md;
+  // 检查用户登录状态
+  const userData = localStorage.getItem('user');
   useEffect(() => {
-    // 检查用户登录状态
-    const userData = localStorage.getItem('user');
     if (userData) {
       setUser(JSON.parse(userData));
     }
-  }, []);
+  }, [userData]);
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [location.pathname]);

@@ -56,7 +56,8 @@ export const login = async (loginData) => {
 export const register = async (registerData) => {
     try {
         const response = await request.post('/api/auth/register', registerData);
-        return response;
+        console.log(response, 'responseresponse');
+        return true;
     } catch (error) {
         throw error;
     }

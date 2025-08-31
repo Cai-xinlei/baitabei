@@ -92,7 +92,7 @@ const LoginPage: React.FC = () => {
       console.log('注册数据:', values);
 
       register(values).then(res => {
-        if (res?.userId) {
+        if (res) {
           message.success('注册成功！');
           setRegisterLoading(false);
           // 重定向到原页面或首页
@@ -155,8 +155,9 @@ const LoginPage: React.FC = () => {
                   >
                     <Input
                       prefix={<UserOutlined />}
-                      placeholder="用户名"
+                      placeholder="用户名至少3个字符"
                       size="large"
+                      minLength={3}
                     />
                   </Form.Item>
 
@@ -164,12 +165,13 @@ const LoginPage: React.FC = () => {
                     name="password"
                     label="密码"
                     rules={[
-                      { required: true, message: '请输入密码!' },
+                      { required: true, message: '请输入最少6位数密码!' },
                     ]}
                   >
                     <Input.Password
                       prefix={<LockOutlined />}
-                      placeholder="密码"
+                      placeholder="请输入最少6位数密码"
+                      minLength={6}
                       size="large"
                     />
                   </Form.Item>
@@ -214,11 +216,13 @@ const LoginPage: React.FC = () => {
                     label="用户名"
                     rules={[
                       { required: true, message: '请输入用户名!' },
+                      { min: 3, message: '用户名至少3个字符!' },
                     ]}
                   >
                     <Input
                       prefix={<UserOutlined />}
-                      placeholder="用户名"
+                      placeholder="用户名至少3个字符"
+                      minLength={3}
                       size="large"
                     />
                   </Form.Item>
@@ -232,20 +236,20 @@ const LoginPage: React.FC = () => {
                   >
                     <Input
                       prefix={<MailOutlined />}
-                      placeholder="邮箱地址"
+                      placeholder="请输入邮箱地址"
                       size="large"
                     />
                   </Form.Item>
                   <Form.Item
                     name="realName"
-                    label="职位"
+                    label="账号名称"
                     rules={[
-                      { required: true, message: '请输入职位!' },
+                      { required: true, message: '请输入账号名称!' },
                     ]}
                   >
                     <Input
                       prefix={<UserOutlined />}
-                      placeholder="职位"
+                      placeholder="请输入账号名称"
                       size="large"
                     />
                   </Form.Item>
@@ -276,6 +280,7 @@ const LoginPage: React.FC = () => {
                       prefix={<LockOutlined />}
                       placeholder="密码"
                       size="large"
+                      minLength={6}
                     />
                   </Form.Item>
 
@@ -297,8 +302,9 @@ const LoginPage: React.FC = () => {
                   >
                     <Input.Password
                       prefix={<LockOutlined />}
-                      placeholder="确认密码"
+                      placeholder="请输入确认密码"
                       size="large"
+                      minLength={6}
                     />
                   </Form.Item>
 
