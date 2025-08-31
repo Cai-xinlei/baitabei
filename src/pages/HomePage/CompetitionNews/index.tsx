@@ -110,6 +110,8 @@ const CompetitionNewsModule: React.FC<CompetitionNewsModuleProps> = ({
                     <CalendarOutlined className="date-icon" />
                     <Typography.Text>{item.date}</Typography.Text>
                 </Space>
+
+                {/* <div>{JSON.stringify(item.date)}</div> */}
             </div>
         </List.Item>
     ), [loading, visibleItems]);

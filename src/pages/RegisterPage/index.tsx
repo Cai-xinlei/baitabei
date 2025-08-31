@@ -185,7 +185,7 @@ const RegisterPage: React.FC = () => {
                 </Form.Item>
                 <Form.Item
                   name="reportType"
-                  label={`${selectedTrack?.name}征集报名表`}
+                  label=''
                   required
                   initialValue={reportType}
                 >
@@ -272,9 +272,9 @@ const RegisterPage: React.FC = () => {
                       <Button type="primary" size="large" onClick={handleNext}>
                         下一步
                       </Button>
-                      <Button type="primary" size="large" onClick={handleSubmit}>
+                      {/* <Button type="primary" size="large" onClick={handleSubmit}>
                         测试用的按钮
-                      </Button>
+                      </Button> */}
                     </>
                   ) : (
                     <Button

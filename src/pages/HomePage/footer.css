@@ -9,7 +9,7 @@
 }
 
 .content-container {
-  max-width: 1280px;
+  max-width: 1200px;
   margin: 0 auto;
 }
 
@@ -24,7 +24,7 @@
 
 /* 中间垂直分隔线 */
 @media (min-width: 992px) {
-  .organization-column:last-child::before {
+  /* .organization-column:last-child::before {
     content: "";
     position: absolute;
     left: 0;
@@ -32,7 +32,7 @@
     width: 1px;
     height: calc(100% - 40px);
     background-color: rgba(255, 255, 255, 0.5);
-  }
+  } */
 }
 
 .organization-item {
@@ -58,8 +58,7 @@
 /* 联系电话 */
 .contact-info {
   text-align: center;
-  margin-top: 50px;
-  padding-top: 20px;
+  padding-top: 30px;
   border-top: 1px solid rgba(255, 255, 255, 0.3);
   font-size: 16px;
 }
