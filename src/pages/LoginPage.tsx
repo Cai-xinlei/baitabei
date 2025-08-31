@@ -131,7 +131,7 @@ const LoginPage: React.FC = () => {
               欢迎回来
             </Title>
             <Text className="text-gray-600">
-              登录参与2025年白塔杯文化创意大赛
+              登录参与2025第四届“白塔杯”文化创意大赛
             </Text>
           </div>
 

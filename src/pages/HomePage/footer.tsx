@@ -44,8 +44,24 @@ const organizationData = [
                 "北京联合大学非遗学院",
             ]
         }
+    ],
+    [
+
+        {
+            title: "大赛支持单位",
+            content: [
+                "中国版权链版权创意服务平台",
+                "北京市西城区文化和旅游产业协会",
+                "北京演出娱乐行业协会",
+                "北京文兴格致文化科技基金",
+                "腾讯SSV数字文化实验室",
+                "北京沸铜科技有限公司",
+                "《北京青年报》",
+                "《时尚芭莎》了不起的非遗",
+            ]
+        }
     ]
-];
+]
 
 // 联系电话
 const contactInfo = "咨询电话：15712909137 / 010-83160689";
@@ -58,7 +74,7 @@ const OrganizationPage = () => {
                 {/* 三栏布局 */}
                 <Row gutter={[24, 24]} className="organization-grid">
                     {/* 左侧栏 */}
-                    <Col xs={24} md={8} className="organization-column">
+                    <Col xs={24} md={6} className="organization-column">
                         {organizationData[0].map((item, index) => (
                             <div key={index} className="organization-item">
                                 <Text strong className="item-title">{item.title}:</Text>
@@ -76,7 +92,7 @@ const OrganizationPage = () => {
                     </Col>
 
                     {/* 中间栏 */}
-                    <Col xs={24} md={8} className="organization-column">
+                    <Col xs={24} md={6} className="organization-column">
                         {organizationData[1].map((item, index) => (
                             <div key={index} className="organization-item">
                                 <Text strong className="item-title">{item.title}:</Text>
@@ -94,8 +110,25 @@ const OrganizationPage = () => {
                     </Col>
 
                     {/* 右侧栏 */}
-                    <Col xs={24} md={8} className="organization-column">
+                    <Col xs={24} md={6} className="organization-column">
                         {organizationData[2].map((item, index) => (
+                            <div key={index} className="organization-item">
+                                <Text strong className="item-title">{item.title}:</Text>
+                                <div className="item-content">
+                                    {Array.isArray(item.content) ? (
+                                        item.content.map((text, i) => (
+                                            <Paragraph key={i} className="content-text">{text}</Paragraph>
+                                        ))
+                                    ) : (
+                                        <Paragraph className="content-text">{item.content}</Paragraph>
+                                    )}
+                                </div>
+                            </div>
+                        ))}
+                    </Col>
+                    {/* 右侧栏 */}
+                    <Col xs={24} md={6} className="organization-column">
+                        {organizationData[3].map((item, index) => (
                             <div key={index} className="organization-item">
                                 <Text strong className="item-title">{item.title}:</Text>
                                 <div className="item-content">

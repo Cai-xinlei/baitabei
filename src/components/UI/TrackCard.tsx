@@ -1,9 +1,10 @@
 import React from 'react';
-import { Card, Tag, Progress, Button } from 'antd';
-import { TrophyOutlined, UserOutlined, CalendarOutlined } from '@ant-design/icons';
+import { Card, Tag, Button, Typography } from 'antd';
 import { motion } from 'framer-motion';
 import { Track } from '../../types';
 import { Link } from 'react-router-dom';
+const { Paragraph } = Typography;
+
 import './index.css';
 interface TrackCardProps {
   track: Track;
@@ -11,9 +12,6 @@ interface TrackCardProps {
 }
 
 const TrackCard: React.FC<TrackCardProps> = ({ track, featured = false }) => {
-  const progressPercentage = track.maxParticipants ?
-    Math.round((track.participantCount / track.maxParticipants) * 100) : 0;
-
   const getStatusColor = (status: string) => {
     switch (status) {
       case 'open': return 'green';
@@ -34,7 +32,7 @@ const TrackCard: React.FC<TrackCardProps> = ({ track, featured = false }) => {
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 20 }}
+      initial={{ opacity: 0, y: 16 }}
       animate={{ opacity: 1, y: 0 }}
       whileHover={{ y: -5 }}
       transition={{ duration: 0.3 }}
@@ -65,9 +63,9 @@ const TrackCard: React.FC<TrackCardProps> = ({ track, featured = false }) => {
         }
       >
         <div>
-          <div className="detailDescription" >
+          <Paragraph className="detailDescription">
             {track.detailDescription}
-          </div>
+          </Paragraph>
 
           {/* <div className="grid grid-cols-2 gap-4 mb-4">
             <div className="flex items-center space-x-2 text-sm text-gray-500">

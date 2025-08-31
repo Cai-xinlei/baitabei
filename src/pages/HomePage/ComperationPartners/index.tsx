@@ -10,11 +10,7 @@ const CooperationPartners: React.FC = () => {
     // 合作单位数据，按三列分组并添加类型定义
     const partners: PartnerData['columns'] = [
         [
-            "中国传媒大学",
-            "中国动画学会",
-            "世界城市旅游联合会",
             "中国版权链版权创意服务平台",
-
         ],
         [
             "北京市西城区文化和旅游产业协会",

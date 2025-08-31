@@ -19,7 +19,7 @@ const TracksPage: React.FC = () => {
       {/* 页面头部 */}
       <section className="bg-gradient-to-r py-16"
         style={{
-          backgroundImage: `url(${trackImages.toutu1})`,
+          backgroundImage: `url(${trackImages.setSaidaobg})`,
           backgroundSize: 'cover',
           width: '100%',
         }}
@@ -31,7 +31,7 @@ const TracksPage: React.FC = () => {
             transition={{ duration: 0.8 }}
           >
             <Title level={1} className="text-white text-4xl font-bold mb-4">
-              五大赛道设置
+              五大赛道
             </Title>
             <Paragraph className="text-lg opacity-90 max-w-3xl mx-auto">
               遵循“文化创意解码-场景创新构建－内容生态升级－数字科技赋能”的立体化发展路径，共设置五大赛道

@@ -1,7 +1,6 @@
 import trackSocial from '@/assets/images/track-social.jpg';
 import trackCreative from '@/assets/images/track-creative.jpg';
 import trackBusiness from '@/assets/images/track-business.jpg';
-import trackCultural from '@/assets/images/track-cultural.jpg';
 import newsCoverImg from '@/assets/images/news-cover.jpg';
 import trackComprehensive from '@/assets/images/track-comprehensive.png';
 import teamImg from '@/assets/images/experts-team.jpeg';
@@ -21,7 +20,7 @@ import saidaofour from '@/assets/images/saidaofour.jpg';
 import saidaofive from '@/assets/images/saidaofive.jpg';
 import homebg from '@/assets/images/homebg.jpg';
 import zixun from '@/assets/images/zixun.jpg';
-import toutu1 from '@/assets/images/toutu1.jpg';
+import setSaidaobg from '@/assets/images/setSaidaobg.jpg';
 import toutu2 from '@/assets/images/toutu2.jpg';
 
 
@@ -31,7 +30,6 @@ export const trackImages = {
     trackSocial,
     trackBusiness,
     trackCreative,
-    trackCultural,
     newsCoverImg,
     trackComprehensive,
     teamImg,
@@ -51,7 +49,7 @@ export const trackImages = {
     saidaofive,
     homebg,
     zixun,
-    toutu1,
+    setSaidaobg,
     toutu2
 };
 
