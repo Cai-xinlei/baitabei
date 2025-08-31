@@ -149,7 +149,7 @@ const HomePage: React.FC = () => {
         // loading={isLoading}
         />
         {/* 八、大赛支持单位 */}
-        <ComperationPartners />
+        {/* <ComperationPartners /> */}
         {/* CTA区域 */}
 
         <section className="py-12 bg-gradient-to-r" style={{ background: "#fff" }}>
