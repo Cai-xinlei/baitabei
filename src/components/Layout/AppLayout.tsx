@@ -119,7 +119,6 @@ const AppLayout: React.FC<AppLayoutProps> = ({ children }) => {
                 className="border-none bg-transparent"
                 style={{ lineHeight: '80px' }}
               />
-
               {/* 用户状态 */}
               {localStorage.getItem('user') ? (
                 <Dropdown menu={{ items: userMenuItems }} placement="bottomRight">

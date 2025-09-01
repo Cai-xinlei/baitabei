@@ -14,8 +14,6 @@ const { Option } = Select;
 import OrganizationForm from './organizationForm'
 import IndividualForm from './individualForm'
 
-const userToken = localStorage.getItem('user');
-
 const RegisterPage: React.FC = () => {
   const [searchParams] = useSearchParams();
   const [form] = Form.useForm();
@@ -105,28 +103,29 @@ const RegisterPage: React.FC = () => {
 
   // 下一步
   const handleNext = () => {
-    if (!userToken) {
+    if (!userInfo?.id) {
       message.info('系统检测未登陆，即将跳转登陆页面')
       setTimeout(() => {
         navigate('/baitabei/login')
       }, 1000);
       return
-    }
-    if (currentStep === 0) {
-      // 验证赛道选择
-      const trackId = form.getFieldValue('trackId');
-      if (!trackId) {
-        message.warning('请选择参赛赛道');
-        return;
+    } else {
+      if (currentStep === 0) {
+        // 验证赛道选择
+        const trackId = form.getFieldValue('trackId');
+        if (!trackId) {
+          message.warning('请选择参赛赛道');
+          return;
+        }
+        setCurrentStep(1);
+      } else if (currentStep === 1) {
+        // 验证表单
+        form.validateFields().then(() => {
+          setCurrentStep(2);
+        }).catch(() => {
+          message.warning('请填写必要信息');
+        });
       }
-      setCurrentStep(1);
-    } else if (currentStep === 1) {
-      // 验证表单
-      form.validateFields().then(() => {
-        setCurrentStep(2);
-      }).catch(() => {
-        message.warning('请填写必要信息');
-      });
     }
     window.scrollTo(0, 0);
   };

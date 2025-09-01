@@ -43,6 +43,18 @@ const IndividualForm = ({ form, selectedTrack }) => {
                     <Input placeholder="请输入作品名称" />
                 </Form.Item>
 
+                {form.getFieldValue('trackId') === 'creative_design' && <Form.Item
+                    label="作品分类"
+                    name="projectType"
+                    rules={[{ required: true, }]}
+                    initialValue={'practical'}
+                >
+                    <Select placeholder="请选择作品分类">
+                        <Option value="practical">实践案例</Option>
+                        <Option value="conceptual">概念方案</Option>
+                    </Select>
+                </Form.Item>}
+
                 {/* 参赛者概况 */}
                 <Divider orientation="left">参赛者概况</Divider>
 
