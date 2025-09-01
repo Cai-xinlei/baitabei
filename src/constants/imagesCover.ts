@@ -1,5 +1,4 @@
 import trackSocial from '@/assets/images/track-social.jpg';
-import trackCreative from '@/assets/images/track-creative.jpg';
 import trackBusiness from '@/assets/images/track-business.jpg';
 import newsCoverImg from '@/assets/images/news-cover.jpg';
 import trackComprehensive from '@/assets/images/track-comprehensive.png';
@@ -29,7 +28,6 @@ import toutu2 from '@/assets/images/toutu2.jpg';
 export const trackImages = {
     trackSocial,
     trackBusiness,
-    trackCreative,
     newsCoverImg,
     trackComprehensive,
     teamImg,
@@ -50,7 +48,7 @@ export const trackImages = {
     homebg,
     zixun,
     setSaidaobg,
-    toutu2
+    toutu2,
 };
 
 export default trackImages;

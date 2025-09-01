@@ -65,12 +65,12 @@ const NewsDetailPage: React.FC = () => {
     };
 
     const mockRelatedNews: RelatedNews[] = [
-      {
-        id: '2',
-        title: '专家解读：数字文化创新的发展趋势',
-        coverImage: trackImages.trackCreative,
-        publishDate: '2025-09-05'
-      },
+      // {
+      //   id: '2',
+      //   title: '专家解读：数字文化创新的发展趋势',
+      //   coverImage: trackImages.trackCreative,
+      //   publishDate: '2025-09-05'
+      // },
       {
         id: '3',
         title: '往届获奖作品回顾：创意点亮生活',

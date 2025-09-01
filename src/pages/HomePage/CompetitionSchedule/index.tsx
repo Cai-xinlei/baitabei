@@ -3,13 +3,11 @@ import { Flex, Typography } from 'antd';
 import './index.css';
 import TitleWithLines from '@/components/TitleWithLines'
 
-const { Title } = Typography;
-
 const scheduleData = [
-    {
-        phase: '大赛启动',
-        time: '2025年8月底'
-    },
+    // {
+    //     phase: '大赛启动',
+    //     time: '2025年9月'
+    // },
     {
         phase: '项目征集',
         time: '2025年9月-10月'

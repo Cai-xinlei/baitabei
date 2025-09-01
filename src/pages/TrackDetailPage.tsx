@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { Typography, Button, Card, Row, Col, Tag, Timeline, Divider, Alert } from 'antd';
-import { ArrowLeftOutlined, TrophyOutlined, UserOutlined, CalendarOutlined, CheckCircleOutlined } from '@ant-design/icons';
+import { Typography, Button, Card, Row, Col, Alert } from 'antd';
+import { ArrowLeftOutlined, } from '@ant-design/icons';
 import { motion } from 'framer-motion';
 import { TRACKS } from '../constants';
 
@@ -25,14 +25,11 @@ const TrackDetailPage: React.FC = () => {
     );
   }
 
-  const progressPercentage = track.maxParticipants ?
-    Math.round((track.participantCount / track.maxParticipants) * 100) : 0;
-
   const renderOrganization = (organize) => {
     if (organize?.length) {
       return organize?.map((v, index) => (
         <Paragraph key={index} className="text-gray-700 leading-relaxed text-base">
-          {v}
+          <div dangerouslySetInnerHTML={{ __html: v }} />
         </Paragraph>
       ))
     }
@@ -41,7 +38,7 @@ const TrackDetailPage: React.FC = () => {
 
   const renderContent = (list) => {
     if (list.length) {
-      return list?.map((item, index) => (
+      return list?.map((item) => (
         <Fragment key={item.id}>
           <Title level={5} className="mb-5" >
             {item.title}
@@ -83,30 +80,6 @@ const TrackDetailPage: React.FC = () => {
             <Title level={1} style={{ color: '#fff' }} className="text-white text-4xl font-bold mb-4">
               {track.name}
             </Title>
-            {/* <Paragraph className="text-white text-lg mb-6 opacity-90">
-              {track.description}
-            </Paragraph> */}
-            {/* <div className="flex flex-wrap justify-center gap-4 mb-8">
-              <div className="bg-white/20 backdrop-blur-sm px-4 py-2 rounded-lg">
-                <UserOutlined className="mr-2" />
-                已报名：{track.participantCount}人
-              </div>
-              <div className="bg-white/20 backdrop-blur-sm px-4 py-2 rounded-lg">
-                <CalendarOutlined className="mr-2" />
-                截止：{new Date(track.deadline).toLocaleDateString()}
-              </div>
-              <div className="bg-white/20 backdrop-blur-sm px-4 py-2 rounded-lg">
-                <TrophyOutlined className="mr-2" />
-                奖项：{track.awards.length}个
-              </div>
-            </div> */}
-            {/* {track.status === 'open' && (
-              <Link to={`/baitabei/register?track=${track.id}`}>
-                <Button type="primary" size="large" className="bg-yellow-500 border-yellow-500 hover:bg-yellow-600 px-8">
-                  立即报名此赛道
-                </Button>
-              </Link>
-            )} */}
           </motion.div>
         </div>
       </section>
@@ -141,12 +114,6 @@ const TrackDetailPage: React.FC = () => {
                     参赛要求
                   </Title>
                   {renderContent(track.requirements)}
-                  {/* <Title level={3} className="mb-4" >
-                    赛道咨询
-                  </Title>
-                  <Paragraph className="text-gray-700 leading-relaxed text-base">
-                    {track.zixun}
-                  </Paragraph> */}
                 </Card>
               </motion.div>
             </Col>

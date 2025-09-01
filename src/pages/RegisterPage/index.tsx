@@ -13,6 +13,9 @@ const { Title, Paragraph } = Typography;
 const { Option } = Select;
 import OrganizationForm from './organizationForm'
 import IndividualForm from './individualForm'
+
+const userToken = localStorage.getItem('user');
+
 const RegisterPage: React.FC = () => {
   const [searchParams] = useSearchParams();
   const [form] = Form.useForm();
@@ -102,6 +105,13 @@ const RegisterPage: React.FC = () => {
 
   // 下一步
   const handleNext = () => {
+    if (!userToken) {
+      message.info('系统检测未登陆，即将跳转登陆页面')
+      setTimeout(() => {
+        navigate('/baitabei/login')
+      }, 1000);
+      return
+    }
     if (currentStep === 0) {
       // 验证赛道选择
       const trackId = form.getFieldValue('trackId');

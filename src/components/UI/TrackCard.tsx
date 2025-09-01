@@ -40,17 +40,16 @@ const TrackCard: React.FC<TrackCardProps> = ({ track, featured = false }) => {
     >
       <Card
         hoverable
-        className="h-full shadow-lg border-0 overflow-hidden"
+        className="h-full border-0 overflow-hidden"
         // bodyStyle={{ padding: 0 }}
         cover={
           <div className="relative h-48 overflow-hidden">
             <img
               src={track.image}
               alt={track.name}
-              className="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
+              className="w-full h-full object-cover"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-            <div className="absolute top-4 right-4">
+            <div className="absolute top-4 right-4" >
               <Tag color={getStatusColor(track.status)} className="font-medium">
                 {getStatusText(track.status)}
               </Tag>

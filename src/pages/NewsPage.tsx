@@ -86,48 +86,6 @@ const NewsPage: React.FC = () => {
           </motion.div>
         </div>
       </section>
-
-      {/* 搜索和筛选 */}
-      {/* <section className="py-8 bg-white">
-        <div className="max-w-7xl mx-auto px-4">
-          <Row gutter={[24, 16]} align="middle">
-            <Col xs={24} md={16}>
-              <Search
-                placeholder="搜索新闻标题或内容"
-                allowClear
-                enterButton={<SearchOutlined />}
-                size="large"
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-              />
-            </Col>
-            <Col xs={24} md={8}>
-              <div className="flex flex-wrap gap-2">
-                <Tag
-                  className={`cursor-pointer px-3 py-1 text-sm ${!selectedCategory ? 'bg-red-500 text-white border-red-500' : 'hover:border-red-500'
-                    }`}
-                  onClick={() => setSelectedCategory(null)}
-                >
-                  全部
-                </Tag>
-                {categories.map(category => (
-                  <Tag
-                    key={category.key}
-                    className={`cursor-pointer px-3 py-1 text-sm ${selectedCategory === category.key ? 'bg-red-500 text-white border-red-500' : 'hover:border-red-500'
-                      }`}
-                    onClick={() => setSelectedCategory(
-                      selectedCategory === category.key ? null : category.key
-                    )}
-                  >
-                    {category.label}
-                  </Tag>
-                ))}
-              </div>
-            </Col>
-          </Row>
-        </div>
-      </section> */}
-
       {/* 新闻列表 */}
       <section className="py-8">
         <div className="max-w-7xl mx-auto px-4">

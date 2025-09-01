@@ -95,7 +95,7 @@ export const TIMELINE: TimelineEvent[] = [
     id: 'launch',
     title: '大赛启动',
     // description: '2025年第四届白塔杯文化创意大赛正式启动，开始接受报名',
-    date: '2025-8月',
+    date: '2025-9月',
     status: 'completed',
     type: 'milestone'
   },
@@ -162,7 +162,7 @@ export const NAVIGATION_MENU = [
   { key: 'home', label: '大赛首页', path: '/baitabei/home' },
   { key: 'tracks', label: '赛道设置', path: '/baitabei/tracks' },
   { key: 'news', label: '大赛资讯', path: '/baitabei/news' },
-  { key: 'about', label: '关于大赛', path: '/baitabei/about' },
+  // { key: 'about', label: '关于大赛', path: '/baitabei/about' },
   { key: 'register', label: '立即报名', path: '/baitabei/register' }
 ];
 
@@ -171,7 +171,7 @@ export const NEWS_ARTICLES = [
   {
     id: '1',
     title: '2025年第四届"白塔杯"文化创意大赛正式启动',
-    excerpt: '2025第四届“白塔杯”文化创意大赛正式启动，大赛旨在以更高质量的文化产品丰富人民群众精神文明消费需求，助力西城区文化产业生态圈实现场景创新、业态升级与可持续发展。',
+    excerpt: '2025第四届“白塔杯”文化创意大赛正式启动，以“文融西城 创绘未来”为主题，设置5大赛道。',
     coverImage: trackImages.newsCoverImg,
     author: '大赛组委会',
     publishDate: '2025-09-01',
@@ -179,17 +179,7 @@ export const NEWS_ARTICLES = [
     category: '大赛动态',
     tags: ['大赛启动', '文化创意', '政策解读']
   },
-  // {
-  //   id: '2',
-  //   title: '专家解读：数字文化创新的发展趋势',
-  //   excerpt: '业内专家深度解析数字文化创新的最新发展趋势，为参赛者提供专业指导和行业洞察。',
-  //   coverImage: trackImages.trackCreative,
-  //   author: '李明教授',
-  //   publishDate: '2025-09-05',
-  //   viewCount: 892,
-  //   category: '专家观点',
-  //   tags: ['数字文化', '创新趋势', '专家解读']
-  // },
+
   // {
   //   id: '3',
   //   title: '往届获奖作品回顾：创意点亮生活',

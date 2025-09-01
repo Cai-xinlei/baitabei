@@ -24,7 +24,6 @@ const AppLayout: React.FC<AppLayoutProps> = ({ children }) => {
   const isMobile = !screens.md;
   // 检查用户登录状态
   const userData = localStorage.getItem('user');
-  const userToken = localStorage.getItem('user');
   useEffect(() => {
     if (userData) {
       setUser(JSON.parse(userData));
@@ -32,11 +31,6 @@ const AppLayout: React.FC<AppLayoutProps> = ({ children }) => {
   }, [userData]);
   useEffect(() => {
     window.scrollTo(0, 0);
-    if (location.pathname.startsWith('/baitabei/register')) {
-      if (!userToken) {
-        navigate('/baitabei/login')
-      }
-    }
   }, [location.pathname]);
 
 

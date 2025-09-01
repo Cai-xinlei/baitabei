@@ -2,7 +2,7 @@ import React from 'react';
 import { Row, Col, Typography, Divider } from 'antd';
 import './footer.css';
 
-const { Text, Paragraph } = Typography;
+const { Text } = Typography;
 
 // 组织单位数据
 const organizationData = [
@@ -18,22 +18,19 @@ const organizationData = [
                 "北京市西城区文化产业发展促进中心"
             ]
         },
-
-    ],
-    [
         {
             title: "特别支持单位",
             content: [
                 "北京银行前门文创支行",
             ]
         },
+    ],
+    [
+
         {
             title: "执行单位",
             content: "北京天桥盛世投资集团有限责任公司"
         },
-    ],
-    [
-
         {
             title: "赛道合作单位",
             content: [
@@ -74,17 +71,17 @@ const OrganizationPage = () => {
                 {/* 三栏布局 */}
                 <Row gutter={[24, 24]} className="organization-grid">
                     {/* 左侧栏 */}
-                    <Col xs={24} md={6} className="organization-column">
+                    <Col xs={24} md={8} className="organization-column">
                         {organizationData[0].map((item, index) => (
                             <div key={index} className="organization-item">
                                 <Text strong className="item-title">{item.title}:</Text>
                                 <div className="item-content">
                                     {Array.isArray(item.content) ? (
                                         item.content.map((text, i) => (
-                                            <Paragraph key={i} className="content-text">{text}</Paragraph>
+                                            <div key={i} className="content-text">{text}</div>
                                         ))
                                     ) : (
-                                        <Paragraph className="content-text">{item.content}</Paragraph>
+                                        <div className="content-text">{item.content}</div>
                                     )}
                                 </div>
                             </div>
@@ -92,17 +89,17 @@ const OrganizationPage = () => {
                     </Col>
 
                     {/* 中间栏 */}
-                    <Col xs={24} md={6} className="organization-column">
+                    <Col xs={24} md={8} className="organization-column">
                         {organizationData[1].map((item, index) => (
                             <div key={index} className="organization-item">
                                 <Text strong className="item-title">{item.title}:</Text>
                                 <div className="item-content">
                                     {Array.isArray(item.content) ? (
                                         item.content.map((text, i) => (
-                                            <Paragraph key={i} className="content-text">{text}</Paragraph>
+                                            <div key={i} className="content-text">{text}</div>
                                         ))
                                     ) : (
-                                        <Paragraph className="content-text">{item.content}</Paragraph>
+                                        <div className="content-text">{item.content}</div>
                                     )}
                                 </div>
                             </div>
@@ -110,34 +107,17 @@ const OrganizationPage = () => {
                     </Col>
 
                     {/* 右侧栏 */}
-                    <Col xs={24} md={6} className="organization-column">
+                    <Col xs={24} md={8} className="organization-column">
                         {organizationData[2].map((item, index) => (
                             <div key={index} className="organization-item">
                                 <Text strong className="item-title">{item.title}:</Text>
                                 <div className="item-content">
                                     {Array.isArray(item.content) ? (
                                         item.content.map((text, i) => (
-                                            <Paragraph key={i} className="content-text">{text}</Paragraph>
+                                            <div key={i} className="content-text">{text}</div>
                                         ))
                                     ) : (
-                                        <Paragraph className="content-text">{item.content}</Paragraph>
-                                    )}
-                                </div>
-                            </div>
-                        ))}
-                    </Col>
-                    {/* 右侧栏 */}
-                    <Col xs={24} md={6} className="organization-column">
-                        {organizationData[3].map((item, index) => (
-                            <div key={index} className="organization-item">
-                                <Text strong className="item-title">{item.title}:</Text>
-                                <div className="item-content">
-                                    {Array.isArray(item.content) ? (
-                                        item.content.map((text, i) => (
-                                            <Paragraph key={i} className="content-text">{text}</Paragraph>
-                                        ))
-                                    ) : (
-                                        <Paragraph className="content-text">{item.content}</Paragraph>
+                                        <div className="content-text">{item.content}</div>
                                     )}
                                 </div>
                             </div>
