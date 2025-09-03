@@ -9,6 +9,7 @@ const saidaothree = 'https://static.baitabei.hzyuanlian.cn/saidaothree.jpg'
 const saidaofour = 'https://static.baitabei.hzyuanlian.cn/saidaofour.jpg'
 const saidaofive = 'https://static.baitabei.hzyuanlian.cn/saidaofive.jpg'
 const zixun = 'https://static.baitabei.hzyuanlian.cn/zixun.jpg'
+const zixunHome = 'https://static.baitabei.hzyuanlian.cn/zixunHome.jpg'
 const homebg = 'https://static.baitabei.hzyuanlian.cn/homebg.jpg'
 const homeBackground = 'https://static.baitabei.hzyuanlian.cn/homeBackground.jpg'
 const setSaidaobg = 'https://static.baitabei.hzyuanlian.cn/setSaidaobg.jpg'
@@ -19,17 +20,20 @@ const toutu2 = 'https://static.baitabei.hzyuanlian.cn/toutu2.jpg'
 const songweizu = 'https://static.baitabei.hzyuanlian.cn/songweizu.jpg'
 const qianzhe = 'https://static.baitabei.hzyuanlian.cn/qianzhe.jpg'
 const liubing = 'https://static.baitabei.hzyuanlian.cn/liubing.jpg'
+const newsCoverImg = 'https://static.baitabei.hzyuanlian.cn/news-cover.jpg'
 const nbgImg = 'https://static.baitabei.hzyuanlian.cn/nbg.jpg'
-const LogoImg = 'https://static.baitabei.hzyuanlian.cn/LogoImg.png'
+const LogoImg = 'https://static.baitabei.hzyuanlian.cn/logo.png'
 const downLoadUrl = 'https://static.baitabei.hzyuanlian.cn/城市消费场景设计赛道-相关附件.zip'
+const saicheng = 'https://static.baitabei.hzyuanlian.cn/saicheng'
 
 export const trackImages = {
     trackSocial,
     // trackBusiness,
-    // newsCoverImg,
+    newsCoverImg,
     // trackComprehensive,
     // teamImg,
     nbgImg,
+    saicheng,
     LogoImg,
     liubing,
     qianzhe,
@@ -47,7 +51,8 @@ export const trackImages = {
     homeBackground,
     setSaidaobg,
     toutu2,
-    downLoadUrl
+    downLoadUrl,
+    zixunHome
 };
 
 export default trackImages;

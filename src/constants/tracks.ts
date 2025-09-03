@@ -89,8 +89,7 @@ export const TRACKS: Track[] = [
       {
         title: '（一）概念设计方案',
         content: [
-          '征集西城区历史文化街区范围内的片区城市设计、建筑与景观设计概念方案。参赛者可选择什刹海、白塔寺、大栅栏、菜市口西、法源寺、天桥等西城区历史文化街区内的任一区域和点位进行空间设计，并提交概念设计方案。',
-          `<a href='/tiaoqiao.docx' download="天桥历史文化街区点位建筑设计资料下载.docx">天桥历史文化街区点位建筑设计资料下载</a>`
+          '征集西城区历史文化街区范围内的片区城市设计、建筑与景观设计概念方案。参赛者可选择什刹海、白塔寺、大栅栏、菜市口西、法源寺、天桥等西城区历史文化街区内的任一区域和点位进行空间设计，并提交概念设计方案。'
         ],
 
         id: "1"
@@ -392,3 +391,27 @@ export const PromiseBook = [
   '本承诺书自参赛者/参赛单位签字（或盖章）并提交至主办方、组委会之日起生效，具有法律效力。承诺书可采用纸质或电子方式签署，具有同等法律效力。',
 
 ]
+
+
+export const projectTypeFormOptions = {
+  "creative_design": [
+    { label: '实践案例', value: "practical" },
+    { label: '概念方案', value: "conceptual" },
+  ],
+  "business_model": [
+    { label: '场景创新类', value: "scene" },
+    { label: '内容创新类', value: "content" },
+    { label: '技术创新类', value: "technological" },
+  ],
+  "communication_promotion": [
+    { label: '非遗文创产品开发类', value: "product-development" },
+    { label: '非遗数字技术创新', value: "technological-innovation" },
+    { label: '非遗教育科普', value: "education" },
+    { label: '非遗演艺创新及影视创作转化', value: "transformation" },
+  ],
+}
+
+
+
+
+

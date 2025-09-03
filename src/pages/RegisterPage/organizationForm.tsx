@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 import {
     Form,
     Input,
@@ -6,21 +5,14 @@ import {
     Radio,
     Button,
     Card,
-    Space,
     Row,
     Col,
     Typography,
     Divider,
-    Upload,
-    message,
-    Result
 } from 'antd';
 import {
     PlusOutlined,
     MinusCircleOutlined,
-    UploadOutlined,
-    CheckCircleOutlined,
-    CloseCircleOutlined
 } from '@ant-design/icons';
 import FileUpload from '@/components/UI/FileUpload';
 

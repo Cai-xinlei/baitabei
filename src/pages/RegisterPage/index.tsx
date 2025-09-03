@@ -183,7 +183,15 @@ const RegisterPage: React.FC = () => {
                   <Select
                     placeholder="请选择您要参加的赛道"
                     size="large"
-                    onChange={(value) => setSelectedTrackId(value)}
+                    onChange={(value) => {
+                      form.resetFields();
+                      setSelectedTrackId(value);
+                      form.setFieldsValue(
+                        {
+                          'trackId': value
+                        }
+                      )
+                    }}
                   >
                     {TRACKS.filter(track => track.status === 'open').map(track => (
                       <Option key={track.id} value={track.id}>

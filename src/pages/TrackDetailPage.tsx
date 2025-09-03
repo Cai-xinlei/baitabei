@@ -4,6 +4,7 @@ import { Typography, Button, Card, Row, Col, Alert } from 'antd';
 import { ArrowLeftOutlined, } from '@ant-design/icons';
 import { motion } from 'framer-motion';
 import { TRACKS } from '../constants';
+import trackImages from '@/constants/imagesCover'
 
 const { Title, Paragraph } = Typography;
 
@@ -66,7 +67,7 @@ const TrackDetailPage: React.FC = () => {
       <section
         className="relative py-24 overflow-hidden"
         style={{
-          backgroundImage: `linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.4)), url(${track.image})`,
+          backgroundImage: `linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.4)), url(${trackImages.setSaidaobg})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center'
         }}
@@ -85,7 +86,7 @@ const TrackDetailPage: React.FC = () => {
       </section>
 
       {/* 详细信息 */}
-      <section className="py-16">
+      <section className="py-12">
         <div className="max-w-7xl mx-auto px-4">
           <Row gutter={[32, 32]}>
             {/* 左侧主要内容 */}
@@ -114,6 +115,11 @@ const TrackDetailPage: React.FC = () => {
                     参赛要求
                   </Title>
                   {renderContent(track.requirements)}
+                  {trackId === 'creative_design' && <Title level={4} className="mb-4" >
+                    <a href={trackImages.downLoadUrl} download={'附件下载: 城市消费场景设计赛道-相关附件'}>
+                      附件下载: 城市消费场景设计赛道-相关附件
+                    </a>
+                  </Title>}
                 </Card>
               </motion.div>
             </Col>

@@ -11,7 +11,7 @@ import {
     DatePicker
 } from 'antd';
 import FileUpload from '@/components/UI/FileUpload';
-
+import { projectTypeFormOptions } from '@/constants/tracks'
 const { Title } = Typography;
 const { Option } = Select;
 
@@ -43,13 +43,12 @@ const IndividualForm = ({ form, selectedTrack }) => {
                     <Input placeholder="请输入作品名称" />
                 </Form.Item>
 
-                {form.getFieldValue('trackId') === 'creative_design' && <Form.Item
+                {form.getFieldValue('trackId') && projectTypeFormOptions[form.getFieldValue('trackId')]?.length > 0 && <Form.Item
                     label="作品分类"
                     name="projectType"
                     rules={[{ required: true, }]}
-                    initialValue={'practical'}
                 >
-                    <Select placeholder="请选择作品分类">
+                    <Select placeholder="请选择作品分类" options={projectTypeFormOptions[form.getFieldValue('trackId')]}>
                         <Option value="practical">实践案例</Option>
                         <Option value="conceptual">概念方案</Option>
                     </Select>

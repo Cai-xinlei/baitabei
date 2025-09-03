@@ -2,6 +2,7 @@ import React from 'react';
 import { Flex, Typography } from 'antd';
 import './index.css';
 import TitleWithLines from '@/components/TitleWithLines'
+import trackImages from '@/constants/imagesCover'
 
 const scheduleData = [
     // {
@@ -42,8 +43,8 @@ const ScheduleCard = ({ phase, time }) => {
 const CompetitionSchedule = () => {
     return (
         <div className="competition-schedule">
-            <TitleWithLines text={'赛事进程'} />
-            <Flex wrap gap="middle" justify="center" style={{ marginTop: 20 }}>
+            <TitleWithLines text={'赛事赛程'} />
+            {/* <Flex wrap gap="middle" justify="center" style={{ marginTop: 20 }}>
                 {scheduleData.map((item, index) => (
                     <ScheduleCard
                         key={index}
@@ -51,7 +52,8 @@ const CompetitionSchedule = () => {
                         time={item.time}
                     />
                 ))}
-            </Flex>
+            </Flex> */}
+            <img src={trackImages.saicheng} />
         </div>
     );
 };
