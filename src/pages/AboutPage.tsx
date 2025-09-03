@@ -2,7 +2,7 @@ import React from 'react';
 import { Typography, Card, Row, Col, Timeline, Statistic, Divider, Avatar } from 'antd';
 import { TrophyOutlined, TeamOutlined, BankOutlined, StarOutlined } from '@ant-design/icons';
 import { motion } from 'framer-motion';
-import { TIMELINE, EXPERTS, ExpertList } from '../constants';
+import { TIMELINE, ExpertList } from '../constants';
 import trackImages from '../constants/imagesCover'
 const { Title, Paragraph } = Typography;
 

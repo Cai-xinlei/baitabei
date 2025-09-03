@@ -19,7 +19,7 @@ const TracksPage: React.FC = () => {
       {/* 页面头部 */}
       <section className="bg-gradient-to-r py-16"
         style={{
-          backgroundImage: `url(${trackImages.setSaidaobg})`,
+          backgroundImage: `url(${trackImages.fiveSaidao})`,
           backgroundSize: 'cover',
           width: '100%',
         }}

@@ -17,6 +17,7 @@ const zhangqi = 'https://static.baitabei.hzyuanlian.cn/zhangqi.jpg'
 const xidalong = 'https://static.baitabei.hzyuanlian.cn/xidalong.jpg'
 const wangjiang = 'https://static.baitabei.hzyuanlian.cn/wangjiang.jpg'
 const toutu2 = 'https://static.baitabei.hzyuanlian.cn/toutu2.jpg'
+const fiveSaidao = 'https://static.baitabei.hzyuanlian.cn/fiveSaidao.jpg'
 const songweizu = 'https://static.baitabei.hzyuanlian.cn/songweizu.jpg'
 const qianzhe = 'https://static.baitabei.hzyuanlian.cn/qianzhe.jpg'
 const liubing = 'https://static.baitabei.hzyuanlian.cn/liubing.jpg'
@@ -52,7 +53,8 @@ export const trackImages = {
     setSaidaobg,
     toutu2,
     downLoadUrl,
-    zixunHome
+    zixunHome,
+    fiveSaidao
 };
 
 export default trackImages;

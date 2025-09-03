@@ -56,7 +56,7 @@ const TrackDetailPage: React.FC = () => {
       {/* 返回按钮 */}
       <div className="bg-white border-b">
         <div className="max-w-7xl mx-auto px-4 py-4">
-          <Link to="/baitabei/tracks" className="inline-flex items-center text-gray-600 hover:text-red-600">
+          <Link to="/baitabei/tracks" className="inline-flex items-center text-gray-600">
             <ArrowLeftOutlined className="mr-2" />
             返回赛道列表
           </Link>
@@ -67,7 +67,7 @@ const TrackDetailPage: React.FC = () => {
       <section
         className="relative py-24 overflow-hidden"
         style={{
-          backgroundImage: `linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.4)), url(${trackImages.setSaidaobg})`,
+          backgroundImage: `url(${trackImages.setSaidaobg})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center'
         }}
@@ -78,7 +78,7 @@ const TrackDetailPage: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <Title level={1} style={{ color: '#fff' }} className="text-white text-4xl font-bold mb-4">
+            <Title level={1} className="text-white text-4xl font-bold mb-4">
               {track.name}
             </Title>
           </motion.div>
