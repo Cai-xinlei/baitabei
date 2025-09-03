@@ -1,45 +1,14 @@
 .competition-container {
     position: relative;
-    background-color: #fff;
 }
 
-.intro-img {
-    width: 100%;
-    height: 40px;
-}
 
 .competition-intro-page {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 40px 20px 30px 20px;
+    padding: 0px 20px;
 }
 
-/* 大赛介绍标题区域 */
-.intro-title-container {
-    /* 精确渐变 */
-    padding: 60px 20px;
-    /* 精确内边距 */
-    text-align: center;
-    margin: 0;
-}
-
-.main-title {
-    margin: 0;
-    color: #000000;
-    font-size: 36px;
-    /* 精确字体大小 */
-    font-weight: 700;
-}
-
-.title-line {
-    color: #000000;
-    margin: 0 20px;
-    /* 精确间距 */
-    font-weight: normal;
-}
-
-/* 内容文本样式 */
-.intro-content,
 .section-content {
     font-size: 16px;
     /* 精确字体大小 */
@@ -68,10 +37,6 @@
     margin-bottom: 30px;
 }
 
-.section-img {
-    flex: 1 !important;
-    width: 35% !important;
-}
 
 .competition-title {
     color: #000000;

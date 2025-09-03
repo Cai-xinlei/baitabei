@@ -54,10 +54,6 @@ const TrackCard: React.FC<TrackCardProps> = ({ track, featured = false }) => {
                 {getStatusText(track.status)}
               </Tag>
             </div>
-            <div className="absolute bottom-4 left-4 text-white">
-              <h3 className="text-xl font-bold mb-1" style={{ color: "#111" }}>{track.name}</h3>
-              {/* <p className="text-sm text-gray-200 mb-0">{track.description}</p> */}
-            </div>
           </div>
         }
       >

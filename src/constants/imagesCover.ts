@@ -1,38 +1,35 @@
-import trackSocial from '@/assets/images/track-social.jpg';
-import trackBusiness from '@/assets/images/track-business.jpg';
-import newsCoverImg from '@/assets/images/news-cover.jpg';
-import trackComprehensive from '@/assets/images/track-comprehensive.png';
-import teamImg from '@/assets/images/experts-team.jpeg';
-import nbgImg from '@/assets/images/nbg.png';
-import inxtbgImg from '@/assets/images/inxtbg.png';
-import LogoImg from '@/assets/images/logo.png';
-import liubing from '@/assets/images/liubing.jpg';
-import qianzhe from '@/assets/images/qianzhe.jpg';
-import songweizu from '@/assets/images/songweizu.jpg';
-import wangjiang from '@/assets/images/wangjiang.jpg';
-import xidalong from '@/assets/images/xidalong.jpg';
-import zhangqi from '@/assets/images/zhangqi.jpg';
-import saidaoone from '@/assets/images/saidaoone.jpg';
-import saidaotwo from '@/assets/images/saidaotwo.jpg';
-import saidaothree from '@/assets/images/saidaothree.jpg';
-import saidaofour from '@/assets/images/saidaofour.jpg';
-import saidaofive from '@/assets/images/saidaofive.jpg';
-import homebg from '@/assets/images/homebg.jpg';
-import zixun from '@/assets/images/zixun.jpg';
-import setSaidaobg from '@/assets/images/setSaidaobg.jpg';
-import toutu2 from '@/assets/images/toutu2.jpg';
-
-
-
+// import trackBusiness from '@/assets/images/track-business.jpg';
+// import newsCoverImg from '@/assets/images/news-cover.jpg';
+// import trackComprehensive from '@/assets/images/track-comprehensive.png';
+// import teamImg from '@/assets/images/experts-team.jpeg';
+const trackSocial = 'https://static.baitabei.hzyuanlian.cn/baitabei-assets/track-social.jpg'
+const saidaoone = 'https://static.baitabei.hzyuanlian.cn/saidaoone.jpg'
+const saidaotwo = 'https://static.baitabei.hzyuanlian.cn/saidaotwo.jpg'
+const saidaothree = 'https://static.baitabei.hzyuanlian.cn/saidaothree.jpg'
+const saidaofour = 'https://static.baitabei.hzyuanlian.cn/saidaofour.jpg'
+const saidaofive = 'https://static.baitabei.hzyuanlian.cn/saidaofive.jpg'
+const zixun = 'https://static.baitabei.hzyuanlian.cn/zixun.jpg'
+const homebg = 'https://static.baitabei.hzyuanlian.cn/homebg.jpg'
+const homeBackground = 'https://static.baitabei.hzyuanlian.cn/homeBackground.jpg'
+const setSaidaobg = 'https://static.baitabei.hzyuanlian.cn/setSaidaobg.jpg'
+const zhangqi = 'https://static.baitabei.hzyuanlian.cn/zhangqi.jpg'
+const xidalong = 'https://static.baitabei.hzyuanlian.cn/xidalong.jpg'
+const wangjiang = 'https://static.baitabei.hzyuanlian.cn/wangjiang.jpg'
+const toutu2 = 'https://static.baitabei.hzyuanlian.cn/toutu2.jpg'
+const songweizu = 'https://static.baitabei.hzyuanlian.cn/songweizu.jpg'
+const qianzhe = 'https://static.baitabei.hzyuanlian.cn/qianzhe.jpg'
+const liubing = 'https://static.baitabei.hzyuanlian.cn/liubing.jpg'
+const nbgImg = 'https://static.baitabei.hzyuanlian.cn/nbg.jpg'
+const LogoImg = 'https://static.baitabei.hzyuanlian.cn/LogoImg.png'
+const downLoadUrl = 'https://static.baitabei.hzyuanlian.cn/城市消费场景设计赛道-相关附件.zip'
 
 export const trackImages = {
     trackSocial,
-    trackBusiness,
-    newsCoverImg,
-    trackComprehensive,
-    teamImg,
+    // trackBusiness,
+    // newsCoverImg,
+    // trackComprehensive,
+    // teamImg,
     nbgImg,
-    inxtbgImg,
     LogoImg,
     liubing,
     qianzhe,
@@ -47,8 +44,10 @@ export const trackImages = {
     saidaofive,
     homebg,
     zixun,
+    homeBackground,
     setSaidaobg,
     toutu2,
+    downLoadUrl
 };
 
 export default trackImages;

@@ -43,7 +43,7 @@ const CompetitionSchedule = () => {
     return (
         <div className="competition-schedule">
             <TitleWithLines text={'赛事进程'} />
-            <Flex wrap gap="middle" justify="center" style={{ marginTop: 40 }}>
+            <Flex wrap gap="middle" justify="center" style={{ marginTop: 20 }}>
                 {scheduleData.map((item, index) => (
                     <ScheduleCard
                         key={index}

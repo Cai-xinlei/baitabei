@@ -1,0 +1,48 @@
+@media (max-width: 992px) {
+    .homeBackaground {
+        height: 400px;
+    }
+
+    .imgContainer {
+        height: 100%;
+        display: block;
+        object-fit: cover;
+    }
+}
+
+@media (max-width: 576px) {
+    .homeBackaground {
+        height: 300px;
+    }
+
+    .imgContainer {
+        height: 100%;
+        display: block;
+        object-fit: cover;
+    }
+}
+
+@media (max-width: 480px) {
+    .homeBackaground {
+        height: 150px;
+    }
+
+    .imgContainer {
+        height: 100%;
+        display: block;
+        object-fit: cover;
+    }
+}
+
+@media (max-width: 360px) {
+    .homeBackaground {
+        height: 100px;
+        width: 100%;
+    }
+
+    .imgContainer {
+        height: 100%;
+        display: block;
+        object-fit: cover;
+    }
+}

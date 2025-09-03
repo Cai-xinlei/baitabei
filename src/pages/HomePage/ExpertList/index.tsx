@@ -22,8 +22,8 @@ const HoverImageZoomPage = () => {
                                     className="person-image"
                                 />
                                 <div className="text-overlay">
-                                    <Title level={4} className="person-name">{item.name}</Title>
-                                    <Text className="person-track">{item.track}</Text>
+                                    <Title level={4} className="person-name text-center ">{item.name}</Title>
+                                    {/* <Text className="person-track">{item.track}</Text> */}
                                 </div>
                             </div>
                         </div>

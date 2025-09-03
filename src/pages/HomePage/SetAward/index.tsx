@@ -7,24 +7,24 @@ const { Title } = Typography;
 
 const scheduleData = [
     {
-        prize: '一等奖 2名',
-        bonus: '奖金50000元',
+        prize: '一等奖2名',
+        bonus: '奖金50000元+证书',
     },
     {
-        prize: '二等奖 3名',
-        bonus: '奖金20000元',
+        prize: '二等奖3名',
+        bonus: '奖金20000元+证书',
     },
     {
-        prize: '三等奖 5名',
-        bonus: '奖金5000元',
+        prize: '三等奖5名',
+        bonus: '奖金5000元+证书',
     },
     {
-        prize: '单项奖 20名',
-        bonus: '奖金3000元',
+        prize: '单项奖20名',
+        bonus: '奖金3000元+证书',
     },
     {
-        prize: '赛道优秀奖 70名',
-        bonus: '颁发证书',
+        prize: '赛道优秀奖70名',
+        bonus: '证书',
     },
 
 ];
