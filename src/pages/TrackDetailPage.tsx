@@ -29,7 +29,7 @@ const TrackDetailPage: React.FC = () => {
   const renderOrganization = (organize) => {
     if (organize?.length) {
       return organize?.map((v, index) => (
-        <Paragraph key={index} className="text-gray-700 leading-relaxed text-base">
+        <Paragraph style={{ textIndent: "2em" }} key={index} className="text-gray-700 leading-relaxed text-base">
           <div dangerouslySetInnerHTML={{ __html: v }} />
         </Paragraph>
       ))
@@ -78,7 +78,7 @@ const TrackDetailPage: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <Title level={1} className="text-white text-4xl font-bold mb-4">
+            <Title level={1} style={{ color: "#0079c2" }} className="text-white text-4xl font-bold mb-4">
               {track.name}
             </Title>
           </motion.div>
@@ -98,21 +98,21 @@ const TrackDetailPage: React.FC = () => {
               >
                 <Card className="mb-8 shadow-lg border-0">
                   <Title level={3} className="mb-4" >
-                    赛道介绍
+                    一、赛道介绍
                   </Title>
-                  <Paragraph className="text-gray-700 leading-relaxed text-base">
-                    {track.detailDescription}
+                  <Paragraph style={{ textIndent: "2em", lineHeight: '32px' }} className="text-gray-700 leading-relaxed text-base">
+                    {track.saidaoIntroduce}
                   </Paragraph>
                   <Title level={3} className="mb-4" >
-                    组织架构
+                    二、组织架构
                   </Title>
                   {renderOrganization(track.organization)}
                   <Title level={3} className="mb-4" >
-                    征集内容
+                    三、征集内容
                   </Title>
                   {renderContent(track.collectionContent)}
                   <Title level={3} className="mb-4" >
-                    参赛要求
+                    四、参赛要求
                   </Title>
                   {renderContent(track.requirements)}
                   {trackId === 'creative_design' && <Title level={4} className="mb-4" >

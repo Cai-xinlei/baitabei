@@ -1,12 +1,13 @@
 .competition-container {
     position: relative;
+    padding-top: 30px;
 }
 
 
 .competition-intro-page {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0px 20px;
+    padding: 0px 16px;
 }
 
 .section-content {
@@ -21,6 +22,14 @@
     /* 精确内边距 */
     margin: 30px auto;
     /*精确间距 */
+}
+
+.intro-content,
+.section-content {
+    font-size: 16px;
+    color: #333;
+    line-height: 32px;
+    text-indent: 2em
 }
 
 /*奖项设置和服务包标题区域 */
@@ -68,5 +77,6 @@
     .section-content {
         padding: 0 30px;
         font-size: 15px;
+        text-indent: 2em
     }
 }

@@ -49,64 +49,18 @@ const TrackCard: React.FC<TrackCardProps> = ({ track, featured = false }) => {
               alt={track.name}
               className="w-full h-full object-cover"
             />
-            <div className="absolute top-4 right-4" >
+            {/* <div className="absolute top-4 right-4" >
               <Tag color={getStatusColor(track.status)} className="font-medium">
                 {getStatusText(track.status)}
               </Tag>
-            </div>
+            </div> */}
           </div>
         }
       >
         <div>
-          <Paragraph>
+          <Paragraph className='detailDescription'>
             {track.detailDescription}
           </Paragraph>
-
-          {/* <div className="grid grid-cols-2 gap-4 mb-4">
-            <div className="flex items-center space-x-2 text-sm text-gray-500">
-              <UserOutlined className="text-blue-500" />
-              <span>已报名：{track.participantCount}人</span>
-            </div>
-            <div className="flex items-center space-x-2 text-sm text-gray-500">
-              <CalendarOutlined className="text-green-500" />
-              <span>截止：{new Date(track.deadline).toLocaleDateString()}</span>
-            </div>
-          </div> */}
-          {/* 
-          {track.maxParticipants && (
-            <div className="mb-4">
-              <div className="flex justify-between items-center mb-2">
-                <span className="text-sm text-gray-500">报名进度</span>
-                <span className="text-sm font-medium">
-                  {track.participantCount}/{track.maxParticipants}
-                </span>
-              </div>
-              <Progress
-                percent={progressPercentage}
-                strokeColor={progressPercentage > 80 ? '#ff4d4f' : '#1890ff'}
-                showInfo={false}
-                size="small"
-              />
-            </div>
-          )} */}
-
-          {/* <div className="mb-4">
-            <div className="flex items-center space-x-1 mb-2">
-              <TrophyOutlined className="text-yellow-500" />
-              <span className="text-sm font-medium text-gray-700">奖项设置</span>
-            </div>
-            <div className="flex flex-wrap gap-1">
-              {track.awards.slice(0, 3).map((award, index) => (
-                <Tag key={index} color="gold" className="text-xs">
-                  {award}
-                </Tag>
-              ))}
-              {track.awards.length > 3 && (
-                <Tag className="text-xs">+{track.awards.length - 3}项</Tag>
-              )}
-            </div>
-          </div> */}
-
           <div className="flex space-x-2">
             <Link to={`/baitabei/tracks/${track.id}`} className="flex-1">
               <Button type="default" block>

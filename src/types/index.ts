@@ -15,6 +15,7 @@ export interface User {
 export interface Track {
   id: string;
   name: string;
+  saidaoIntroduce: string;
   description: string;
   detailDescription: string;
   collectionContent: any;

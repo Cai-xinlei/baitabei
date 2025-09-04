@@ -7,7 +7,6 @@ import { baitabeiTheme } from './theme';
 import AppLayout from './components/Layout/AppLayout';
 import HomePage from './pages/HomePage/index';
 import TracksPage from './pages/TracksPage';
-import CompetitionDetail from './pages/HomePage/competitionDetail';
 import TrackDetailPage from './pages/TrackDetailPage';
 import RegisterPage from './pages/RegisterPage';
 import NewsPage from './pages/NewsPage';
@@ -40,7 +39,6 @@ function App() {
           <AppLayout>
             <Routes>
               <Route path="/baitabei/home" element={<HomePage />} />
-              <Route path="/baitabei/detail" element={<CompetitionDetail />} />
               <Route path="/baitabei/tracks" element={<TracksPage />} />
               <Route path="/baitabei/tracks/:trackId" element={<TrackDetailPage />} />
               <Route path="/baitabei/register" element={<RegisterPage />} />

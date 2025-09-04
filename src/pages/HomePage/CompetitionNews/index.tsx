@@ -120,7 +120,7 @@ const CompetitionNewsModule: React.FC<CompetitionNewsModuleProps> = ({
         <div className="competition-news-module" data-testid="competition-news-module">
             <TitleWithLines text={'大赛资讯'} />
             {/* 主内容区 */}
-            <Row gutter={[32, 0]} className="content-container" style={{ marginTop: 10 }}>
+            <Row gutter={[32, 0]} style={{ marginTop: 10 }}>
                 {/* 左侧海报区域 */}
                 <Col xs={24} lg={10} className="poster-column">
                     <img
@@ -129,7 +129,6 @@ const CompetitionNewsModule: React.FC<CompetitionNewsModuleProps> = ({
                         className="w-full h-auto rounded-lg shadow-lg poster-img"
                     />
                 </Col>
-
                 {/* 右侧资讯列表区域 */}
                 <Col xs={24} lg={14} className="news-column">
                     <Card className="news-card">

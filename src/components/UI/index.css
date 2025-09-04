@@ -1,12 +1,5 @@
 .detailDescription {
-    height: 90px;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2;
-    overflow: hidden;
-    margin-bottom: 16px;
-    word-break: break-all;
-    overflow-wrap: break-word;
-    max-width: 100%;
-
+    text-indent: 2em;
+    line-height: 26px;
+    color: #333;
 }

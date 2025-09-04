@@ -8,23 +8,23 @@ const { Title } = Typography;
 const scheduleData = [
     {
         prize: '一等奖2名',
-        bonus: '奖金50000元+证书',
+        bonus: '奖金50000元+荣誉证书',
     },
     {
         prize: '二等奖3名',
-        bonus: '奖金20000元+证书',
+        bonus: '奖金20000元+荣誉证书',
     },
     {
         prize: '三等奖5名',
-        bonus: '奖金5000元+证书',
+        bonus: '奖金5000元+荣誉证书',
     },
     {
         prize: '单项奖20名',
-        bonus: '奖金3000元+证书',
+        bonus: '奖金3000元+荣誉证书',
     },
     {
         prize: '赛道优秀奖70名',
-        bonus: '证书',
+        bonus: '荣誉证书',
     },
 
 ];
@@ -42,8 +42,8 @@ const CompetitionSchedule = () => {
     return (
         <div className="setAward-schedule">
             <TitleWithLines text={'奖项设置'} />
-            <div className='setAward-introduce' style={{ margin: '10px auto' }}>
-                综合评选出一、二、三等奖和单项奖，各赛道设置优秀奖
+            <div className='setAward-introduce' style={{ marginBottom: '16px' }}>
+                评选出一、二、三等奖和单项奖，各赛道设置优秀奖
             </div>
             <Flex wrap gap="middle" justify="center" style={{ marginBottom: 24 }} >
                 {scheduleData.map((item, index) => (

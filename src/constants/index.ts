@@ -86,7 +86,7 @@ export const NEWS_ARTICLES = [
     excerpt: '2025第四届“白塔杯”文化创意大赛正式启动，以“文融西城 创绘未来”为主题，设置5大赛道。',
     coverImage: trackImages.newsCoverImg,
     author: '大赛组委会',
-    publishDate: '2025-09-01',
+    publishDate: '2025年09月',
     viewCount: 1520,
     category: '大赛动态',
     tags: ['大赛启动', '文化创意', '政策解读']

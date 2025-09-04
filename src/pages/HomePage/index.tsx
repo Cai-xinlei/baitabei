@@ -44,7 +44,7 @@ const HomePage: React.FC = () => {
           <section >
             <div className="max-w-7xl mx-auto px-4">
               <TitleWithLines text={'五大赛道'} />
-              <Row gutter={[24, 24]} style={{ justifyContent: 'center', display: 'flex' }}>
+              <Row gutter={[24, 24]} style={{ justifyContent: 'center', display: 'flex', marginTop: '12px' }}>
                 {TRACKS.map((track, index) => (
                   <Col xs={24} md={12} lg={8} key={track.id}>
                     <motion.div

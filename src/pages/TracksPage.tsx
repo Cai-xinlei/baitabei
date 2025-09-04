@@ -1,18 +1,12 @@
 import React from 'react';
-import { Typography, Row, Col, Card, Statistic } from 'antd';
-import { TrophyOutlined, UserOutlined, CalendarOutlined } from '@ant-design/icons';
+import { Typography, Row, Col } from 'antd';
 import { motion } from 'framer-motion';
 import { TRACKS } from '../constants';
 import TrackCard from '../components/UI/TrackCard';
 import trackImages from '../constants/imagesCover';
-
 const { Title, Paragraph } = Typography;
 
 const TracksPage: React.FC = () => {
-  // 统计数据
-  const totalParticipants = TRACKS.reduce((sum, track) => sum + track.participantCount, 0);
-  const openTracks = TRACKS.filter(track => track.status === 'open').length;
-  const totalCapacity = TRACKS.reduce((sum, track) => sum + (track.maxParticipants || 0), 0);
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -21,7 +15,8 @@ const TracksPage: React.FC = () => {
         style={{
           backgroundImage: `url(${trackImages.fiveSaidao})`,
           backgroundSize: 'cover',
-          width: '100%',
+          width: '1280px',
+          margin: '0 auto'
         }}
       >
         <div className="max-w-7xl mx-auto px-4 text-center" >
@@ -39,65 +34,6 @@ const TracksPage: React.FC = () => {
           </motion.div>
         </div>
       </section>
-
-      {/* 统计数据 */}
-      {/* <section className="py-12 bg-white">
-        <div className="max-w-7xl mx-auto px-4">
-          <Row gutter={[32, 32]}>
-            <Col xs={24} sm={8}>
-              <motion.div
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.5 }}
-              >
-                <Card className="text-center border-0 shadow-lg">
-                  <Statistic
-                    title="总报名人数"
-                    value={totalParticipants}
-                    suffix="人"
-                    valueStyle={{ color: '#C41E3A', fontSize: '2rem' }}
-                    prefix={<UserOutlined />}
-                  />
-                </Card>
-              </motion.div>
-            </Col>
-            <Col xs={24} sm={8}>
-              <motion.div
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.5, delay: 0.1 }}
-              >
-                <Card className="text-center border-0 shadow-lg">
-                  <Statistic
-                    title="开放赛道"
-                    value={openTracks}
-                    suffix="个"
-                    valueStyle={{ color: '#2F5233', fontSize: '2rem' }}
-                    prefix={<TrophyOutlined />}
-                  />
-                </Card>
-              </motion.div>
-            </Col>
-            <Col xs={24} sm={8}>
-              <motion.div
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.5, delay: 0.2 }}
-              >
-                <Card className="text-center border-0 shadow-lg">
-                  <Statistic
-                    title="总容量"
-                    value={totalCapacity}
-                    suffix="人"
-                    valueStyle={{ color: '#FFD700', fontSize: '2rem' }}
-                    prefix={<CalendarOutlined />}
-                  />
-                </Card>
-              </motion.div>
-            </Col>
-          </Row>
-        </div>
-      </section> */}
 
       {/* 赛道列表 */}
       <section className="py-16">

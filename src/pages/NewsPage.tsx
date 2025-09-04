@@ -127,7 +127,7 @@ const NewsPage: React.FC = () => {
                             </div>
                           </Title>
 
-                          <Paragraph className="text-gray-600 mb-4 line-clamp-3 flex-1">
+                          <Paragraph style={{ textIndent: "2em" }} className="text-gray-600 mb-4 line-clamp-3 flex-1">
                             {news.summary}
                           </Paragraph>
                           {/* 
@@ -145,7 +145,8 @@ const NewsPage: React.FC = () => {
                               </div> */}
                               <div className="flex items-center space-x-1">
                                 <CalendarOutlined />
-                                <span>{new Date(news.publishedAt).toLocaleDateString()}</span>
+                                <span>{news.publishedAt}</span>
+                                {/* <span>{new Date(news.publishedAt).toLocaleDateString()}</span> */}
                               </div>
                             </div>
                             {/* <div className="flex items-center space-x-1">
