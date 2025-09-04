@@ -38,11 +38,9 @@ const HomePage: React.FC = () => {
           <ExpertList />
           {/* 四、奖项设置｜｜五、大赛服务包 */}
           <SetAward />
-          {/* <CompetitionSetPage /> */}
-          {/* 统计数据区域 */}
           {/* 六、赛道设置 */}
           <section >
-            <div className="max-w-7xl mx-auto px-4">
+            <div className="max-w-7xl mx-auto px-6" >
               <TitleWithLines text={'五大赛道'} />
               <Row gutter={[24, 24]} style={{ justifyContent: 'center', display: 'flex', marginTop: '12px' }}>
                 {TRACKS.map((track, index) => (

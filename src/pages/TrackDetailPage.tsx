@@ -53,16 +53,6 @@ const TrackDetailPage: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* 返回按钮 */}
-      <div className="bg-white border-b">
-        <div className="max-w-7xl mx-auto px-4 py-4">
-          <Link to="/baitabei/tracks" className="inline-flex items-center text-gray-600">
-            <ArrowLeftOutlined className="mr-2" />
-            返回赛道列表
-          </Link>
-        </div>
-      </div>
-
       {/* 赛道头部 */}
       <section
         className="relative py-24 overflow-hidden"
@@ -115,7 +105,7 @@ const TrackDetailPage: React.FC = () => {
                     四、参赛要求
                   </Title>
                   {renderContent(track.requirements)}
-                  {trackId === 'creative_design' && <Title level={4} className="mb-4" >
+                  {trackId === 'creative_design' && <Title level={4} style={{ marginTop: 12 }} className="mb-4" >
                     <a href={trackImages.downLoadUrl} download={'附件下载: 城市消费场景设计赛道-相关附件'}>
                       附件下载: 城市消费场景设计赛道-相关附件
                     </a>
@@ -179,8 +169,14 @@ const TrackDetailPage: React.FC = () => {
               </motion.div>
             </Col>
           </Row>
+          <Link to="/baitabei/tracks" className="inline-flex items-center text-gray-600">
+            <ArrowLeftOutlined className="mr-2" />
+            返回赛道列表
+          </Link>
         </div>
+
       </section>
+
     </div>
   );
 };

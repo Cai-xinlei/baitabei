@@ -2,6 +2,7 @@
 .competition-news-module {
     padding: 20px 20px 0px 20px;
     margin: 0 auto;
+    width: 1280px;
 
     .title-text {
         margin: 0 16px;
@@ -17,6 +18,7 @@
     /* 内容布局 */
     .content-container {
         align-items: stretch;
+        width: 100%;
     }
 
     .poster-column,
