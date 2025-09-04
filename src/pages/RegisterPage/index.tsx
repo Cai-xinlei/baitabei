@@ -145,7 +145,7 @@ const RegisterPage: React.FC = () => {
             参赛报名
           </Title>
           <Paragraph className="text-lg text-gray-600">
-            2025年第四届“白塔杯”文化创意大赛
+            2025第四届“白塔杯”文化创意大赛
           </Paragraph>
         </div>
 

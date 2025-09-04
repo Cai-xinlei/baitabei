@@ -6,7 +6,7 @@ export const TIMELINE: TimelineEvent[] = [
   {
     id: 'launch',
     title: '大赛启动',
-    // description: '2025年第四届白塔杯文化创意大赛正式启动，开始接受报名',
+    // description: '2025第四届白塔杯文化创意大赛正式启动，开始接受报名',
     date: '2025-9月',
     status: 'completed',
     type: 'milestone'
@@ -82,7 +82,7 @@ export const NAVIGATION_MENU = [
 export const NEWS_ARTICLES = [
   {
     id: '1',
-    title: '2025年第四届"白塔杯"文化创意大赛正式启动',
+    title: '2025第四届"白塔杯"文化创意大赛正式启动',
     excerpt: '2025第四届“白塔杯”文化创意大赛正式启动，以“文融西城 创绘未来”为主题，设置5大赛道。',
     coverImage: trackImages.newsCoverImg,
     author: '大赛组委会',

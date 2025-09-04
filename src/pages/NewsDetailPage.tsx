@@ -38,7 +38,7 @@ const NewsDetailPage: React.FC = () => {
     // 模拟新闻数据
     const mockArticle: NewsArticle = {
       id: newsId || '1',
-      title: '2025年第四届"白塔杯"文化创意大赛正式启动',
+      title: '2025第四届"白塔杯"文化创意大赛正式启动',
       content: `
         <div>
           <p>2025年9月1日，备受瞩目的第四届"白塔杯"文化创意大赛在北京西城区正式启动。本届大赛以"文化引领·创意西城"为主题，聚焦"数字文化创新"与"消费新场景重构"两大核心方向。</p>
@@ -55,7 +55,7 @@ const NewsDetailPage: React.FC = () => {
           <p>我们期待更多富有创意和激情的团队和个人参与其中，共同推动文化创意产业的发展！</p>
         </div>
       `,
-      excerpt: '2025年第四届"白塔杯"文化创意大赛正式启动，以"文化引领·创意西城"为主题，设立六大赛道，总奖金池超过300万元。',
+      excerpt: '2025第四届"白塔杯"文化创意大赛正式启动，以"文化引领·创意西城"为主题，设立六大赛道，总奖金池超过300万元。',
       coverImage: trackImages.newsCoverImg,
       author: '大赛组委会',
       publishDate: '2025-09-01',
@@ -71,12 +71,12 @@ const NewsDetailPage: React.FC = () => {
       //   coverImage: trackImages.trackCreative,
       //   publishDate: '2025-09-05'
       // },
-      {
-        id: '3',
-        title: '往届获奖作品回顾：创意点亮生活',
-        coverImage: trackImages.trackBusiness,
-        publishDate: '2025-09-03'
-      },
+      // {
+      //   id: '3',
+      //   title: '往届获奖作品回顾：创意点亮生活',
+      //   coverImage: trackImages.trackBusiness,
+      //   publishDate: '2025-09-03'
+      // },
       {
         id: '4',
         title: '报名攻略：如何选择适合的赛道',

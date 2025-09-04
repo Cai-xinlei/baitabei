@@ -83,7 +83,7 @@ const HomePage: React.FC = () => {
                 准备好展示你的创意了吗？
               </Title>
               <Paragraph className="text-white text-lg mb-8 opacity-90">
-                加入2025年第四届白塔杯文化创意大赛，与全国优秀创意人才同台竞技，
+                加入2025第四届白塔杯文化创意大赛，与全国优秀创意人才同台竞技，
                 赢取丰厚奖金和发展机会！
               </Paragraph> */}
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">

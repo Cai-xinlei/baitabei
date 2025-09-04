@@ -11,7 +11,7 @@ const HoverImageZoomPage = () => {
     return (
         <div className="page-container">
             <div className="content-wrapper">
-                <TitleWithLines text={'专家评委'} />
+                <TitleWithLines text={'专家委员会'} />
                 <div className="image-grid" >
                     {ExpertList.map((item) => (
                         <div key={item.id} className="person-card">

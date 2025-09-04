@@ -55,7 +55,7 @@ const AboutPage: React.FC = () => {
                   促进文化产业的发展和创新。
                 </Paragraph>
                 <Paragraph className="text-gray-700 leading-relaxed text-base">
-                  2025年第四届大赛将重点聚焦“数字文化创新”与“消费新场景重构”两大方向，
+                  2025第四届大赛将重点聚焦“数字文化创新”与“消费新场景重构”两大方向，
                   推动传统文化与现代科技的深度融合。
                 </Paragraph>
               </motion.div>
