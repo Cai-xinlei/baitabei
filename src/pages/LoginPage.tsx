@@ -59,30 +59,6 @@ const LoginPage: React.FC = () => {
     }).finally(() => {
       setLoginLoading(false)
     })
-    // try {
-    //   // TODO: 连接后端登录API
-    //   console.log('登录数据:', values);
-
-    //   // 模拟登录请求
-    //   await new Promise(resolve => setTimeout(resolve, 1000));
-
-    //   message.success('登录成功！');
-
-    //   // 保存用户信息到localStorage (临时方案)
-    //   localStorage.setItem('user', JSON.stringify({
-    //     id: 'user_' + Date.now(),
-    //     username: values.account,
-    //     email: values.account.includes('@') ? values.account : `${values.account}@example.com`,
-    //     loginTime: new Date().toISOString()
-    //   }));
-    //   window.location.href = '/baitabei/home'
-    //   // 重定向到原页面或首页
-    //   navigate(from, { replace: true });
-    // } catch (error) {
-    //   message.error('登录失败，请检查账号密码');
-    // } finally {
-    //   setLoginLoading(false);
-    // }
   };
 
   // 处理注册
@@ -295,27 +271,6 @@ const LoginPage: React.FC = () => {
                       minLength={6}
                     />
                   </Form.Item>
-
-                  <Form.Item
-                    name="agreeToTerms"
-                    valuePropName="checked"
-                    rules={[
-                      {
-                        validator: (_, value) =>
-                          value
-                            ? Promise.resolve()
-                            : Promise.reject(new Error('请阅读并同意服务条款')),
-                      },
-                    ]}
-                  >
-                    <Checkbox>
-                      我已阅读并同意
-                      <Button type="link" className="p-0" onClick={() => setAgreementVisible(true)}>
-                        《承诺书》
-                      </Button>
-                    </Checkbox>
-                  </Form.Item>
-
                   <Form.Item>
                     <Button
                       type="primary"

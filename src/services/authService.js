@@ -24,7 +24,17 @@ export const refreshToken = async () => {
 // 登录
 export const login = async (loginData) => {
     const response = await request.post('/api/auth/login', loginData);
-    const { data } = response;
+    console.log(response, 'response');
+    const { message, success, data } = response;
+    if (!success) {
+        return message.config({
+            top: 250,
+            duration: 2,
+            maxCount: 3,
+            rtl: true,
+            prefixCls: 'my-message',
+        });
+    }
     const { accessToken, refreshToken } = data;
     // 存储token到localStorage
     localStorage.setItem('token', accessToken);
@@ -44,7 +54,6 @@ export const login = async (loginData) => {
 // 注册
 export const register = async (registerData) => {
     const response = await request.post('/api/auth/register', registerData);
-    const { data } = response;
     return response;
 };
 

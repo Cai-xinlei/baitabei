@@ -119,7 +119,10 @@ const RegisterPage: React.FC = () => {
   // 下一步
   const handleNext = () => {
     if (!agreeCheck) {
-      setAgreementVisible(true)
+
+      setTimeout(() => {
+        setAgreementVisible(true)
+      }, 2000);
       return message.info('请阅读并同意《参赛承诺书》');
     }
     if (!userInfo?.id) {
