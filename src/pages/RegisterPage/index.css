@@ -4,3 +4,11 @@
     font-size: 14px;
     color: #333;
 }
+
+
+.agreementContainerBtn {
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

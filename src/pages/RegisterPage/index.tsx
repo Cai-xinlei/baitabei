@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import { Form, Select, Button, Card, Steps, Typography, Alert, Radio, Checkbox, message } from 'antd';
+import { Form, Select, Button, Card, Steps, Typography, Alert, Radio, message } from 'antd';
 import { CheckCircleOutlined, FileTextOutlined, UserOutlined } from '@ant-design/icons';
 import { motion } from 'framer-motion';
 import type { RadioChangeEvent } from 'antd';
@@ -19,12 +19,14 @@ const RegisterPage: React.FC = () => {
   const [form] = Form.useForm();
   const navigate = useNavigate();
   const [currentStep, setCurrentStep] = useState(0);
-  const [agreementVisible, setAgreementVisible] = useState(false);
+  const [agreementVisible, setAgreementVisible] = useState(true);
+  const [agreeCheck, setAgreeCheck] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [reportType, setreportType] = useState<string>('individual')
   const [selectedTrackId, setSelectedTrackId] = useState(searchParams.get('track'))
   const selectedTrack = TRACKS.find(t => t.id === selectedTrackId);
-  const userInfo = JSON.parse(localStorage.getItem("user") ?? '{}')
+  const userInfo = JSON.parse(localStorage.getItem("user") ?? '{}');
+
   // 步骤配置
   const steps = [
     {
@@ -43,6 +45,19 @@ const RegisterPage: React.FC = () => {
       description: '确认并提交报名'
     }
   ];
+
+  // console.log(agreeBtn, agreementVisible, 'agreeBtnagreeBtn');
+  // useEffect(() => {
+  //   if (agreeBtn === 'agree') {
+  //     setAgreementVisible(false)
+  //     console.log(111);
+
+  //   } else {
+  //     console.log(222);
+  //     setAgreementVisible(true)
+  //   }
+
+  // }, [ agreementVisible])
 
   const taskIdMap = {
     'cultural_innovation': 1,
@@ -103,6 +118,10 @@ const RegisterPage: React.FC = () => {
 
   // 下一步
   const handleNext = () => {
+    if (!agreeCheck) {
+      setAgreementVisible(true)
+      return message.info('请阅读并同意《参赛承诺书》');
+    }
     if (!userInfo?.id) {
       message.info('系统检测未登陆，即将跳转登陆页面')
       setTimeout(() => {
@@ -257,19 +276,6 @@ const RegisterPage: React.FC = () => {
                   <p>联系人：{form.getFieldValue('realName')}</p>
                   <p>联系电话：{form.getFieldValue('phone')}</p>
                 </div>
-
-                <Form.Item
-                  name="agreement"
-                  valuePropName="checked"
-                  rules={[{ required: true, message: '请阅读并同意选手报名承诺书' }]}
-                >
-                  <Checkbox>
-                    我已阅读并同意
-                    <Button type="link" className="p-0" onClick={() => setAgreementVisible(true)}>
-                      《选手报名承诺书》
-                    </Button>
-                  </Checkbox>
-                </Form.Item>
               </Card>
             )}
 
@@ -307,14 +313,17 @@ const RegisterPage: React.FC = () => {
                 </div>
               </div>
             </Card>
+            {/* 协议弹窗 */}
+            <RegisterModal
+              agreementVisible={agreementVisible}
+              setAgreementVisible={setAgreementVisible}
+              setAgreeCheck={setAgreeCheck}
+              form={form}
+            />
           </Form>
         </motion.div>
 
-        {/* 协议弹窗 */}
-        <RegisterModal
-          agreementVisible={agreementVisible}
-          setAgreementVisible={setAgreementVisible}
-        />
+
       </div>
     </div>
   );
