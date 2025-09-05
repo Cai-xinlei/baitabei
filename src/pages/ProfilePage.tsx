@@ -3,6 +3,7 @@ import { Card, Typography, Button, Avatar, Row, Col, Tag, List, Tabs, Form, Inpu
 import { UserOutlined, MailOutlined, PhoneOutlined, EditOutlined, PlusOutlined, FileTextOutlined, TrophyOutlined, UploadOutlined } from '@ant-design/icons';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
+import { queryProjectInfo } from '@/services/authService';
 
 const { Title, Paragraph, Text } = Typography;
 const { TabPane } = Tabs;
@@ -45,7 +46,10 @@ const ProfilePage: React.FC = () => {
 
     const parsedUser = JSON.parse(userData);
     setUser(parsedUser);
+    queryProjectInfo().then(res => {
+      console.log(res, '获取用户信息');
 
+    })
     // TODO: 从后端获取用户详细信息和项目列表
     // 模拟数据
     const mockProjects: UserProject[] = [

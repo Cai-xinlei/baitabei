@@ -77,17 +77,10 @@ const HomePage: React.FC = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6 }}
               >
-                {/* <Title level={2} className="text-white text-3xl font-bold mb-4">
-                准备好展示你的创意了吗？
-              </Title>
-              <Paragraph className="text-white text-lg mb-8 opacity-90">
-                加入2025第四届白塔杯文化创意大赛，与全国优秀创意人才同台竞技，
-                赢取丰厚奖金和发展机会！
-              </Paragraph> */}
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
                   <Link to="/baitabei/register">
                     <Button type="primary" size="large">
-                      立即报名参赛
+                      立即报名
                     </Button>
                   </Link>
                   <Link to="/baitabei/tracks">

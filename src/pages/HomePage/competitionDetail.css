@@ -1,0 +1,130 @@
+/* RaceDetail.css 
+
+/* 卡片容器 */
+.detail-card {
+    max-width: 1000px;
+    margin: 48px auto;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    position: relative;
+}
+
+/* 顶部图片区域 */
+.card-header {
+    height: 220px;
+    background-image: url('https://space.coze.cn/s/JmoTOtlDmaY/?width_height=2558x1298');
+    background-size: cover;
+    background-position: center 20%;
+    position: relative;
+}
+
+.badge {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: #27ae60;
+    color: white;
+    padding: 6px 18px;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 14px;
+    z-index: 1;
+}
+
+/* 标题区域 */
+.card-title {
+    padding: 30px 30px 15px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.card-title h1 {
+    font-size: 28px;
+    color: #333;
+    margin-bottom: 8px;
+}
+
+.card-title p {
+    color: #666;
+    font-size: 16px;
+}
+
+/* 内容区域 */
+.card-content {
+    padding: 30px;
+}
+
+.section {
+    margin-bottom: 30px;
+}
+
+.section h2 {
+    font-size: 20px;
+    color: #333;
+    margin-bottom: 15px;
+    padding-left: 10px;
+    border-left: 4px solid #e74c3c;
+}
+
+.section h3 {
+    font-size: 18px;
+    color: #444;
+    margin: 15px 0 10px;
+}
+
+.section p,
+.section ul {
+    color: #555;
+    line-height: 1.7;
+    margin-bottom: 15px;
+}
+
+.section ul {
+    padding-left: 20px;
+}
+
+.section ul li {
+    margin-bottom: 10px;
+}
+
+.highlight {
+    font-weight: bold;
+    color: #333;
+}
+
+/* 按钮区域 */
+.card-actions {
+    padding: 0px 30px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 24px;
+    border-radius: 6px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: all 0.3s;
+    font-size: 14px;
+}
+
+.btn-outline {
+    color: #333;
+    border: 2px solid #333;
+    background: transparent;
+}
+
+.btn-primary {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}

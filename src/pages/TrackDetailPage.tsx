@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { Typography, Button, Card, Row, Col, Alert } from 'antd';
+import { Typography, Button, Card, Row, Col, Alert, Divider } from 'antd';
 import { ArrowLeftOutlined, } from '@ant-design/icons';
 import { motion } from 'framer-motion';
 import { TRACKS } from '../constants';
@@ -141,8 +141,28 @@ const TrackDetailPage: React.FC = () => {
                     赛道咨询
                   </Title>
                   <Alert
-                    message="赛道咨询"
-                    description={track.zixun}
+                    message="赛道报名咨询"
+                    description={
+                      <div>
+                        <p>{track.zixun}</p>
+                        <p>咨询时间为工作日9:30-17:30</p>
+                      </div>
+
+                    }
+                    type='info'
+                    showIcon
+                    className="mb-4"
+                  />
+                  <Alert
+                    message="大赛组委会咨询"
+                    description={
+                      <div>
+                        <p>座机：010-83160689</p>
+                        <p>手机：15712909137（刘老师）</p>
+                        <p>咨询时间：工作日9:30-17:30</p>
+                        <p>电子邮箱：baitabei@163.com</p>
+                      </div>
+                    }
                     type='info'
                     showIcon
                     className="mb-4"

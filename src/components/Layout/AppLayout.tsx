@@ -4,7 +4,7 @@ import { MenuOutlined, HomeOutlined, TrophyOutlined, FileTextOutlined, InfoCircl
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { NAVIGATION_MENU } from '../../constants';
-import NewFooter from '../../pages/HomePage/footer';
+import NewFooter from '../../pages/HomePage/Footer/footer';
 import trackImages from '../../constants/imagesCover';
 import { logout } from '@/services/authService';
 

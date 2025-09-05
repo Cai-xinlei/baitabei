@@ -52,8 +52,14 @@ export const login = async (loginData) => {
 };
 
 // 注册
-export const register = async (registerData) => {
-    const response = await request.post('/api/auth/register', registerData);
+export const register = async (params) => {
+    const response = await request.post('/api/auth/register', params);
+    return response;
+};
+
+// 注册
+export const queryProjectInfo = async (params) => {
+    const response = await request.get('/api/project/my', params);
     return response;
 };
 

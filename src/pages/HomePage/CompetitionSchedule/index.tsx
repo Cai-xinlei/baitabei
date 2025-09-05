@@ -53,7 +53,7 @@ const CompetitionSchedule = () => {
                     />
                 ))}
             </Flex> */}
-            <img src={trackImages.saicheng} />
+            <img style={{ height: '110px', margin: '10px auto' }} src={trackImages.saicheng} />
         </div>
     );
 };

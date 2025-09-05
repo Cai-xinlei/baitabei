@@ -120,13 +120,13 @@ const CompetitionNewsModule: React.FC<CompetitionNewsModuleProps> = ({
         <div className="competition-news-module" data-testid="competition-news-module">
             <TitleWithLines text={'大赛资讯'} />
             {/* 主内容区 */}
-            <Row gutter={[32, 16]} justify="space-between" style={{ marginTop: 10, }}>
+            <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }} className="content-container" style={{ marginTop: 10 }}>
                 {/* 左侧海报区域 */}
                 <Col lg={10} className="poster-column">
                     <img
                         src={trackImages.zixunHome}
                         alt="北京白塔"
-                        className="w-full h-auto  poster-img"
+                        className="w-full h-auto rounded-lg shadow-lg poster-img"
                     />
                 </Col>
                 {/* 右侧资讯列表区域 */}
