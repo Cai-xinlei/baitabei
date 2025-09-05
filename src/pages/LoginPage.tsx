@@ -126,8 +126,7 @@ const LoginPage: React.FC = () => {
                     name="username"
                     label="用户名"
                     rules={[
-                      { required: true, message: '请输入用户名!', pattern: /^[a-zA-Z0-9]{3,}$/ },
-                      { min: 3, message: '用户名至少3个字符!' },
+                      { required: true, message: '用户名至少3个字符的字母数字组合!', pattern: /^[a-zA-Z0-9]{3,}$/ },
                     ]}
                   >
                     <Input
@@ -192,8 +191,7 @@ const LoginPage: React.FC = () => {
                     name="username"
                     label="用户名"
                     rules={[
-                      { required: true, message: '请输入用户名!', pattern: /^[a-zA-Z0-9]{3,}$/ },
-                      { min: 3, message: '用户名至少3个字符!' },
+                      { required: true, message: '用户名至少3个字符的字母数字组合!', pattern: /^[a-zA-Z0-9]{3,}$/ },
                     ]}
                   >
                     <Input
