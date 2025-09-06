@@ -27,8 +27,6 @@ const newsData = NEWS_ARTICLES.map(article => ({
   author: article.author,
   publishedAt: article.publishDate,
   category: categoryMap[article.category] || 'news',
-  tags: article.tags,
-  views: article.viewCount,
   linkUrl: article.linkUrl,
 }));
 
@@ -90,99 +88,78 @@ const NewsPage: React.FC = () => {
       {/* 新闻列表 */}
       <section className="py-8">
         <div className="max-w-7xl mx-auto px-4">
-          {paginatedNews.length > 0 ? (
-            <>
-              <Row gutter={[24, 24]}>
-                {paginatedNews.map((news, index) => (
-                  <Col xs={24} md={12} lg={8} key={news.id}>
-                    <motion.div
-                      initial={{ opacity: 0, y: 30 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.5, delay: index * 0.1 }}
-                    >
-                      <Card
-                        hoverable
-                        className="h-full shadow-lg border-0 overflow-hidden"
-                        cover={
-                          <div className="relative h-48 overflow-hidden">
-                            <img
-                              src={news.coverImage}
-                              alt={news.title}
-                              className="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
-                            />
-                            <div className="absolute top-4 left-4">
-                              <Tag color={getCategoryInfo(news.category).color}>
-                                {getCategoryInfo(news.category).label}
-                              </Tag>
-                            </div>
-                          </div>
-                        }
-                      >
-                        <div className="h-full flex flex-col">
-                          <Title level={4} className="mb-3 line-clamp-2">
-
-                            <div onClick={() => window.open(news.linkUrl)} className="text-gray-900 hover:text-red-600">
-                              {news.title}
-                            </div>
-                          </Title>
-
-                          <Paragraph style={{ textIndent: "2em" }} className="text-gray-600 mb-4 line-clamp-3 flex-1">
-                            {news.summary}
-                          </Paragraph>
-                          {/* 
-                          <div className="flex flex-wrap gap-1 mb-4">
-                            {news.tags.map(tag => (
-                              <Tag key={tag} className="text-xs">{tag}</Tag>
-                            ))}
+          <>
+            <Row gutter={[24, 24]}>
+              {paginatedNews.map((news, index) => (
+                <Col xs={24} md={12} lg={8} key={news.id}>
+                  <motion.div
+                    initial={{ opacity: 0, y: 30 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                  >
+                    <Card
+                      hoverable
+                      className="h-full shadow-lg border-0 overflow-hidden"
+                      cover={
+                        <div className="relative h-48 overflow-hidden">
+                          <img
+                            src={news.coverImage}
+                            alt={news.title}
+                            className="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
+                          />
+                          {/* <div className="absolute top-4 left-4">
+                            <Tag color={getCategoryInfo(news.category).color}>
+                              {getCategoryInfo(news.category).label}
+                            </Tag>
                           </div> */}
-
-                          <div className="flex items-center justify-between text-sm text-gray-500">
-                            <div className="flex items-center space-x-4">
-                              {/* <div className="flex items-center space-x-1">
-                                <Avatar size="small">{news.author[0]}</Avatar>
-                                <span>{news.author}</span>
-                              </div> */}
-                              <div className="flex items-center space-x-1">
-                                <CalendarOutlined />
-                                <span>{news.publishedAt}</span>
-                                {/* <span>{new Date(news.publishedAt).toLocaleDateString()}</span> */}
-                              </div>
-                            </div>
-                            {/* <div className="flex items-center space-x-1">
-                              <EyeOutlined />
-                              <span>{news.views}</span>
-                            </div> */}
-                          </div>
                         </div>
-                      </Card>
-                    </motion.div>
-                  </Col>
-                ))}
-              </Row>
+                      }
+                    >
+                      <div className="h-full flex flex-col">
+                        <Title level={4} className="mb-3 line-clamp-2">
 
-              {/* 分页 */}
-              <div className="mt-12 text-center">
-                <Pagination
-                  current={currentPage}
-                  pageSize={pageSize}
-                  total={filteredNews.length}
-                  onChange={setCurrentPage}
-                  showSizeChanger={false}
-                  showQuickJumper
-                  showTotal={(total, range) =>
-                    `第 ${range[0]}-${range[1]} 条，共 ${total} 条`
-                  }
-                />
-              </div>
-            </>
-          ) : (
-            <div className="text-center py-16">
-              <Empty
-                description="暂无相关新闻"
-                image={Empty.PRESENTED_IMAGE_SIMPLE}
+                          <div onClick={() => window.open(news.linkUrl)} className="text-gray-900 hover:text-red-600">
+                            {news.title}
+                          </div>
+                        </Title>
+
+                        <Paragraph style={{ textIndent: "2em" }} className="text-gray-600 mb-2 line-clamp-2 flex-1">
+                          {news.summary}
+                        </Paragraph>
+
+
+                        <div className="flex items-center justify-between text-sm text-gray-500">
+                          <div className="flex items-center space-x-4">
+
+                            <div className="flex items-center space-x-1">
+                              <CalendarOutlined />
+                              <span>{news.publishedAt}</span>
+                            </div>
+                          </div>
+
+                        </div>
+                      </div>
+                    </Card>
+                  </motion.div>
+                </Col>
+              ))}
+            </Row>
+
+            {/* 分页
+            <div className="mt-12 text-center">
+              <Pagination
+                current={currentPage}
+                pageSize={pageSize}
+                total={filteredNews.length}
+                onChange={setCurrentPage}
+                showSizeChanger={false}
+                showQuickJumper
+                showTotal={(total, range) =>
+                  `第 ${range[0]}-${range[1]} 条，共 ${total} 条`
+                }
               />
-            </div>
-          )}
+            </div> */}
+          </>
         </div>
       </section>
     </div>

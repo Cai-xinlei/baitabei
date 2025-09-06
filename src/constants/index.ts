@@ -82,15 +82,22 @@ export const NAVIGATION_MENU = [
 export const NEWS_ARTICLES = [
   {
     id: '1',
-    title: '2025第四届"白塔杯"文化创意大赛正式启动',
-    excerpt: '2025第四届“白塔杯”文化创意大赛正式启动，以“文融西城 创绘未来”为主题，设置5大赛道。',
-    coverImage: trackImages.newsCoverImg,
-    author: '大赛组委会',
-    publishDate: '2025年09月',
+    title: '2025第四届“白塔杯”文化创意大赛正式启动 百个奖项面向各界英才发出西城邀约',
+    excerpt: '9月6日，由北京市西城区人民政府主办，西城区委宣传部、西城区文化产业发展促进中心联合承办的2025第四届“白塔杯”文化创意大赛将正式面向社会公众启动征集。',
+    coverImage: trackImages.zixun1,
+    publishDate: '2025年09月6日',
     linkUrl: "https://mp.weixin.qq.com/s/3AAiJHR6IBzSLHIxqhEg1A",
-    viewCount: 1520,
     category: '大赛动态',
-    tags: ['大赛启动', '文化创意', '政策解读']
+  },
+  {
+    id: '2',
+    title: '2025第四届“白塔杯”文化创意大赛启动征集',
+    excerpt: '2025第四届“白塔杯”文化创意大赛启动征集，以“文融西城 创绘未来”为主题，设置5大赛道。',
+    coverImage: trackImages.zixun2,
+    author: '大赛组委会',
+    publishDate: '2025年09月6日',
+    linkUrl: "https://mp.weixin.qq.com/s/g58r1L7cQtuz3KCHP_3rRA",
+    category: '大赛动态',
   },
 ];
 

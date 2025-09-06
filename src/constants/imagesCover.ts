@@ -23,6 +23,8 @@ const qianzhe = 'https://static.baitabei.hzyuanlian.cn/qianzhe.jpg'
 const liubing = 'https://static.baitabei.hzyuanlian.cn/liubing.jpg'
 const newsCoverImg = 'https://static.baitabei.hzyuanlian.cn/news-cover.jpg'
 const nbgImg = 'https://static.baitabei.hzyuanlian.cn/nbg.jpg'
+const zixun1 = 'https://static.baitabei.hzyuanlian.cn/zixun1.jpg'
+const zixun2 = 'https://static.baitabei.hzyuanlian.cn/zixun2.jpg'
 const LogoImg = 'https://static.baitabei.hzyuanlian.cn/logo.png'
 const downLoadUrl = 'https://static.baitabei.hzyuanlian.cn/城市消费场景设计赛道-相关附件.zip'
 const saicheng = 'https://static.baitabei.hzyuanlian.cn/saicheng'
@@ -34,6 +36,8 @@ export const trackImages = {
     // trackComprehensive,
     // teamImg,
     nbgImg,
+    zixun1,
+    zixun2,
     saicheng,
     LogoImg,
     liubing,
