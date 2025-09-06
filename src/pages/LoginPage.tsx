@@ -66,7 +66,10 @@ const LoginPage: React.FC = () => {
     setRegisterLoading(true);
     const params = {
       ...values,
-      realName: values?.username
+      agreement: true,
+      realName: values?.username,
+      // 表示注册的都是参赛者
+      roleId: 5
     }
     try {
       register(params).then(res => {
