@@ -87,44 +87,11 @@ export const NEWS_ARTICLES = [
     coverImage: trackImages.newsCoverImg,
     author: '大赛组委会',
     publishDate: '2025年09月',
+    linkUrl: "https://mp.weixin.qq.com/s/3AAiJHR6IBzSLHIxqhEg1A",
     viewCount: 1520,
     category: '大赛动态',
     tags: ['大赛启动', '文化创意', '政策解读']
   },
-
-  // {
-  //   id: '3',
-  //   title: '往届获奖作品回顾：创意点亮生活',
-  //   excerpt: '回顾历届白塔杯获奖作品，展示文化创意如何融入日常生活，启发更多创新思路。',
-  //   coverImage: trackImages.trackBusiness,
-  //   author: '文创编辑部',
-  //   publishDate: '2025-09-03',
-  //   viewCount: 756,
-  //   category: '作品展示',
-  //   tags: ['获奖作品', '创意展示', '作品回顾']
-  // },
-  // {
-  //   id: '4',
-  //   title: '报名攻略：如何选择适合的赛道',
-  //   excerpt: '详细解析六大赛道的特色和要求，帮助参赛者根据自身项目特点选择最适合的赛道。',
-  //   coverImage: trackImages.trackSocial,
-  //   author: '大赛指导组',
-  //   publishDate: '2025-09-02',
-  //   viewCount: 1234,
-  //   category: '参赛指南',
-  //   tags: ['报名指南', '赛道选择', '参赛攻略']
-  // },
-  // {
-  //   id: '5',
-  //   title: '政策扶持：获奖项目将享受全方位支持',
-  //   excerpt: '详解大赛获奖项目可享受的政策扶持和资源支持，包括资金、场地、孵化等多维度帮助。',
-  //   coverImage: trackImages.trackComprehensive,
-  //   author: '政策解读组',
-  //   publishDate: '2025-08-30',
-  //   viewCount: 945,
-  //   category: '政策解读',
-  //   tags: ['政策扶持', '项目孵化', '资源支持']
-  // }
 ];
 
 export * from './tracks';

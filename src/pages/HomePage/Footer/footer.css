@@ -6,32 +6,26 @@
   color: white;
   /* 文字颜色 */
   padding: 40px 20px;
+
 }
 
 .footer-container {
-  max-width: 1200px;
+  max-width: 1280px;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
 }
 
 .organization-column {
-  padding: 0 30px;
+  padding: 0 20px;
   position: relative;
-  width: 320px;
+  width: 296px;
 }
 
-/* 中间垂直分隔线 */
-@media (min-width: 992px) {
-  /* .organization-column:last-child::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 20px;
-    width: 1px;
-    height: calc(100% - 40px);
-    background-color: rgba(255, 255, 255, 0.5);
-  } */
+.organization-columnOne {
+  padding: 0 20px 0 80px;
+  position: relative;
+  width: 296px;
 }
 
 .organization-item {
@@ -88,4 +82,15 @@
     font-size: 14px;
 
   }
+
+  .footer-container {
+    flex-direction: column;
+  }
+
+  .organization-columnOne {
+    padding: 0 20px;
+    position: relative;
+    width: 296px;
+  }
+
 }

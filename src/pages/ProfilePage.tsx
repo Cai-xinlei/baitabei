@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Card, Typography, Button, Avatar, Row, Col, Tag, List, Tabs, Form, Input, Upload, message, Modal } from 'antd';
 import { UserOutlined, MailOutlined, PhoneOutlined, EditOutlined, PlusOutlined, FileTextOutlined, TrophyOutlined, UploadOutlined } from '@ant-design/icons';
 import { motion } from 'framer-motion';
+import ProjectDetailModal from './ProjectDetailModal';
 import { useNavigate } from 'react-router-dom';
 import { queryProjectInfo } from '@/services/authService';
 
@@ -33,8 +34,21 @@ const ProfilePage: React.FC = () => {
   const [projects, setProjects] = useState<UserProject[]>([]);
   const [editModalVisible, setEditModalVisible] = useState(false);
   const [avatarModalVisible, setAvatarModalVisible] = useState(false);
+  const [detailInfo, setDetailInfo] = useState({});
+  const [open, setOpen] = useState(false);
+
   const [form] = Form.useForm();
   const navigate = useNavigate();
+
+  const showDrawer = (data) => {
+    console.log(data, 'data--------')
+    setDetailInfo(data)
+    setOpen(true);
+  };
+
+  const onClose = () => {
+    setOpen(false);
+  };
 
   useEffect(() => {
     // 检查用户登录状态
@@ -48,29 +62,32 @@ const ProfilePage: React.FC = () => {
     setUser(parsedUser);
     queryProjectInfo().then(res => {
       console.log(res, '获取用户信息');
+      const { data, message, success } = res;
+      if (!success) return;
+      setProjects(data);
 
     })
     // TODO: 从后端获取用户详细信息和项目列表
     // 模拟数据
-    const mockProjects: UserProject[] = [
-      {
-        id: 'proj_1',
-        title: '数字文化传播创新平台',
-        trackName: '技术创新赛道',
-        status: 'reviewing',
-        submitDate: '2025-10-15',
-        lastModified: '2025-10-20'
-      },
-      {
-        id: 'proj_2',
-        title: '传统文化AR体验应用',
-        trackName: '创意设计赛道',
-        status: 'submitted',
-        submitDate: '2025-10-10',
-        lastModified: '2025-10-10'
-      }
-    ];
-    setProjects(mockProjects);
+    // const mockProjects: UserProject[] = [
+    //   {
+    //     id: 'proj_1',
+    //     title: '数字文化传播创新平台',
+    //     trackName: '技术创新赛道',
+    //     status: 'reviewing',
+    //     submitDate: '2025-10-15',
+    //     lastModified: '2025-10-20'
+    //   },
+    //   {
+    //     id: 'proj_2',
+    //     title: '传统文化AR体验应用',
+    //     trackName: '创意设计赛道',
+    //     status: 'submitted',
+    //     submitDate: '2025-10-10',
+    //     lastModified: '2025-10-10'
+    //   }
+    // ];
+    // setProjects(mockProjects);
   }, [navigate]);
 
   // 获取状态显示
@@ -103,6 +120,15 @@ const ProfilePage: React.FC = () => {
       message.error('更新失败，请稍后重试');
     }
   };
+
+  const taskIdMap = {
+    1: '文创产品开发赛道',
+    2: '城市消费场景设计赛道',
+    3: '文化消费内容创新赛道',
+    4: '文商旅体科技创新应用赛道',
+    5: '非遗创新转化应用赛道'
+  }
+
 
   // 头像上传配置
   const avatarUploadProps = {
@@ -138,6 +164,11 @@ const ProfilePage: React.FC = () => {
   if (!user) {
     return <div>加载中...</div>;
   }
+
+  // 联调发现的问题
+  // 1、创建时间、更新时间为null，需要确认没有值的原因【是数据库插入没有存值，还是后端逻辑导致没有正确存储】
+  // 2、状态数据没有正常返回
+
 
   return (
     <div className="min-h-screen bg-gray-50 py-8">
@@ -242,7 +273,7 @@ const ProfilePage: React.FC = () => {
                       return (
                         <List.Item
                           actions={[
-                            <Button type="link">查看详情</Button>,
+                            <Button type="link" onClick={() => showDrawer(project)}>查看详情</Button>,
                             project.status === 'submitted' && <Button type="link">修改</Button>
                           ].filter(Boolean)}
                         >
@@ -250,17 +281,17 @@ const ProfilePage: React.FC = () => {
                             avatar={<TrophyOutlined className="text-2xl text-red-600" />}
                             title={
                               <div className="flex items-center space-x-2">
-                                <span>{project.title}</span>
+                                <span>{project.projectName}</span>
                                 <Tag color={status.color}>{status.text}</Tag>
                               </div>
                             }
                             description={
                               <div>
-                                <div className="text-gray-600 mb-1">赛道: {project.trackName}</div>
+                                <div className="text-gray-600 mb-1">赛道: {taskIdMap[project.trackId]}</div>
                                 <div className="text-sm text-gray-500">
-                                  提交时间: {new Date(project.submitDate).toLocaleDateString()}
-                                  {project.lastModified !== project.submitDate && (
-                                    <span> | 最后修改: {new Date(project.lastModified).toLocaleDateString()}</span>
+                                  提交时间: {new Date(project.createdTime).toLocaleDateString()}
+                                  {project.updatedTime !== project.createdTime && (
+                                    <span> | 最后修改: {new Date(project.updatedTime).toLocaleDateString()}</span>
                                   )}
                                 </div>
                               </div>
@@ -377,6 +408,11 @@ const ProfilePage: React.FC = () => {
             </div>
           </div>
         </Modal>
+        <ProjectDetailModal
+          open={open}
+          onClose={onClose}
+          detailInfo={detailInfo}
+        />
       </div>
     </div>
   );

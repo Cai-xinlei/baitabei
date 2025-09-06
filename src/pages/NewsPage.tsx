@@ -28,7 +28,8 @@ const newsData = NEWS_ARTICLES.map(article => ({
   publishedAt: article.publishDate,
   category: categoryMap[article.category] || 'news',
   tags: article.tags,
-  views: article.viewCount
+  views: article.viewCount,
+  linkUrl: article.linkUrl,
 }));
 
 const NewsPage: React.FC = () => {
@@ -119,10 +120,8 @@ const NewsPage: React.FC = () => {
                       >
                         <div className="h-full flex flex-col">
                           <Title level={4} className="mb-3 line-clamp-2">
-                            {/* <Link to={`/baitabei/news/${news.id}`} className="text-gray-900 hover:text-red-600">
-                              {news.title}
-                            </Link> */}
-                            <div className="text-gray-900 hover:text-red-600">
+
+                            <div onClick={() => window.open(news.linkUrl)} className="text-gray-900 hover:text-red-600">
                               {news.title}
                             </div>
                           </Title>

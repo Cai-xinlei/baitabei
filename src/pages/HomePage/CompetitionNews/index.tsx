@@ -97,12 +97,12 @@ const CompetitionNewsModule: React.FC<CompetitionNewsModuleProps> = ({
             key={item.id}
             className={`news-item ${visibleItems.has(`news-${item.id}`) ? 'visible' : ''}`}
             id={`news-${item.id}`}
-        // loading={loading}
         >
             <div className="news-item-content">
                 <Typography.Paragraph
                     className={`news-title ${item.highlight ? 'highlight' : ''}`}
                     ellipsis={{ rows: 1, expandable: false }}
+                    style={{ width: '100%' }}
                 >
                     {item.title}
                 </Typography.Paragraph>
@@ -110,14 +110,12 @@ const CompetitionNewsModule: React.FC<CompetitionNewsModuleProps> = ({
                     <CalendarOutlined className="date-icon" />
                     <Typography.Text>{item.date}</Typography.Text>
                 </Space>
-
-                {/* <div>{JSON.stringify(item.date)}</div> */}
             </div>
         </List.Item>
     ), [loading, visibleItems]);
 
     return (
-        <div className="competition-news-module" data-testid="competition-news-module">
+        <div className="competition-news-module" >
             <TitleWithLines text={'大赛资讯'} />
             {/* 主内容区 */}
             <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }} className="content-container" style={{ marginTop: 10 }}>

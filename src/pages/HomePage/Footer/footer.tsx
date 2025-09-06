@@ -68,7 +68,7 @@ const OrganizationPage = () => {
     return (
         <div className="organization-page">
             <div className="footer-container">
-                <div className="organization-column">
+                <div className="organization-columnOne">
                     {organizationData[0].map((item, index) => (
                         <div key={index} className="organization-item">
                             <Text strong className="item-title">{item.title}:</Text>

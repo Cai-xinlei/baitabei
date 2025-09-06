@@ -47,7 +47,7 @@ const TrackCard: React.FC<TrackCardProps> = ({ track, featured = false }) => {
             <img
               src={track.image}
               alt={track.name}
-              className="w-full h-full object-cover"
+              className="w-full h-full"
             />
             {/* <div className="absolute top-4 right-4" >
               <Tag color={getStatusColor(track.status)} className="font-medium">
