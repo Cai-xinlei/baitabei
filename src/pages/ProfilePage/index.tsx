@@ -41,7 +41,6 @@ const ProfilePage: React.FC = () => {
   const navigate = useNavigate();
 
   const showDrawer = (data) => {
-    console.log(data, 'data--------')
     setDetailInfo(data)
     setOpen(true);
   };
@@ -174,7 +173,7 @@ const ProfilePage: React.FC = () => {
     <div className="min-h-screen bg-gray-50 py-8">
       <div className="max-w-6xl mx-auto px-4">
         {/* 用户信息头部 */}
-        <motion.div
+        {/* <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
@@ -241,7 +240,7 @@ const ProfilePage: React.FC = () => {
               </Col>
             </Row>
           </Card>
-        </motion.div>
+        </motion.div> */}
 
         {/* 主要内容区域 */}
         <motion.div
@@ -256,20 +255,22 @@ const ProfilePage: React.FC = () => {
                 <div className="mb-6">
                   <div className="flex justify-between items-center mb-4">
                     <Title level={3}>参赛项目</Title>
-                    <Button
+                    {/* <Button
                       type="primary"
                       icon={<PlusOutlined />}
                       onClick={() => navigate('/baitabei/register')}
                     >
                       新建项目
-                    </Button>
+                    </Button> */}
                   </div>
 
                   <List
                     itemLayout="horizontal"
                     dataSource={projects}
-                    renderItem={(project) => {
-                      const status = getStatusDisplay(project.status);
+                    renderItem={(project: any) => {
+                      console.log(project, 'project');
+
+                      const status = getStatusDisplay(project.status || 'submitted');
                       return (
                         <List.Item
                           actions={[
@@ -305,12 +306,12 @@ const ProfilePage: React.FC = () => {
               </TabPane>
 
               {/* 获奖记录 */}
-              <TabPane tab={<span><TrophyOutlined />获奖记录</span>} key="awards">
+              {/* <TabPane tab={<span><TrophyOutlined />获奖记录</span>} key="awards">
                 <div className="text-center py-12">
                   <TrophyOutlined className="text-6xl text-gray-300 mb-4" />
                   <Text className="text-gray-500">暂无获奖记录</Text>
                 </div>
-              </TabPane>
+              </TabPane> */}
             </Tabs>
           </Card>
         </motion.div>

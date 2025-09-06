@@ -81,7 +81,8 @@ const AppLayout: React.FC<AppLayoutProps> = ({ children }) => {
     // {
     //   key: 'profile',
     //   icon: <UserOutlined />,
-    //   label: <Link to="/baitabei/profile">个人中心</Link>,
+    //   // label: <Link to="/baitabei/profile">个人中心</Link>,
+    //   label: <Link to="/baitabei/profile">我的项目</Link>,
     // },
     // {
     //   key: 'settings',

@@ -12,7 +12,7 @@ import RegisterPage from './pages/RegisterPage';
 import NewsPage from './pages/NewsPage';
 import AboutPage from './pages/AboutPage';
 import LoginPage from './pages/LoginPage';
-import ProfilePage from './pages/ProfilePage';
+import ProfilePage from './pages/ProfilePage/index';
 import NewsDetailPage from './pages/NewsDetailPage';
 import 'dayjs/locale/zh-cn';
 
