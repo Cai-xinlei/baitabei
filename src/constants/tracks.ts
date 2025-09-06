@@ -52,7 +52,7 @@ export const TRACKS: Track[] = [
         id: '2'
       },
     ],
-    deadline: '2025-10-31',
+    deadline: '2025-10-17',
     participantCount: 156,
     maxParticipants: 200,
     status: 'open',
@@ -127,7 +127,7 @@ export const TRACKS: Track[] = [
     ],
     zixun: '王老师：15811225201',
     awards: ['一等奖1名', '二等奖2名', '三等奖3名', '优秀奖12名'],
-    deadline: '2025-10-31',
+    deadline: '2025-10-17',
     participantCount: 89,
     maxParticipants: 150,
     status: 'open'
@@ -188,7 +188,7 @@ export const TRACKS: Track[] = [
       },
     ],
     awards: ['一等奖1名', '二等奖2名', '三等奖3名', '优秀奖15名'],
-    deadline: '2025-10-31',
+    deadline: '2025-10-17',
     participantCount: 134,
     maxParticipants: 180,
     status: 'open'
@@ -270,7 +270,7 @@ export const TRACKS: Track[] = [
       },
     ],
     awards: ['一等奖1名', '二等奖2名', '三等奖3名', '优秀奖8名'],
-    deadline: '2025-10-31',
+    deadline: '2025-10-17',
     participantCount: 67,
     maxParticipants: 120,
     status: 'open'
@@ -345,7 +345,7 @@ export const TRACKS: Track[] = [
       },
     ],
     awards: ['一等奖1名', '二等奖2名', '三等奖3名', '优秀奖12名'],
-    deadline: '2025-10-31',
+    deadline: '2025-10-17',
     participantCount: 78,
     maxParticipants: 100,
     status: 'open'
