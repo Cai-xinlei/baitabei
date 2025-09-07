@@ -166,7 +166,8 @@ export const customUpload = async (options) => {
 
         // 发送 POST 请求
         const response = await axios.post(
-            'http://39.106.56.69:8080/api/file/upload',
+            // 'http://39.106.56.69:8080/api/file/upload',
+            `${window.location.origin}/api/file/upload`,
             formData,
             config
         );
@@ -174,22 +175,22 @@ export const customUpload = async (options) => {
         // 处理响应
         if (response.data.code === 200) {
             onSuccess({
-                name: response.data.data.fileName,
+                name: response?.data?.fileName,
                 url: response.data.data,
                 status: 'done',
-                fileId: response.data.data.fileId,
-                fileSize: response.data.data.fileSize,
-                fileType: response.data.data.fileType
+                fileId: response?.data?.fileId,
+                fileSize: response?.data?.fileSize,
+                fileType: response?.data?.fileType
             });
 
             return {
                 success: true,
                 data: {
-                    name: response.data.data.fileName,
+                    name: response?.data?.fileName,
                     url: response.data.data,
-                    fileId: response.data.data.fileId,
-                    fileSize: response.data.data.fileSize,
-                    fileType: response.data.data.fileType
+                    fileId: response?.data?.fileId,
+                    fileSize: response?.data?.fileSize,
+                    fileType: response?.data?.fileType
                 }
             };
         } else {
