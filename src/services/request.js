@@ -30,19 +30,6 @@ service.interceptors.response.use(
     (response) => {
         // 直接返回完整响应数据，包含code, data, message等
         console.log(response, '信息');
-        const { success, message: messageErr } = response.data || {};
-        if (!success) {
-            message.error(messageErr);
-            message.config({
-                top: 100,
-                duration: 2,
-                maxCount: 3,
-                rtl: true,
-                prefixCls: 'my-message',
-            });
-            return response.data;
-        }
-
         return response.data;
     },
     (error) => {

@@ -100,11 +100,14 @@ const RegisterPage: React.FC = () => {
         userPrincipal: userInfo,
       }
       projectsSubmit(params).then(res => {
+        console.log(res, res.code, '提交的信息');
 
         if (res.code === 200) {
           message.success('报名提交成功');
-          setCurrentStep(2);
-          navigate('/baitabei/home');
+          setTimeout(() => {
+            setCurrentStep(2);
+            navigate('/baitabei/home');
+          }, 2000);
         } else {
           message.error(res.message)
         }

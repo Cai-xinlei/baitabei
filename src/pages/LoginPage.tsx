@@ -21,7 +21,7 @@ interface RegisterFormData {
   phone: string;
   password: string;
   confirmPassword: string;
-  agreement: boolean;
+  agreeToTerms: boolean;
   realName: string;
 }
 
@@ -66,7 +66,7 @@ const LoginPage: React.FC = () => {
     setRegisterLoading(true);
     const params = {
       ...values,
-      agreement: true,
+      agreeToTerms: true,
       realName: values?.username,
       // 表示注册的都是参赛者
       roleId: 5

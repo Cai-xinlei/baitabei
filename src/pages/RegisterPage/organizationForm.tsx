@@ -183,11 +183,9 @@ const App = ({ form, selectedTrack }) => {
                                                 name={[name, 'age']}
                                                 rules={[
                                                     { required: true, message: '请输入年龄' },
-                                                    // { type: 'number', min: 18, max: 80, message: '年龄应在18-80岁之间' }
-                                                    { type: 'number' }
                                                 ]}
                                             >
-                                                <Input type="number" placeholder="请输入年龄" />
+                                                <Input placeholder="请输入年龄" />
                                             </Form.Item>
                                         </Col>
 
