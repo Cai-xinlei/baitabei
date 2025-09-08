@@ -14,6 +14,8 @@ import FileUpload from '@/components/UI/FileUpload';
 import { projectTypeFormOptions } from '@/constants/tracks'
 const { Title } = Typography;
 const { Option } = Select;
+import { TRACKS } from '@/constants';
+
 
 const educationOptions = [
     '高中/中专',
@@ -24,8 +26,9 @@ const educationOptions = [
     '其他'
 ];
 
-const IndividualForm = ({ form, selectedTrack }) => {
+const IndividualForm = ({ form }) => {
     const useAI = Form.useWatch('useAI', form);
+    const selectedTrack = TRACKS.find(t => t.id === form.getFieldValue("trackId"));
     const handleFileChange = (files: any[]) => {
         form.setFieldsValue({ attachments: files });
     };
@@ -48,10 +51,7 @@ const IndividualForm = ({ form, selectedTrack }) => {
                     name="projectType"
                     rules={[{ required: true, }]}
                 >
-                    <Select placeholder="请选择作品分类" options={projectTypeFormOptions[form.getFieldValue('trackId')]}>
-                        <Option value="practical">实践案例</Option>
-                        <Option value="conceptual">概念方案</Option>
-                    </Select>
+                    <Select placeholder="请选择作品分类" options={projectTypeFormOptions[form.getFieldValue('trackId')]} />
                 </Form.Item>}
 
                 {/* 参赛者概况 */}
@@ -170,7 +170,14 @@ const IndividualForm = ({ form, selectedTrack }) => {
                     initialValue={'是'}
                     rules={[{ required: true, message: '请选择是否使用AI工具!' }]}
                 >
-                    <Radio.Group>
+                    <Radio.Group
+                        onChange={(e) => {
+                            if (e.target.value === '否')
+                                form.resetFields([
+                                    'aiRemark',
+                                ]);
+                        }}
+                    >
                         <Radio value="是">是</Radio>
                         <Radio value="否">否</Radio>
                     </Radio.Group>

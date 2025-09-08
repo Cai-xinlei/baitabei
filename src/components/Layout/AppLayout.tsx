@@ -78,20 +78,20 @@ const AppLayout: React.FC<AppLayoutProps> = ({ children }) => {
 
   // 用户菜单
   const userMenuItems = [
-    // {
-    //   key: 'profile',
-    //   icon: <UserOutlined />,
-    //   // label: <Link to="/baitabei/profile">个人中心</Link>,
-    //   label: <Link to="/baitabei/profile">我的项目</Link>,
-    // },
+    {
+      key: 'profile',
+      icon: <UserOutlined />,
+      // label: <Link to="/baitabei/profile">个人中心</Link>,
+      label: <Link to="/baitabei/profile">我的项目</Link>,
+    },
     // {
     //   key: 'settings',
     //   icon: <SettingOutlined />,
     //   label: '账户设置',
     // },
-    // {
-    //   type: 'divider' as const,
-    // },
+    {
+      type: 'divider' as const,
+    },
     {
       key: 'logout',
       icon: <LogoutOutlined />,

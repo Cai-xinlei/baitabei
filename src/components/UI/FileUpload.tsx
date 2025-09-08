@@ -33,8 +33,6 @@ const FileUpload: React.FC<FileUploadProps> = ({
   const [uploading, setUploading] = useState(false);
   const [progress, setProgress] = useState(0);
   const selectedTrack = TRACKS.find(t => t.id === trackId);
-  console.log(selectedTrack?.tips, '2222');
-
   const [uploadSuccess, setUploadSuccess] = useState(false);
   // 文件上传前检查
   const beforeUpload = (file: File) => {

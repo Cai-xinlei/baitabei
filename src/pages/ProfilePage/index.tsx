@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Card, Typography, Button, Avatar, Row, Col, Tag, List, Tabs, Form, Input, Upload, message, Modal } from 'antd';
+import { Card, Typography, Button, Avatar, Row, Col, Tag, Alert, List, Tabs, Form, Input, Upload, message, Modal } from 'antd';
 import { UserOutlined, MailOutlined, PhoneOutlined, EditOutlined, PlusOutlined, FileTextOutlined, TrophyOutlined, UploadOutlined } from '@ant-design/icons';
 import { motion } from 'framer-motion';
 import ProjectDetailModal from './ProjectDetailModal';
@@ -34,19 +34,28 @@ const ProfilePage: React.FC = () => {
   const [projects, setProjects] = useState<UserProject[]>([]);
   const [editModalVisible, setEditModalVisible] = useState(false);
   const [avatarModalVisible, setAvatarModalVisible] = useState(false);
-  const [detailInfo, setDetailInfo] = useState({});
+  const [projectId, setProjectId] = useState('');
   const [open, setOpen] = useState(false);
 
   const [form] = Form.useForm();
   const navigate = useNavigate();
 
   const showDrawer = (data) => {
-    setDetailInfo(data)
+    setProjectId(data?.id)
     setOpen(true);
   };
 
-  const onClose = () => {
+  const onClose = (value) => {
+    if (value) {
+      queryProjectInfo().then(res => {
+        const { data, success } = res;
+        if (!success) return;
+        setProjects(data);
+
+      })
+    }
     setOpen(false);
+    setProjectId('')
   };
 
   useEffect(() => {
@@ -60,8 +69,7 @@ const ProfilePage: React.FC = () => {
     const parsedUser = JSON.parse(userData);
     setUser(parsedUser);
     queryProjectInfo().then(res => {
-      console.log(res, '获取用户信息');
-      const { data, message, success } = res;
+      const { data, success } = res;
       if (!success) return;
       setProjects(data);
 
@@ -92,10 +100,20 @@ const ProfilePage: React.FC = () => {
   // 获取状态显示
   const getStatusDisplay = (status: string) => {
     const statusMap = {
-      'submitted': { color: 'blue', text: '已提交' },
-      'reviewing': { color: 'orange', text: '评审中' },
-      'approved': { color: 'green', text: '已通过' },
-      'rejected': { color: 'red', text: '未通过' }
+      // 'submitted': { color: 'blue', text: '已提交' },
+      // 'reviewing': { color: 'orange', text: '评审中' },
+      // 'approved': { color: 'green', text: '已通过' },
+      // 'rejected': { color: 'red', text: '未通过' }
+      "2": { color: 'blue', text: '已提交' },
+      "3": { color: 'orange', text: '初审中' },
+      "4": { color: 'green', text: '初审通过' },
+      "5": { color: 'red', text: '初审不通过' },
+      "6": { color: 'blue', text: '复审中' },
+      "7": { color: 'green', text: '复审通过' },
+      "8": { color: 'red', text: '复审不通过' },
+      "9": { color: 'blue', text: '终审中' },
+      "10": { color: 'orange', text: '获奖' },
+      "11": { color: 'red', text: '淘汰' }
     };
     return statusMap[status as keyof typeof statusMap] || { color: 'default', text: '未知' };
   };
@@ -104,8 +122,6 @@ const ProfilePage: React.FC = () => {
   const handleUpdateProfile = async (values: any) => {
     try {
       // TODO: 连接后端API更新用户信息
-      console.log('更新用户信息:', values);
-
       // 模拟更新
       await new Promise(resolve => setTimeout(resolve, 1000));
 
@@ -263,19 +279,24 @@ const ProfilePage: React.FC = () => {
                       新建项目
                     </Button> */}
                   </div>
+                  <div style={{ marginBottom: 16 }}>
+                    <Alert
+                      message={'注意事项'}
+                      type="warning"
+                      description={`报名截止后作品不允许修改，倒计时 ${Math.ceil((new Date('2025-10-17').getTime() - new Date().getTime()) / (1000 * 60 * 60 * 24))} 天`}
+                    />
+                  </div>
 
                   <List
                     itemLayout="horizontal"
                     dataSource={projects}
                     renderItem={(project: any) => {
-                      console.log(project, 'project');
-
-                      const status = getStatusDisplay(project.status || 'submitted');
+                      const status = getStatusDisplay(project.status || "2");
                       return (
                         <List.Item
                           actions={[
-                            <Button type="link" onClick={() => showDrawer(project)}>查看详情</Button>,
-                            project.status === 'submitted' && <Button type="link">修改</Button>
+                            <Button type="link" disabled={project.status !== 2} onClick={() => showDrawer(project)}>修改</Button>,
+                            // project.status === 'submitted' && <Button type="link">修改</Button>
                           ].filter(Boolean)}
                         >
                           <List.Item.Meta
@@ -412,7 +433,7 @@ const ProfilePage: React.FC = () => {
         <ProjectDetailModal
           open={open}
           onClose={onClose}
-          detailInfo={detailInfo}
+          projectId={projectId}
         />
       </div>
     </div>

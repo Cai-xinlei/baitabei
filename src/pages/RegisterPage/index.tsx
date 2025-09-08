@@ -4,27 +4,28 @@ import { Form, Select, Button, Card, Steps, Typography, Alert, Radio, message } 
 import { CheckCircleOutlined, FileTextOutlined, UserOutlined } from '@ant-design/icons';
 import { motion } from 'framer-motion';
 import type { RadioChangeEvent } from 'antd';
-import { projectsSubmit } from '@/services/authService'
+import { projectSubmit, projectDetail, updateProject } from '@/services/authService'
 import { useNavigate } from 'react-router-dom';
-
 import { TRACKS } from '@/constants';
 import RegisterModal from './registerModal';
 const { Title, Paragraph } = Typography;
 const { Option } = Select;
 import OrganizationForm from './organizationForm'
 import IndividualForm from './individualForm'
+import dayjs from 'dayjs';
 
-const RegisterPage: React.FC = () => {
+const RegisterPage: React.FC = (props: any) => {
+  const { projectId, onClose } = props
   const [searchParams] = useSearchParams();
   const [form] = Form.useForm();
   const navigate = useNavigate();
   const [currentStep, setCurrentStep] = useState(0);
-  const [agreementVisible, setAgreementVisible] = useState(true);
+  const [agreementVisible, setAgreementVisible] = useState(projectId ? false : true);
   const [agreeCheck, setAgreeCheck] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [reportType, setreportType] = useState<string>('individual')
-  const [selectedTrackId, setSelectedTrackId] = useState(searchParams.get('track'))
-  const selectedTrack = TRACKS.find(t => t.id === selectedTrackId);
+  const trackId = form.getFieldValue("trackId")
+  const [selectedTrackId, setSelectedTrackId] = useState(trackId || searchParams.get('track'))
+  const selectedTrack = TRACKS.find(t => t.id === (trackId || selectedTrackId));
   const userInfo = JSON.parse(localStorage.getItem("user") ?? '{}');
 
   // 步骤配置
@@ -46,19 +47,6 @@ const RegisterPage: React.FC = () => {
     }
   ];
 
-  // console.log(agreeBtn, agreementVisible, 'agreeBtnagreeBtn');
-  // useEffect(() => {
-  //   if (agreeBtn === 'agree') {
-  //     setAgreementVisible(false)
-  //     console.log(111);
-
-  //   } else {
-  //     console.log(222);
-  //     setAgreementVisible(true)
-  //   }
-
-  // }, [ agreementVisible])
-
   const taskIdMap = {
     'cultural_innovation': 1,
     "creative_design": 2,
@@ -70,43 +58,31 @@ const RegisterPage: React.FC = () => {
   // 提交表单
   const handleSubmit = async (values: any) => {
     const formValues = form.getFieldsValue(true);
-    console.log(formValues, 'formValuesformValues');
-
     setIsSubmitting(true);
     try {
-      const params = {
-        projectDto: {
-          projectName: formValues.projectTitle,
-          trackId: taskIdMap[formValues?.trackId],
-          trackJson: JSON.stringify(formValues),
-          // trackJson: JSON.stringify({
-          //   "trackId": "cultural_innovation",
-          //   "reportType": "individual",
-          //   "projectTitle": "作品名称",
-          //   "realName": "姓名",
-          //   "gender": "男",
-          //   "birthDate": "2025-05-29T16:00:00.000Z",
-          //   "phone": "17624939922",
-          //   "workUnit": "工作单位(学生填在读学校)",
-          //   "major": "所学专业",
-          //   "education": "高中/中专",
-          //   "idCard": "320382199901129283",
-          //   "useAI": "是",
-          //   "aiRemark": "备注(请注明所使用AI模型具体名称和使用程度)\n",
-          //   "workDescription": "作品简介",
-          //   "agreement": true
-          // }),
-        },
-        userPrincipal: userInfo,
+      let params: any = {
+        projectName: formValues.projectTitle,
+        trackId: taskIdMap[formValues?.trackId],
+        trackJson: JSON.stringify(formValues),
       }
-      projectsSubmit(params).then(res => {
-        console.log(res, res.code, '提交的信息');
+      let projectApi = null
+      if (projectId) {
+        projectApi = updateProject
+        params.id = projectId
+      } else {
+        projectApi = projectSubmit
 
+      }
+      projectApi(params).then(res => {
         if (res.code === 200) {
-          message.success('报名提交成功');
+          message.success(projectId ? `报名编辑成功` : "`报名提交成功`");
+          if (projectId) {
+            onClose(true)
+
+          }
           setTimeout(() => {
             setCurrentStep(2);
-            navigate('/baitabei/home');
+            navigate('/baitabei/profile');
           }, 2000);
         } else {
           message.error(res.message)
@@ -121,7 +97,7 @@ const RegisterPage: React.FC = () => {
 
   // 下一步
   const handleNext = () => {
-    if (!agreeCheck) {
+    if (!agreeCheck && !projectId) {
 
       setTimeout(() => {
         setAgreementVisible(true)
@@ -161,13 +137,28 @@ const RegisterPage: React.FC = () => {
     setCurrentStep(currentStep - 1);
   };
 
+  useEffect(() => {
+    if (!projectId) return
+    form.setFieldsValue({})
+    projectDetail(projectId).then(res => {
+      if (res.code === 200) {
+        const trackJson = JSON.parse(JSON.stringify(res?.data?.trackJson || '{}'))
+        form.setFieldsValue({
+          ...trackJson,
+          birthDate: dayjs(trackJson?.birthDate)
+
+        })
+      }
+    })
+  }, [projectId])
+
   return (
     <div className="min-h-screen bg-gray-50 py-8">
       <div className="max-w-4xl mx-auto px-4">
         {/* 页面头部 */}
         <div className="text-center mb-8">
           <Title level={2} className="mb-4">
-            参赛报名
+            {projectId ? "编辑报名信息" : "参赛报名"}
           </Title>
           <Paragraph className="text-lg text-gray-600">
             2025第四届“白塔杯”文化创意大赛
@@ -189,9 +180,6 @@ const RegisterPage: React.FC = () => {
           <Form
             form={form}
             layout="vertical"
-            initialValues={{
-              trackId: selectedTrackId
-            }}
             onFinish={handleSubmit}
           >
             {/* 步骤1: 选择赛道 */}
@@ -204,6 +192,7 @@ const RegisterPage: React.FC = () => {
                   name="trackId"
                   label="赛道选择"
                   rules={[{ required: true, message: '请选择参赛赛道' }]}
+                  initialValue={selectedTrackId}
                 >
                   <Select
                     placeholder="请选择您要参加的赛道"
@@ -229,9 +218,20 @@ const RegisterPage: React.FC = () => {
                   name="reportType"
                   label=''
                   required
-                  initialValue={reportType}
+                  initialValue={'individual'}
                 >
-                  <Radio.Group buttonStyle="solid" onChange={(e: RadioChangeEvent) => setreportType(e.target.value)} >
+                  <Radio.Group buttonStyle="solid"
+                    onChange={(e: RadioChangeEvent) => {
+                      const trackId = form.getFieldValue('trackId');
+                      // 重置所有表单字段
+                      form.resetFields();
+                      // 恢复需要保留的字段
+                      form.setFieldsValue({
+                        reportType: e.target.value,
+                        trackId
+                      });
+                    }}
+                  >
                     <Radio.Button value="individual">个人</Radio.Button>
                     <Radio.Button value="organization">单位/团体</Radio.Button>
                   </Radio.Group>
@@ -253,8 +253,8 @@ const RegisterPage: React.FC = () => {
             {/* 步骤2: 填写信息 */}
             {currentStep === 1 && <>
               {
-                form.getFieldValue('reportType') === 'individual' ? <IndividualForm form={form} selectedTrack={selectedTrack} /> :
-                  <OrganizationForm form={form} selectedTrack={selectedTrack} />
+                form.getFieldValue('reportType') === 'individual' ? <IndividualForm form={form} /> :
+                  <OrganizationForm form={form} />
               }
             </>}
 
@@ -267,7 +267,7 @@ const RegisterPage: React.FC = () => {
 
                 <Alert
                   message="请仔细检查以下信息"
-                  description="确认无误后点击提交，提交后将无法修改。我们将在工作日内对您的报名进行审核。"
+                  description="确认无误后点击提交，我们将在工作日内对您的报名进行审核。"
                   type="warning"
                   showIcon
                   className="mb-6"
@@ -313,7 +313,7 @@ const RegisterPage: React.FC = () => {
                       loading={isSubmitting}
                       className="px-8"
                     >
-                      提交报名
+                      {projectId ? "更新报名信息" : "提交报名"}
                     </Button>
                   )}
                 </div>

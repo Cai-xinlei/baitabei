@@ -15,14 +15,18 @@ import {
     MinusCircleOutlined,
 } from '@ant-design/icons';
 import FileUpload from '@/components/UI/FileUpload';
+import { projectTypeFormOptions } from '@/constants/tracks'
+import { TRACKS } from '@/constants';
 
 const { Title } = Typography;
 const { Option } = Select;
 
-const App = ({ form, selectedTrack }) => {
+const OrganizationForm = ({ form }) => {
 
     const subjectType = Form.useWatch('subjectType', form);
     const useAI = Form.useWatch('useAI', form);
+    const selectedTrack = TRACKS.find(t => t.id === form.getFieldValue("trackId"));
+
     const handleFileChange = (files: any[]) => {
         form.setFieldsValue({ attachments: files });
     };
@@ -44,10 +48,8 @@ const App = ({ form, selectedTrack }) => {
                     rules={[{ required: true, }]}
                     initialValue={'practical'}
                 >
-                    <Select placeholder="请选择作品分类">
-                        <Option value="practical">实践案例</Option>
-                        <Option value="conceptual">概念方案</Option>
-                    </Select>
+                    <Select placeholder="请选择作品分类" options={projectTypeFormOptions[form.getFieldValue('trackId')]} />
+
                 </Form.Item>}
                 {/* 报名主体 */}
                 <Form.Item
@@ -56,7 +58,20 @@ const App = ({ form, selectedTrack }) => {
                     initialValue={'单位'}
                     rules={[{ required: true, message: '请选择报名主体类型!' }]}
                 >
-                    <Radio.Group>
+                    <Radio.Group onChange={(e) => {
+                        if (e.target.value === '单位') {
+                            // 清除团队相关字段
+                            form.resetFields(['teamName', "teamPhone"]);
+                        } else {
+                            // 清除单位相关字段
+                            form.resetFields([
+                                'unitName',
+                                'unitPhone',
+                                'orgCreditCode',
+                                'isXichengRegistered',
+                            ]);
+                        }
+                    }}>
                         <Radio value="单位">单位 【政府机构、企事业单位（含学校）、社会团体】</Radio>
                         <Radio value="团队">团队（2人以上个人）</Radio>
                     </Radio.Group>
@@ -69,7 +84,7 @@ const App = ({ form, selectedTrack }) => {
 
                         <Form.Item
                             label="单位名称"
-                            name="realName"
+                            name="unitName"
                             rules={[{ required: true, message: '请输入单位名称!' }]}
                         >
                             <Input placeholder="请输入单位名称" />
@@ -77,7 +92,7 @@ const App = ({ form, selectedTrack }) => {
 
                         <Form.Item
                             label="负责人联系电话"
-                            name="phone"
+                            name="unitPhone"
                             rules={[
                                 { required: true, message: '请输入联系电话!' },
                                 { pattern: /^1[3-9]\d{9}$/, message: '请输入有效的手机号码!' }
@@ -118,7 +133,7 @@ const App = ({ form, selectedTrack }) => {
 
                         <Form.Item
                             label="团队名称"
-                            name="realName"
+                            name="teamName"
                             rules={[{ required: true, message: '请输入团队名称!' }]}
                         >
                             <Input placeholder="请输入团队名称" />
@@ -126,7 +141,7 @@ const App = ({ form, selectedTrack }) => {
 
                         <Form.Item
                             label="团队负责人联系电话"
-                            name="phone"
+                            name="teamPhone"
                             rules={[
                                 { required: true, message: '请输入联系电话!' },
                                 { pattern: /^1[3-9]\d{9}$/, message: '请输入有效的手机号码!' }
@@ -271,7 +286,14 @@ const App = ({ form, selectedTrack }) => {
                     rules={[{ required: true, message: '请选择是否使用AI工具!' }]}
                     initialValue={'是'}
                 >
-                    <Radio.Group>
+                    <Radio.Group
+                        onChange={(e) => {
+                            if (e.target.value === '否')
+                                form.resetFields([
+                                    'aiRemark',
+                                ]);
+                        }}
+                    >
                         <Radio value="是">是</Radio>
                         <Radio value="否">否</Radio>
                     </Radio.Group>
@@ -330,4 +352,4 @@ const App = ({ form, selectedTrack }) => {
     );
 };
 
-export default App;
+export default OrganizationForm;

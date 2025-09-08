@@ -1,14 +1,17 @@
 import { Drawer } from 'antd';
-
-const PrejectDetailModal = ({ open, onClose, detailInfo }) => {
-    console.log(detailInfo, 'detailInfo');
-    const { trackJson } = detailInfo
+import RegisterPage from '@/pages/RegisterPage'
+const PrejectDetailModal = ({ open, onClose, projectId }) => {
     return <Drawer
         open={open}
-        title='参赛项目详情'
+        title='编辑项目详情'
         onClose={onClose}
+        width={'900px'}
+        destroyOnHidden
     >
-        我是参赛项目详情
+        <RegisterPage
+            projectId={projectId}
+            onClose={onClose}
+        />
     </Drawer>
 }
 

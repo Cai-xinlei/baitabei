@@ -24,7 +24,6 @@ export const refreshToken = async () => {
 // 登录
 export const login = async (loginData) => {
     const response = await request.post('/api/auth/login', loginData);
-    console.log(response, 'response');
     const { message, success, data } = response;
     if (!success) {
         return message.config({
@@ -106,9 +105,20 @@ export const checkAndRefreshToken = async () => {
 
 
 // 项目提交
-export const projectsSubmit = async (submitData) => {
+export const projectSubmit = async (submitData) => {
     const response = await request.post('/api/project/submit', submitData);
-    console.log(response, '提交的信息');
+    return response;
+};
+
+// 项目提交-更新项目
+export const updateProject = async (submitData) => {
+    const response = await request.post('/api/project/update', submitData);
+    return response;
+};
+
+// 项目提交-查询
+export const projectDetail = async (id) => {
+    const response = await request.get(`/api/project/${id}`);
     return response;
 };
 
@@ -166,12 +176,11 @@ export const customUpload = async (options) => {
 
         // 发送 POST 请求
         const response = await axios.post(
-            // 'http://39.106.56.69:8080/api/file/upload',
-            `${window.location.origin}/api/file/upload`,
+            'http://39.106.56.69:8080/api/file/upload',
+            // `${window.location.origin}/api/file/upload`,
             formData,
             config
         );
-        console.log(response, 'responseresponse');
         // 处理响应
         if (response.data.code === 200) {
             onSuccess({
