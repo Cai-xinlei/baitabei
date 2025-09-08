@@ -81,8 +81,8 @@ const AppLayout: React.FC<AppLayoutProps> = ({ children }) => {
     {
       key: 'profile',
       icon: <UserOutlined />,
-      // label: <Link to="/baitabei/profile">个人中心</Link>,
-      label: <Link to="/baitabei/profile">我的项目</Link>,
+      // label: <Link to="/profile">个人中心</Link>,
+      label: <Link to="/profile">我的项目</Link>,
     },
     // {
     //   key: 'settings',
@@ -106,7 +106,7 @@ const AppLayout: React.FC<AppLayoutProps> = ({ children }) => {
       <Header className="bg-white shadow-md px-4 lg:px-8 relative z-10">
         <div className="max-w-7xl mx-auto flex items-center justify-between h-full">
           {/* Logo区域 */}
-          <Link to="/baitabei/home" className="flex items-center space-x-3">
+          <Link to="/home" className="flex items-center space-x-3">
             <img style={{ height: "60px" }} src={trackImages.LogoImg} />
           </Link>
 
@@ -134,12 +134,12 @@ const AppLayout: React.FC<AppLayoutProps> = ({ children }) => {
                 </Dropdown>
               ) : (
                 <div className="flex space-x-2">
-                  <Link to="/baitabei/login">
+                  <Link to="/login">
                     <Button type="default" icon={<LoginOutlined />}>
                       登录
                     </Button>
                   </Link>
-                  <Link to="/baitabei/register">
+                  <Link to="/register">
                     <Button type="primary">
                       报名参赛
                     </Button>
@@ -199,12 +199,12 @@ const AppLayout: React.FC<AppLayoutProps> = ({ children }) => {
         {/* 移动端用户状态 */}
         {!user && (
           <div className="px-4 space-y-2">
-            <Link to="/baitabei/login" onClick={() => setDrawerVisible(false)}>
+            <Link to="/login" onClick={() => setDrawerVisible(false)}>
               <Button type="default" icon={<LoginOutlined />} block>
                 登录
               </Button>
             </Link>
-            <Link to="/baitabei/register" onClick={() => setDrawerVisible(false)}>
+            <Link to="/register" onClick={() => setDrawerVisible(false)}>
               <Button type="primary" className="bg-red-600 border-red-600" block>
                 报名参赛
               </Button>

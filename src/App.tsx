@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { ConfigProvider } from 'antd';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import zhCN from 'antd/locale/zh_CN';
@@ -38,15 +38,18 @@ function App() {
         <Router>
           <AppLayout>
             <Routes>
-              <Route path="/baitabei/home" element={<HomePage />} />
-              <Route path="/baitabei/tracks" element={<TracksPage />} />
-              <Route path="/baitabei/tracks/:trackId" element={<TrackDetailPage />} />
-              <Route path="/baitabei/register" element={<RegisterPage />} />
-              <Route path="/baitabei/news" element={<NewsPage />} />
-              <Route path="/baitabei/news/:newsId" element={<NewsDetailPage />} />
-              <Route path="/baitabei/about" element={<AboutPage />} />
-              <Route path="/baitabei/login" element={<LoginPage />} />
-              <Route path="/baitabei/profile" element={<ProfilePage />} />
+              <Route path="/" element={<Navigate to="/home" replace />} />
+              <Route path="/home" element={<HomePage />} />
+              <Route path="/tracks" element={<TracksPage />} />
+              <Route path="/tracks/:trackId" element={<TrackDetailPage />} />
+              <Route path="/register" element={<RegisterPage />} />
+              <Route path="/news" element={<NewsPage />} />
+              <Route path="/news/:newsId" element={<NewsDetailPage />} />
+              <Route path="/about" element={<AboutPage />} />
+              <Route path="/login" element={<LoginPage />} />
+              <Route path="/profile" element={<ProfilePage />} />
+              <Route path="*" element={<Navigate to="/home" replace />} />
+
             </Routes>
           </AppLayout>
         </Router>

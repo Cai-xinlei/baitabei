@@ -82,7 +82,7 @@ const RegisterPage: React.FC<any> = (props: any) => {
           }
           setTimeout(() => {
             setCurrentStep(2);
-            navigate('/baitabei/profile');
+            navigate('/profile');
           }, 2000);
         } else {
           message.error(res.message)
@@ -107,7 +107,7 @@ const RegisterPage: React.FC<any> = (props: any) => {
     if (!userInfo?.id) {
       message.info('系统检测未登陆，即将跳转登陆页面')
       setTimeout(() => {
-        navigate('/baitabei/login')
+        navigate('/login')
       }, 1000);
       return
     } else {

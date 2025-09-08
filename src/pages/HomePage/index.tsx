@@ -56,7 +56,7 @@ const HomePage: React.FC = () => {
                 ))}
               </Row>
               <div className="text-center mt-8">
-                <Link to="/baitabei/tracks">
+                <Link to="/tracks">
                   <Button type="primary" size="large" className="px-8">
                     查看全部赛道
                   </Button>
@@ -78,12 +78,12 @@ const HomePage: React.FC = () => {
                 transition={{ duration: 0.6 }}
               >
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <Link to="/baitabei/register">
+                  <Link to="/register">
                     <Button type="primary" size="large">
                       立即报名
                     </Button>
                   </Link>
-                  <Link to="/baitabei/tracks">
+                  <Link to="/tracks">
                     <Button size="large">
                       了解赛道
                     </Button>

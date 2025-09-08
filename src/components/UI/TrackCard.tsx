@@ -62,13 +62,13 @@ const TrackCard: React.FC<TrackCardProps> = ({ track, featured = false }) => {
             {track.detailDescription}
           </Paragraph>
           <div className="flex space-x-2">
-            <Link to={`/baitabei/tracks/${track.id}`} className="flex-1">
+            <Link to={`/tracks/${track.id}`} className="flex-1">
               <Button type="default" block>
                 了解详情
               </Button>
             </Link>
             {track.status === 'open' && (
-              <Link to={`/baitabei/register?track=${track.id}`} className="flex-1">
+              <Link to={`/register?track=${track.id}`} className="flex-1">
                 <Button type="primary" block>
                   立即报名
                 </Button>

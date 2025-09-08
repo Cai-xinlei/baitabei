@@ -37,7 +37,7 @@ const LoginPage: React.FC = () => {
   const location = useLocation();
 
   // 获取重定向路径
-  const from = (location.state as any)?.from?.pathname || '/baitabei/home';
+  const from = (location.state as any)?.from?.pathname || '/home';
 
   // 处理登录
   const handleLogin = async (values: LoginFormData) => {
@@ -53,8 +53,8 @@ const LoginPage: React.FC = () => {
         message.success('登录成功！');
         setLoginLoading(false);
         // 重定向到原页面或首页
-        navigate('/baitabei/home');
-        // window.location.href = '/baitabei/home'
+        navigate('/home');
+        // window.location.href = '/home'
       }
     }).finally(() => {
       setLoginLoading(false)
@@ -79,8 +79,8 @@ const LoginPage: React.FC = () => {
           setActiveTab('login');
           registerForm.resetFields();
           // 重定向到原页面或首页
-          // navigate('/baitabei/home');
-          // window.location.href = '/baitabei/home'
+          // navigate('/home');
+          // window.location.href = '/home'
         }
       }).finally(() => {
         setRegisterLoading(false)
@@ -103,7 +103,7 @@ const LoginPage: React.FC = () => {
         >
           {/* 品牌标识 */}
           <div className="text-center mb-8">
-            <Link to="/baitabei/login" className="inline-block">
+            <Link to="/login" className="inline-block">
               <img style={{ height: "60px" }} src={trackImages.LogoImg} />
             </Link>
             <Title level={2} className="mb-2">

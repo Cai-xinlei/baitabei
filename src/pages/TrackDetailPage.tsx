@@ -18,7 +18,7 @@ const TrackDetailPage: React.FC = () => {
         <Card className="text-center">
           <Title level={3}>赛道不存在</Title>
           <Paragraph>请检查链接是否正确</Paragraph>
-          <Link to="/baitabei/tracks">
+          <Link to="/tracks">
             <Button type="primary">返回赛道列表</Button>
           </Link>
         </Card>
@@ -179,7 +179,7 @@ const TrackDetailPage: React.FC = () => {
                     <Paragraph className="text-gray-600 mb-4">
                       立即报名参加{track.name}，展示您的创意才华！
                     </Paragraph>
-                    <Link to={`/baitabei/register?track=${track.id}`}>
+                    <Link to={`/register?track=${track.id}`}>
                       <Button type="primary" size="large" block>
                         立即报名
                       </Button>
@@ -189,7 +189,7 @@ const TrackDetailPage: React.FC = () => {
               </motion.div>
             </Col>
           </Row>
-          <Link to="/baitabei/tracks" className="inline-flex items-center text-gray-600">
+          <Link to="/tracks" className="inline-flex items-center text-gray-600">
             <ArrowLeftOutlined className="mr-2" />
             返回赛道列表
           </Link>

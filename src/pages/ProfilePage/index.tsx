@@ -62,7 +62,7 @@ const ProfilePage: React.FC = () => {
     // 检查用户登录状态
     const userData = localStorage.getItem('user');
     if (!userData) {
-      navigate('/baitabei/login', { state: { from: location } });
+      navigate('/login', { state: { from: location } });
       return;
     }
 
@@ -274,7 +274,7 @@ const ProfilePage: React.FC = () => {
                     {/* <Button
                       type="primary"
                       icon={<PlusOutlined />}
-                      onClick={() => navigate('/baitabei/register')}
+                      onClick={() => navigate('/register')}
                     >
                       新建项目
                     </Button> */}

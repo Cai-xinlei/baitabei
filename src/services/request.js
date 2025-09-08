@@ -3,7 +3,7 @@ import { message } from 'antd';
 
 // 创建axios实例
 const service = axios.create({
-    // baseURL: 'http://baitabei.hzyuanlian.cn', // 代理地址
+    // baseURL: 'http:/.hzyuanlian.cn', // 代理地址
     timeout: 15000,
     withCredentials: true
 });
@@ -47,7 +47,7 @@ service.interceptors.response.use(
                 localStorage.removeItem('tokenType');
                 localStorage.removeItem('user');
                 // 跳转到登录页或执行其他操作
-                window.location.href = '/baitabei/login';
+                window.location.href = '/login';
                 message.error(response?.message ?? '登录已过期，请重新登录');
                 return Promise.reject(new Error('登录已过期，请重新登录'));
             }
