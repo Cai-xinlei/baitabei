@@ -176,8 +176,8 @@ export const customUpload = async (options) => {
 
         // 发送 POST 请求
         const response = await axios.post(
-            'http://39.106.56.69:8080/api/file/upload',
-            // `${window.location.origin}/api/file/upload`,
+            // 'http://39.106.56.69:8080/api/file/upload',
+            `${window.location.origin}/api/file/upload`,
             formData,
             config
         );
