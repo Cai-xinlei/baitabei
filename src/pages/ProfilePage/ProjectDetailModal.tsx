@@ -9,8 +9,8 @@ const PrejectDetailModal = ({ open, onClose, projectId }) => {
         destroyOnHidden
     >
         <RegisterPage
-            projectId={projectId}
             onClose={onClose}
+            projectId={projectId}
         />
     </Drawer>
 }

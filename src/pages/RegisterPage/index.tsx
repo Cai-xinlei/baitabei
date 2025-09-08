@@ -14,7 +14,7 @@ import OrganizationForm from './organizationForm'
 import IndividualForm from './individualForm'
 import dayjs from 'dayjs';
 
-const RegisterPage: React.FC = (props: any) => {
+const RegisterPage: React.FC<any> = (props: any) => {
   const { projectId, onClose } = props
   const [searchParams] = useSearchParams();
   const [form] = Form.useForm();
