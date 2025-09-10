@@ -118,7 +118,7 @@ export const updateProject = async (submitData) => {
 
 // 项目提交-查询
 export const projectDetail = async (id) => {
-    const response = await request.get(`/api/project/${id}`);
+    const response = await request.get(`/api/project/detail/${id}`);
     return response;
 };
 
