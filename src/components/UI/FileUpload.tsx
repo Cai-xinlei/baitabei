@@ -154,6 +154,7 @@ const FileUpload: React.FC<FileUploadProps> = ({
       message.success(`${info.file.name} 文件上传成功`);
     } else if (status === 'error') {
       message.error(`${info.file.name} 文件上传失败`);
+
     }
   };
 

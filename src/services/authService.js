@@ -203,6 +203,19 @@ export const customUpload = async (options) => {
                 }
             };
         } else {
+
+            if (response.status === 401 || response.data.code === 401) {
+                // 清除本地存储的token
+                localStorage.removeItem('token');
+                localStorage.removeItem('refreshToken');
+                localStorage.removeItem('tokenType');
+                localStorage.removeItem('user');
+                // 跳转到登录页或执行其他操作
+                window.location.href = '/login';
+                message.error(response?.message ?? '登录已过期，请重新登录');
+                return Promise.reject(new Error('登录已过期，请重新登录'));
+            }
+
             const errorMessage = response.data.message || '上传失败';
             onError(new Error(errorMessage));
             return {
