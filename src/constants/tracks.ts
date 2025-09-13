@@ -39,7 +39,7 @@ export const TRACKS: Track[] = [
       '承办单位：中共北京西城区委宣传部、北京市西城区文化产业发展促进中心',
       '赛道合作单位：超级玛特（北京）文化创意有限公司'
     ],
-    zixun: '靳老师：18801335201',
+    zixun: '林老师：13911167274',
     collectionContent: [
       {
         title: '（一）西城区域新文化元素的开发与设计',
@@ -125,7 +125,7 @@ export const TRACKS: Track[] = [
         id: '2'
       },
     ],
-    zixun: '王老师：15811225201',
+    zixun: '靳老师：18801335201',
     awards: ['一等奖1名', '二等奖2名', '三等奖3名', '优秀奖12名'],
     deadline: '2025-10-17',
     participantCount: 89,
