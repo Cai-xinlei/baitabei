@@ -29,8 +29,11 @@ service.interceptors.request.use(
 service.interceptors.response.use(
     (response) => {
         // 直接返回完整响应数据，包含code, data, message等
-        console.log(response, '信息');
-        return response.data;
+        if (response.data.code === 200) {
+            return response.data;
+        } else {
+            message.error(response.data.message);
+        }
     },
     (error) => {
         const { response } = error;
