@@ -22,6 +22,7 @@ const organizationData = [
             title: "特别支持单位",
             content: [
                 "北京银行前门文创支行",
+                "北京市西城区总工会"
             ]
         },
     ],
