@@ -145,8 +145,6 @@ const LoginPage: React.FC = () => {
                     label="密码"
                     rules={[
                       { required: true, message: '请输入密码!' },
-                      { min: 6, message: '密码至少6个字符!' },
-                      { max: 20, message: '密码至多20个字符!' },
                       {
                         pattern: /^(?!.*[\u4e00-\u9fa5]).{6,20}$/,  // 修正为正则表达式字面量
                         message: '密码不能包含中文，长度6-20位'
@@ -245,8 +243,6 @@ const LoginPage: React.FC = () => {
                     label="密码"
                     rules={[
                       { required: true, message: '请输入密码!' },
-                      { min: 6, message: '密码至少6个字符!' },
-                      { max: 20, message: '密码至多20个字符!' },
                       {
                         pattern: /^(?!.*[\u4e00-\u9fa5]).{6,20}$/,  // 修正为正则表达式字面量
                         message: '密码不能包含中文，长度6-20位'
