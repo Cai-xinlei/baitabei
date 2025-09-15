@@ -239,13 +239,15 @@ const LoginPage: React.FC = () => {
                     rules={[
                       { required: true, message: '请输入密码!' },
                       { min: 6, message: '密码至少6个字符!' },
+                      { max: 20, message: '密码至多20个字符!' },
                     ]}
                   >
                     <Input.Password
                       prefix={<LockOutlined />}
-                      placeholder="密码"
+                      placeholder="请输入密码，长度6-20位"
                       size="large"
                       minLength={6}
+                      maxLength={20}
                     />
                   </Form.Item>
 
