@@ -144,13 +144,20 @@ const LoginPage: React.FC = () => {
                     name="password"
                     label="密码"
                     rules={[
-                      { required: true, message: '请输入最少6位数密码!' },
+                      { required: true, message: '请输入密码!' },
+                      { min: 6, message: '密码至少6个字符!' },
+                      { max: 20, message: '密码至多20个字符!' },
+                      {
+                        pattern: /^(?!.*[\u4e00-\u9fa5]).{6,20}$/,  // 修正为正则表达式字面量
+                        message: '密码不能包含中文，长度6-20位'
+                      }
                     ]}
                   >
                     <Input.Password
                       prefix={<LockOutlined />}
-                      placeholder="请输入最少6位数密码"
+                      placeholder="密码不能包含中文，长度6-20位"
                       minLength={6}
+                      maxLength={20}
                       size="large"
                     />
                   </Form.Item>
@@ -240,11 +247,15 @@ const LoginPage: React.FC = () => {
                       { required: true, message: '请输入密码!' },
                       { min: 6, message: '密码至少6个字符!' },
                       { max: 20, message: '密码至多20个字符!' },
+                      {
+                        pattern: /^(?!.*[\u4e00-\u9fa5]).{6,20}$/,  // 修正为正则表达式字面量
+                        message: '密码不能包含中文，长度6-20位'
+                      }
                     ]}
                   >
                     <Input.Password
                       prefix={<LockOutlined />}
-                      placeholder="请输入密码，长度6-20位"
+                      placeholder="密码不能包含中文，长度6-20位"
                       size="large"
                       minLength={6}
                       maxLength={20}
